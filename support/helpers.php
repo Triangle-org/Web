@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @package     Triangle Engine
- * @link        https://github.com/Triangle-org/Engine
+ * @package     Triangle Web
+ * @link        https://github.com/Triangle-org/Web
  * 
  * @author      Ivan Zorin <creator@localzet.com>
  * @copyright   2018-2023 Localzet Group
