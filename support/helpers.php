@@ -1,13 +1,12 @@
 <?php
 
 /**
- * @package     Triangle Engine (FrameX)
- * @link        https://github.com/localzet/FrameX
+ * @package     Triangle Engine
  * @link        https://github.com/Triangle-org/Engine
  * 
- * @author      Ivan Zorin (localzet) <creator@localzet.com>
- * @copyright   Copyright (c) 2018-2022 Localzet Group
- * @license     https://www.localzet.com/license GNU GPLv3 License
+ * @author      Ivan Zorin <creator@localzet.com>
+ * @copyright   2018-2023 Localzet Group
+ * @license     https://mit-license.org MIT
  */
 
 use support\Db;
@@ -23,23 +22,13 @@ use support\view\Twig;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
-use localzet\FrameX\App;
-use localzet\FrameX\Config;
-use localzet\FrameX\Route;
-use localzet\Core\Server;
+use Triangle\Engine\App;
+use Triangle\Engine\Config;
+use Triangle\Engine\Route;
+use localzet\Server\Server;
 
 
 define('BASE_PATH', dirname(__DIR__));
-
-// Совместимость версий
-define('WORKERMAN_VERSION', '5.0.0');
-define('WEBMAN_FRAMEWORK_VERSION', '1.4');
-define('WEBMAN_VERSION', '1.4.5');
-
-define('WEBCORE_VERSION', '2.0.0');
-define('WEBKIT_VERSION', '1.1.9');
-define('FRAMEX_VERSION', '1.2.9');
-
 
 /** 
  * @param string|null $connection
@@ -344,7 +333,7 @@ function twig_view(string $template, array $vars = [], string $app = null): Resp
 }
 
 /**
- * @return \localzet\FrameX\Http\Request|Request|null
+ * @return \Triangle\Engine\Http\Request|Request|null
  */
 function request()
 {

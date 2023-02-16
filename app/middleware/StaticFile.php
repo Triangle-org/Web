@@ -1,20 +1,10 @@
 <?php
 
-/**
- * @package     Triangle Framework (WebKit)
- * @link        https://github.com/localzet/WebKit
- * @link        https://github.com/Triangle-org/Framework
- * 
- * @author      Ivan Zorin (localzet) <creator@localzet.com>
- * @copyright   Copyright (c) 2018-2022 Localzet Group
- * @license     https://www.localzet.com/license GNU GPLv3 License
- */
-
 namespace app\middleware;
 
-use localzet\FrameX\MiddlewareInterface;
-use localzet\FrameX\Http\Response;
-use localzet\FrameX\Http\Request;
+use Triangle\Engine\MiddlewareInterface;
+use Triangle\Engine\Http\Response;
+use Triangle\Engine\Http\Request;
 
 /**
  * Class StaticFile

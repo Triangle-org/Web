@@ -1,13 +1,12 @@
 <?php
 
 /**
- * @package     Triangle Framework (WebKit)
- * @link        https://github.com/localzet/WebKit
- * @link        https://github.com/Triangle-org/Framework
+ * @package     Triangle Web
+ * @link        https://github.com/Triangle-org/Web
  * 
- * @author      Ivan Zorin (localzet) <creator@localzet.com>
- * @copyright   Copyright (c) 2018-2022 Localzet Group
- * @license     https://www.localzet.com/license GNU GPLv3 License
+ * @author      Ivan Zorin <creator@localzet.com>
+ * @copyright   2018-2023 Localzet Group
+ * @license     https://mit-license.org MIT
  */
 
 use support\Request;
@@ -49,6 +48,6 @@ return [
         'Access-Control-Allow-Methods' => '*',
         'Access-Control-Allow-Headers' => '*',
 
-        'Server' => 'Triangle' . WEBCORE_VERSION,
+        'Server' => 'Triangle Web v2.2.0',
     ],
 ];

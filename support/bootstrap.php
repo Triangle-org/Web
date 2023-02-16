@@ -1,22 +1,21 @@
 <?php
 
 /**
- * @package     Triangle Engine (FrameX)
- * @link        https://github.com/localzet/FrameX
+ * @package     Triangle Engine
  * @link        https://github.com/Triangle-org/Engine
  * 
- * @author      Ivan Zorin (localzet) <creator@localzet.com>
- * @copyright   Copyright (c) 2018-2022 Localzet Group
- * @license     https://www.localzet.com/license GNU GPLv3 License
+ * @author      Ivan Zorin <creator@localzet.com>
+ * @copyright   2018-2023 Localzet Group
+ * @license     https://mit-license.org MIT
  */
 
 use Dotenv\Dotenv;
 use support\Log;
-use localzet\FrameX\Bootstrap;
-use localzet\FrameX\Config;
-use localzet\FrameX\Middleware;
-use localzet\FrameX\Route;
-use localzet\FrameX\Util;
+use Triangle\Engine\Bootstrap;
+use Triangle\Engine\Config;
+use Triangle\Engine\Middleware;
+use Triangle\Engine\Route;
+use Triangle\Engine\Util;
 
 $server = $server ?? null;
 

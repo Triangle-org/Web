@@ -1,13 +1,12 @@
 <?php
 
 /**
- * @package     Triangle Framework (WebKit)
- * @link        https://github.com/localzet/WebKit
- * @link        https://github.com/Triangle-org/Framework
+ * @package     Triangle Web
+ * @link        https://github.com/Triangle-org/Web
  * 
- * @author      Ivan Zorin (localzet) <creator@localzet.com>
- * @copyright   Copyright (c) 2018-2022 Localzet Group
- * @license     https://www.localzet.com/license GNU GPLv3 License
+ * @author      Ivan Zorin <creator@localzet.com>
+ * @copyright   Copyright (c) 2018-2023 Localzet Group
+ * @license     https://www.gnu.org/licenses/agpl AGPL-3.0 license
  */
 
 namespace support;
@@ -15,6 +14,6 @@ namespace support;
 /**
  * Class Response
  */
-class Response extends \localzet\FrameX\Http\Response
+class Response extends \Triangle\Engine\Http\Response
 {
 }
