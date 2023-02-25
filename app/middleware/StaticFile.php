@@ -20,12 +20,6 @@ class StaticFile implements MiddlewareInterface
             }
         }
 
-        /** @var Response $response */
-        $response = $next($request);
-
-        if (config('plugin.framex.cors.app.enable', false) === true) {
-            $response->withHeaders(config('plugin.framex.cors.app.headers', []));
-        }
-        return $response;
+        return $next($request);
     }
 }
