@@ -26,7 +26,7 @@
         }
     ],
     "require": {
-        "triangle/engine": ">=2.3.0"
+        "triangle/engine": ">=2.3.8"
     },
     "autoload": {
         "psr-4": {
