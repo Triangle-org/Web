@@ -155,7 +155,7 @@ function path_combine(string $front, string $back): string
  * @param string $body
  * @return Response
  */
-function response(string $body = '', int $status = 200, array $headers = [], $http_status = false, $onlyJson = false): Response
+function response($body = '', int $status = 200, array $headers = [], $http_status = false, $onlyJson = false): Response
 {
     $headers = $headers;
     $body = [
@@ -531,6 +531,15 @@ function server_start($processName, $config)
         }
     }
 
+    if (isset($config['handler']) && $config['handler'] == App::class) {
+        if (empty($server->user)) {
+            $server->user  = config('server.user', '');
+        }
+        if (empty($server->group)) {
+            $server->group  = config('server.group', '');
+        }
+    }
+
     $server->onServerStart = function ($server) use ($config) {
         require_once base_path('/support/bootstrap.php');
 
@@ -569,9 +578,8 @@ function get_realpath(string $filePath): string
 {
     if (strpos($filePath, 'phar://') === 0) {
         return $filePath;
-    } else {
-        return realpath($filePath);
     }
+    return realpath($filePath);
 }
 
 /**

@@ -30,15 +30,15 @@ set_error_handler(function ($level, $message, $file = '', $line = 0) {
 // Если начинаешь падать - тупо жди 1 секунду и продолжай работать
 if ($server) {
     register_shutdown_function(function ($start_time) {
-        if (time() - $start_time <= 1) {
+        if (time() - $start_time <= 0.1) {
             sleep(1);
         }
     }, time());
 }
 
 if (class_exists('Dotenv\Dotenv') && file_exists(base_path() . '/.env')) {
-    if (method_exists('Dotenv\Dotenv', 'createUnsafeImmutable')) {
-        Dotenv::createUnsafeImmutable(base_path())->load();
+    if (method_exists('Dotenv\Dotenv', 'createUnsafeMutable')) {
+        Dotenv::createUnsafeMutable(base_path())->load();
     } else {
         Dotenv::createMutable(base_path())->load();
     }
@@ -143,6 +143,7 @@ Middleware::load(['__static__' => config('static.middleware', [])]);
 
 // Запуск системы из конфигурации
 foreach (config('bootstrap', []) as $className) {
+    /** @var string $className */
     if (!class_exists($className)) {
         $log = "Warning: Class $className setting in config/bootstrap.php not found\r\n";
         echo $log;
@@ -160,6 +161,7 @@ foreach (config('plugin', []) as $firm => $projects) {
             continue;
         }
         foreach ($project['bootstrap'] ?? [] as $className) {
+            /** @var string $className */
             if (!class_exists($className)) {
                 $log = "Warning: Class $className setting in config/plugin/$firm/$name/bootstrap.php not found\r\n";
                 echo $log;

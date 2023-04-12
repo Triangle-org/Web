@@ -24,6 +24,11 @@
 
 namespace process;
 
+use FilesystemIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use SplFileInfo;
+
 use localzet\Server\Timer;
 use localzet\Server\Server;
 
@@ -60,7 +65,7 @@ class Monitor
      * Resume monitor
      * @return void
      */
-    public static function resume()
+    public static function resume(): void
     {
         clearstatcache();
         if (is_file(static::$lockFile)) {
@@ -111,7 +116,7 @@ class Monitor
         }
 
         $memoryLimit = $this->getMemoryLimit($options['memory_limit'] ?? null);
-        if ($options['enable_memory_monitor'] ?? $memoryLimit) {
+        if ($memoryLimit && ($options['enable_memory_monitor'] ?? true)) {
             Timer::add(60, [$this, 'checkMemory'], [$memoryLimit]);
         }
     }
@@ -130,11 +135,11 @@ class Monitor
             if (!is_file($monitorDir)) {
                 return false;
             }
-            $iterator = [new \SplFileInfo($monitorDir)];
+            $iterator = [new SplFileInfo($monitorDir)];
         } else {
             // Рекурсивный обход каталогов
-            $dirIterator = new \RecursiveDirectoryIterator($monitorDir, \FilesystemIterator::SKIP_DOTS | \FilesystemIterator::FOLLOW_SYMLINKS);
-            $iterator = new \RecursiveIteratorIterator($dirIterator);
+            $dirIterator = new RecursiveDirectoryIterator($monitorDir, FilesystemIterator::SKIP_DOTS | FilesystemIterator::FOLLOW_SYMLINKS);
+            $iterator = new RecursiveIteratorIterator($dirIterator);
         }
 
         $count = 0;
@@ -238,11 +243,11 @@ class Monitor
             return 0;
         }
         $unit = strtolower($memoryLimit[strlen($memoryLimit) - 1]);
-        if ($unit == 'g') {
+        if ($unit === 'g') {
             $memoryLimit = 1024 * (int)$memoryLimit;
-        } else if ($unit == 'm') {
+        } else if ($unit === 'm') {
             $memoryLimit = (int)$memoryLimit;
-        } else if ($unit == 'k') {
+        } else if ($unit === 'k') {
             $memoryLimit = ((int)$memoryLimit / 1024);
         } else {
             $memoryLimit = ((int)$memoryLimit / (1024 * 1024));
