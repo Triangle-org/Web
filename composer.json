@@ -1,50 +1,56 @@
 {
-    "name": "triangle/web",
-    "description": "Triangle Web - High performance MVC framework",
-    "type": "project",
-    "keywords": [
-        "localzet",
-        "Triangle"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Ivan Zorin",
-            "email": "creator@localzet.com",
-            "homepage": "https://www.localzet.ru",
-            "role": "Developer"
-        }
-    ],
-    "support": {
-        "email": "support@localzet.com",
-        "source": "https://github.com/Triangle-org/Web"
+  "name": "triangle/web",
+  "description": "Triangle Web - High performance MVC framework",
+  "type": "project",
+  "keywords": [
+    "Triangle"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "role": "Developer",
+      "name": "Ivan Zorin",
+      "email": "creator@localzet.ru",
+      "homepage": "https://github.com/localzet"
     },
-    "funding": [
-        {
-            "type": "other",
-            "url": "https://www.tinkoff.ru/cf/Ad5MBNhodod"
-        }
-    ],
-    "require": {
-        "triangle/engine": ">=2.4.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "": "./"
-        },
-        "files": [
-            "support/helpers.php"
-        ]
-    },
-    "scripts": {
-        "post-package-install": [
-            "support\\Plugin::install"
-        ],
-        "post-package-update": [
-            "support\\Plugin::update"
-        ],
-        "pre-package-uninstall": [
-            "support\\Plugin::uninstall"
-        ]
+    {
+      "role": "Community",
+      "name": "Localzet Group",
+      "email": "community@localzet.com",
+      "homepage": "https://www.localzet.com"
     }
+  ],
+  "support": {
+    "email": "support@localzet.com",
+    "source": "https://github.com/Triangle-org/Web"
+  },
+  "funding": [
+    {
+      "type": "other",
+      "url": "https://www.tinkoff.ru/cf/Ad5MBNhodod"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "triangle/engine": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "./"
+    },
+    "files": [
+      "support/helpers.php"
+    ]
+  },
+  "scripts": {
+    "post-package-install": [
+      "support\\Plugin::install"
+    ],
+    "post-package-update": [
+      "support\\Plugin::update"
+    ],
+    "pre-package-uninstall": [
+      "support\\Plugin::uninstall"
+    ]
+  }
 }

@@ -1,12 +1,26 @@
 <?php
 
 /**
- * @package     Triangle Web
- * @link        https://github.com/Triangle-org/Web
- * 
+ * @package     Triangle Engine (FrameX Project)
+ * @link        https://github.com/localzet/FrameX      FrameX Project v1-2
+ * @link        https://github.com/Triangle-org/Engine  Triangle Engine v2+
+ *
  * @author      Ivan Zorin <creator@localzet.com>
- * @copyright   2018-2023 Localzet Group
- * @license     https://mit-license.org MIT
+ * @copyright   Copyright (c) 2018-2023 Localzet Group
+ * @license     https://www.gnu.org/licenses/agpl AGPL-3.0 license
+ *
+ *              This program is free software: you can redistribute it and/or modify
+ *              it under the terms of the GNU Affero General Public License as
+ *              published by the Free Software Foundation, either version 3 of the
+ *              License, or (at your option) any later version.
+ *
+ *              This program is distributed in the hope that it will be useful,
+ *              but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *              MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *              GNU Affero General Public License for more details.
+ *
+ *              You should have received a copy of the GNU Affero General Public License
+ *              along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 use Dotenv\Dotenv;
@@ -20,7 +34,9 @@ use Triangle\Engine\Util;
 $server = $server ?? null;
 
 // Обработчик ошибок
-set_error_handler(function ($level, $message, $file = '', $line = 0) {
+set_error_handler(/**
+ * @throws ErrorException
+ */ function ($level, $message, $file = '', $line = 0) {
     if (error_reporting() & $level) {
         throw new ErrorException($message, 0, $level, $file, $line);
     }
@@ -30,7 +46,7 @@ set_error_handler(function ($level, $message, $file = '', $line = 0) {
 // Если начинаешь падать - тупо жди 1 секунду и продолжай работать
 if ($server) {
     register_shutdown_function(function ($start_time) {
-        if (time() - $start_time <= 0.1) {
+        if (time() - $start_time <= 1) {
             sleep(1);
         }
     }, time());
@@ -57,11 +73,11 @@ foreach (config('autoload.files', []) as $file) {
     include_once $file;
 }
 
-foreach (glob(\base_path() . '/autoload/*.php') as $file) {
+foreach (glob(base_path() . '/autoload/*.php') as $file) {
     include_once($file);
 }
 
-foreach (glob(\base_path() . '/autoload/*/*/*.php') as $file) {
+foreach (glob(base_path() . '/autoload/*/*/*.php') as $file) {
     include_once($file);
 }
 
@@ -79,47 +95,6 @@ foreach (config('plugin', []) as $firm => $projects) {
         include_once $file;
     }
 }
-// ['plugin' => [
-//     'firm' => [
-//         'name' => [
-//             // Конфигурация
-//             'middleware' => [
-//                 'app1' => [
-//                     'Class1',
-//                     'Class2',
-//                     'Class3'
-//                 ],
-//                 'app2' => [
-//                     'Class1',
-//                     'Class2',
-//                     'Class3'
-//                 ]
-//             ],
-//             'process' => [
-//                 'process_name' => [
-//                     'listen',
-//                     'context',
-//                     'count',
-//                     'user',
-//                     'group',
-//                     'reloadable',
-//                     'reusePort',
-//                     'transport',
-//                     'protocol',
-//                     'handler',
-//                     'constructor'
-//                 ]
-//             ],
-//             'autoload' => [
-//                 'files' => [
-//                     'file1',
-//                     'file2',
-//                     'file3'
-//                 ]
-//             ]
-//         ]
-//     ]
-// ]];
 
 Middleware::load(config('middleware', []));
 
@@ -143,7 +118,6 @@ Middleware::load(['__static__' => config('static.middleware', [])]);
 
 // Запуск системы из конфигурации
 foreach (config('bootstrap', []) as $className) {
-    /** @var string $className */
     if (!class_exists($className)) {
         $log = "Warning: Class $className setting in config/bootstrap.php not found\r\n";
         echo $log;
@@ -161,9 +135,8 @@ foreach (config('plugin', []) as $firm => $projects) {
             continue;
         }
         foreach ($project['bootstrap'] ?? [] as $className) {
-            /** @var string $className */
-            if (!class_exists($className)) {
-                $log = "Warning: Class $className setting in config/plugin/$firm/$name/bootstrap.php not found\r\n";
+            if (!class_exists($className::class)) {
+                $log = "Warning: Class " . $className::class . " setting in config/plugin/$firm/$name/bootstrap.php not found\r\n";
                 echo $log;
                 Log::error($log);
                 continue;
@@ -173,9 +146,8 @@ foreach (config('plugin', []) as $firm => $projects) {
         }
     }
     foreach ($projects['bootstrap'] ?? [] as $className) {
-        /** @var string $className */
-        if (!class_exists($className)) {
-            $log = "Warning: Class $className setting in plugin/$firm/config/bootstrap.php not found\r\n";
+        if (!class_exists($className::class)) {
+            $log = "Warning: Class " . $className::class . " setting in plugin/$firm/config/bootstrap.php not found\r\n";
             echo $log;
             Log::error($log);
             continue;

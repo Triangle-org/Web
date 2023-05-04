@@ -1,45 +1,17 @@
 <?php
-/*
- * Темы
- */
-
-$hour = (int) date('H');
-
-/** 
- * Светлая
- */
-
-if ($hour >= 6 && $hour < 8) {
-  $light_time = "sunrise";
-} elseif ($hour >= 8 && $hour < 11) {
-  $light_time = "late-morning";
-} elseif ($hour >= 11 && $hour < 14) {
-  $light_time = "midday";
-} elseif ($hour >= 13 && $hour < 18) {
-  $light_time = "afternoon";
-} elseif ($hour >= 18 && $hour < 22) {
-  $light_time = "evening";
-} else {
-  // $light_time = "night";
-  $light_time = "evening";
-}
 
 /**
- * Тёмная
+ * @package     Triangle Web
+ * @link        https://github.com/Triangle-org
+ *
+ * @copyright   2018-2023 Localzet Group
+ * @license     https://mit-license.org MIT
  */
 
-if ($hour >= 6 && $hour < 12) {
-  $dark_time = "Sunrise";
-} elseif ($hour >= 12 && $hour < 16) {
-  $dark_time = "Day";
-} elseif ($hour >= 16 && $hour < 18) {
-  $dark_time = "Evening";
-} elseif ($hour >= 18 && $hour < 22) {
-  $dark_time = "Twilight";
-} else {
-  $dark_time = "Night";
-}
+use localzet\Server\Server;
+
 ?>
+
 <!DOCTYPE html>
 
 <html lang="ru" prefix="og: http://ogp.me/ns#">
@@ -63,10 +35,10 @@ if ($hour >= 6 && $hour < 12) {
   <meta name="reply-to" content="<?= $reply_to ?>" />
 
   <!-- About System -->
-  <meta name="project" content="<?= $name ?>" />
-  <meta name="generator" content="Triangle Framework" />
-  <meta name="FrameX" version="<?= config('app.version', '!notSET!') ?>" debug="<?= config('app.debug', '!notSET!') ?>" />
-  <meta name="RootX" domain="<?= config('app.domain', '!notSET!') ?>" assets="<?= config('app.src', '!notSET!') ?>" />
+  <meta name="project" content="<?= $name ?>" domain="<?= config('app.domain', '!notSET!') ?>"
+        assets="<?= config('app.src', '!notSET!') ?>"/>
+  <meta name="generator" content="Triangle Framework" debug="<?= config('app.debug', '!notSET!') ?>"/>
+  <meta name="server" version="<?= config('app.headers.server', 'Localzet Server') ?>"/>
 
   <!-- Cache&Content -->
   <meta http-equiv="Expires" content="60" />
@@ -89,7 +61,7 @@ if ($hour >= 6 && $hour < 12) {
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff00">
 
   <!-- Fonts -->
-  <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600,700,800,900" /> -->
+   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600,700,800,900" />
 
   <!--Theme-->
   <script>
@@ -127,7 +99,8 @@ if ($hour >= 6 && $hour < 12) {
   </center>
   <hr />
   <center>
-    Работает на <a href="https://github.com/Triangle-org">Triangle Web</a></center>
+    <a href="https://github.com/localzet/server" style="text-decoration: auto;">Localzet Server <?= Server::VERSION ?></a>
+  </center>
 </body>
 
 </html>
