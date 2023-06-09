@@ -9,6 +9,9 @@
  */
 
  return [
+    // save to path
+    'path' => [],
+
     // listen
     'ipv4' => [],
     'ipv6' => [],
