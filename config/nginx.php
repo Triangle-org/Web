@@ -10,7 +10,7 @@
 
  return [
     // save to path
-    'path' => [],
+    'path' => '',
 
     // listen
     'ipv4' => [],
