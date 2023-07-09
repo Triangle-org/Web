@@ -70,6 +70,8 @@ return [
             'options' => [
                 // здесь вы можете передать больше настроек в Mongo Driver Manager
                 // https://www.php.net/manual/en/mongodb-driver-manager.construct.php в разделе «Uri Options» список полных параметров, которые вы можете использовать
+
+                'appname' => 'Triangle App'
             ],
         ],
     ],

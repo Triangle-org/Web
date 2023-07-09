@@ -23,8 +23,8 @@
  *              along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-use Jenssegers\Mongodb\Connection;
-use Jenssegers\Mongodb\Query\Builder;
+use support\database\MongoDB\Connection;
+use support\database\MongoDB\Query\Builder;
 use localzet\Server\Server;
 use support\Container;
 use support\database\MySQL;
@@ -49,7 +49,7 @@ define('BASE_PATH', dirname(__DIR__));
 /**
  * @param string|null $connection
  * @param string|null $collection
- * @return \Jenssegers\Mongodb\Connection|\Jenssegers\Mongodb\Query\Builder
+ * @return \support\database\MongoDB\Connection|\support\database\MongoDB\Query\Builder
  * @throws Exception
  */
 function MongoDB(string $connection = NULL, string $collection = NULL): Builder|Connection
@@ -62,7 +62,7 @@ function MongoDB(string $connection = NULL, string $collection = NULL): Builder|
         throw new Exception("MongoDB соединения не существует в конфигурации");
     }
 
-    /** @var \Jenssegers\Mongodb\Connection $db */
+    /** @var \support\database\MongoDB\Connection $db */
     $db = Db::connection($connection);
     return empty($collection) ? $db : $db->collection($collection);
 }
@@ -119,6 +119,15 @@ function base_path(false|string $path = ''): string
 function app_path(string $path = ''): string
 {
     return path_combine(BASE_PATH . DIRECTORY_SEPARATOR . 'app', $path);
+}
+
+/**
+ * @param string $path
+ * @return string
+ */
+function view_path(string $path = ''): string
+{
+    return path_combine(BASE_PATH . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'view', $path);
 }
 
 /**
@@ -643,6 +652,8 @@ function getRequestIp(): ?string
         $ip = request()->header('client-ip');
     } elseif (!empty(request()->header('remote-addr')) && validate_ip(request()->header('remote-addr'))) {
         $ip = request()->header('remote-addr');
+    } elseif (request()->getRealIp()) {
+        $ip = request()->getRealIp();
     } else {
         $ip = null;
     }
@@ -703,9 +714,9 @@ function getBrowser(): array
     $platform = 'Неизвестно';
 
     if (preg_match('/macintosh|mac os x/i', $u_agent)) {
-        $platform = 'mac';
+        $platform = 'Mac';
     } elseif (preg_match('/windows|win32/i', $u_agent)) {
-        $platform = 'windows';
+        $platform = 'Windows';
     } elseif (preg_match('/iphone|IPhone/i', $u_agent)) {
         $platform = 'IPhone Web';
     } elseif (preg_match('/android|Android/i', $u_agent)) {
@@ -713,7 +724,7 @@ function getBrowser(): array
     } else if (preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $u_agent)) {
         $platform = 'Mobile';
     } else if (preg_match('/linux/i', $u_agent)) {
-        $platform = 'linux';
+        $platform = 'Linux';
     }
 
     if (preg_match('/MSIE/i', $u_agent) && !preg_match('/Opera/i', $u_agent)) {
