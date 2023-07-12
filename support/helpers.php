@@ -644,21 +644,26 @@ function cpu_count(): int
  */
 function getRequestIp(): ?string
 {
-    if (!empty(request()->header('x-real-ip')) && validate_ip(request()->header('x-real-ip'))) {
-        $ip = request()->header('x-real-ip');
-    } elseif (!empty(request()->header('x-forwarded-for')) && validate_ip(request()->header('x-forwarded-for'))) {
-        $ip = request()->header('x-forwarded-for');
-    } elseif (!empty(request()->header('client-ip')) && validate_ip(request()->header('client-ip'))) {
-        $ip = request()->header('client-ip');
-    } elseif (!empty(request()->header('remote-addr')) && validate_ip(request()->header('remote-addr'))) {
-        $ip = request()->header('remote-addr');
-    } elseif (request()->getRealIp()) {
-        $ip = request()->getRealIp();
-    } else {
-        $ip = null;
-    }
-
-    return $ip;
+    $ip = request()->header(
+        'x-real-ip',
+        request()->header(
+            'x-forwarded-for',
+            request()->header(
+                'client-ip',
+                request()->header(
+                    'x-client-ip',
+                    request()->header(
+                        'remote-addr',
+                        request()->header(
+                            'via',
+                            request()->getRealIp()
+                        )
+                    )
+                )
+            )
+        )
+    );
+    return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : (request()->getRealIp() ?? null);
 }
 
 /**
