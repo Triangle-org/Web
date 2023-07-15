@@ -8,7 +8,7 @@
  * @license     https://mit-license.org MIT
  */
 
-use localzet\Server\Server;
+use localzet\Server;
 
 return [
     'monitor' => [

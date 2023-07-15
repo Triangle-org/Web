@@ -15,8 +15,8 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
 
-use localzet\Server\Timer;
-use localzet\Server\Server;
+use localzet\Timer;
+use localzet\Server;
 
 /**
  * Class FileMonitor
