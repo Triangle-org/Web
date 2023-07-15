@@ -32,7 +32,7 @@
   ],
   "require": {
     "php": "^8.2",
-    "triangle/engine": "^3.0"
+    "triangle/engine": "^3.4"
   },
   "autoload": {
     "psr-4": {

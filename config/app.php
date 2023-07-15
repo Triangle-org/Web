@@ -8,7 +8,6 @@
  * @license     https://mit-license.org MIT
  */
 
-use localzet\Server\Server;
 use support\Request;
 
 return [
@@ -22,7 +21,7 @@ return [
     'controller_reuse' => true,
 
     // 'domain' => 'example.com',
-    // 'src' => 'https://src.example.com',
+    // 'assets' => '/',
 
     // 'name' => 'Название сайта',
     // 'description' => 'Описание',
@@ -30,7 +29,6 @@ return [
     // 'viewport' => '',
 
     // 'logo' => 'URL логотипа',
-    // 'og_image' => 'URL Изображения OpenGraph',
 
     // 'owner' => 'FirstName LastName (Nickname) <email>',
     // 'designer' => 'FirstName LastName (Nickname) <email>',
@@ -45,7 +43,5 @@ return [
         'Access-Control-Allow-Credentials' => 'true',
         'Access-Control-Allow-Methods' => '*',
         'Access-Control-Allow-Headers' => '*',
-
-        'Server' => 'Localzet Server ' . Server::VERSION,
     ],
 ];
