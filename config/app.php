@@ -23,7 +23,7 @@ return [
     // 'domain' => 'example.com',
     // 'assets' => '/',
 
-    // 'name' => 'Название сайта',
+     'name' => 'Triangle App',
     // 'description' => 'Описание',
     // 'keywords' => 'Ключевые слова',
     // 'viewport' => '',
@@ -38,7 +38,6 @@ return [
 
     'headers' => [
         'Content-Language' => 'ru',
-
         'Access-Control-Allow-Origin' => '*',
         'Access-Control-Allow-Credentials' => 'true',
         'Access-Control-Allow-Methods' => '*',

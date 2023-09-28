@@ -24,9 +24,8 @@
  *              along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+use Triangle\Console;
 use Triangle\Engine\Config;
-use Triangle\Engine\Console\Application;
-use Triangle\Engine\Console\Command\Command;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -36,21 +35,9 @@ if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', '
     Config::load(config_path(), ['route', 'container']);
 }
 
-$cli = new Application();
-$cli->setName('Localzet Master CLI');
+$cli = new Console();
 if (is_dir($command_path = app_path() . '/command')) {
-    $dir_iterator = new RecursiveDirectoryIterator($command_path);
-    $iterator = new RecursiveIteratorIterator($dir_iterator);
-    foreach ($iterator as $file) {
-        if (is_dir($file)) {
-            continue;
-        }
-        $class_name = 'app\\command\\' . basename($file, '.php');
-        if (!is_a($class_name, Command::class, true)) {
-            continue;
-        }
-        $cli->add(new $class_name);
-    }
+    $cli->installCommands($command_path, 'app\\command');
 }
 
 foreach (config('plugin', []) as $firm => $projects) {

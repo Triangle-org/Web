@@ -23,68 +23,28 @@
  *              along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-use support\database\MongoDB\Connection;
-use support\database\MongoDB\Query\Builder;
-use localzet\Server\Server;
+use localzet\Server;
 use support\Container;
-use support\database\MySQL;
 use support\Db;
 use support\Request;
 use support\Response;
 use support\Translation;
-use support\view\Blade;
-use support\view\Raw;
-use support\view\ThinkPHP;
-use support\view\Twig;
 use Triangle\Engine\App;
 use Triangle\Engine\Config;
+use Triangle\Engine\Http\Request as TriangleRequest;
 use Triangle\Engine\Route;
+use Triangle\Engine\View\Blade;
+use Triangle\Engine\View\Raw;
+use Triangle\Engine\View\ThinkPHP;
+use Triangle\Engine\View\Twig;
+use Triangle\MongoDB\Connection;
+use Triangle\MongoDB\Query\Builder;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 
 define('BASE_PATH', dirname(__DIR__));
-
-/**
- * @param string|null $connection
- * @param string|null $collection
- * @return \support\database\MongoDB\Connection|\support\database\MongoDB\Query\Builder
- * @throws Exception
- */
-function MongoDB(string $connection = NULL, string $collection = NULL): Builder|Connection
-{
-    if (empty($connection)) {
-        $connection = config('database.default', 'default');
-    }
-
-    if (!in_array($connection, array_keys(config('database.connections'))) || config("database.connections.$connection.driver") != 'mongodb') {
-        throw new Exception("MongoDB соединения не существует в конфигурации");
-    }
-
-    /** @var \support\database\MongoDB\Connection $db */
-    $db = Db::connection($connection);
-    return empty($collection) ? $db : $db->collection($collection);
-}
-
-/**
- * @param string|null $connection
- * @return \support\database\MySQL
- * @throws \Exception
- */
-function MySQL(string $connection = NULL): MySQL
-{
-    if (empty($connection)) {
-        $connection = config('database.default', 'default');
-    }
-
-    if (!in_array($connection, array_keys(config('database.connections'))) || config("database.connections.$connection.driver") != 'mysql') {
-        throw new Exception("MySQL соединения не существует в конфигурации");
-    }
-
-    $db = new MySQL();
-    return $db->connection($connection);
-}
 
 /**
  * return the program execute directory
@@ -183,7 +143,7 @@ function path_combine(string $front, string $back): string
  * @param bool $http_status
  * @param bool $onlyJson
  * @return Response
- * @throws \Throwable
+ * @throws Throwable
  */
 function response(mixed $body = '', int $status = 200, array $headers = [], bool $http_status = false, bool $onlyJson = false): Response
 {
@@ -238,7 +198,7 @@ function responseJson($data, int $status = 200, array $headers = [], int $option
  * @param null $status
  * @param array $headers
  * @return Response
- * @throws \Throwable
+ * @throws Throwable
  */
 function responseView(array $data, $status = null, array $headers = []): Response
 {
@@ -310,7 +270,7 @@ function redirect(string $location, int $status = 302, array $headers = []): Res
  */
 function view(string $template, array $vars = [], string $app = null, string $plugin = null, int $http_code = 200): Response
 {
-    $request = \request();
+    $request = request();
     $plugin = $plugin === null ? ($request->plugin ?? '') : $plugin;
     $handler = config($plugin ? "plugin.$plugin.view.handler" : 'view.handler');
     return new Response($http_code, [], $handler::render($template, $vars, $app, $plugin));
@@ -365,9 +325,9 @@ function twig_view(string $template, array $vars = [], string $app = null): Resp
 }
 
 /**
- * @return \Triangle\Engine\Http\Request|Request|null
+ * @return TriangleRequest|Request|null
  */
-function request(): \Triangle\Engine\Http\Request|Request|null
+function request(): TriangleRequest|Request|null
 {
     return App::request();
 }
@@ -409,11 +369,11 @@ function route(string $name, ...$parameters): string
  * @param mixed|null $key
  * @param mixed|null $default
  * @return mixed
- * @throws \Exception
+ * @throws Exception
  */
 function session(mixed $key = null, mixed $default = null): mixed
 {
-    $session = \request()->session();
+    $session = request()->session();
     if (null === $key) {
         return $session;
     }
@@ -467,7 +427,7 @@ function locale(string $locale = null): string
  * 404 not found
  *
  * @return Response
- * @throws \Throwable
+ * @throws Throwable
  */
 function not_found(): Response
 {
@@ -673,7 +633,7 @@ function getRequestIp(): ?string
  *
  * @return boolean
  */
-function validate_ip(string $ip): bool
+function validateIp(string $ip): bool
 {
     if (strtolower($ip) === 'unknown')
         return false;
@@ -698,6 +658,53 @@ function validate_ip(string $ip): bool
             return false;
     }
     return true;
+}
+
+/**
+ * @param string $ip
+ * @return bool
+ */
+function isIntranetIp(string $ip): bool
+{
+    // Не IP.
+    if (!filter_var($ip, FILTER_VALIDATE_IP)) {
+        return false;
+    }
+    // Точно ip Интранета? Для IPv4 FALSE может быть не точным, поэтому нам нужно проверить его вручную ниже.
+    if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+        return true;
+    }
+    // Ручная проверка IPv4.
+    if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        return false;
+    }
+
+    // Ручная проверка
+    // $reservedIps = [
+    //     '167772160'  => 184549375,  // 10.0.0.0 -  10.255.255.255
+    //     '3232235520' => 3232301055, // 192.168.0.0 - 192.168.255.255
+    //     '2130706432' => 2147483647, // 127.0.0.0 - 127.255.255.255
+    //     '2886729728' => 2887778303, // 172.16.0.0 -  172.31.255.255
+    // ];
+    $reservedIps = [
+        1681915904 => 1686110207,   // 100.64.0.0 -  100.127.255.255
+        3221225472 => 3221225727,   // 192.0.0.0 - 192.0.0.255
+        3221225984 => 3221226239,   // 192.0.2.0 - 192.0.2.255
+        3227017984 => 3227018239,   // 192.88.99.0 - 192.88.99.255
+        3323068416 => 3323199487,   // 198.18.0.0 - 198.19.255.255
+        3325256704 => 3325256959,   // 198.51.100.0 - 198.51.100.255
+        3405803776 => 3405804031,   // 203.0.113.0 - 203.0.113.255
+        3758096384 => 4026531839,   // 224.0.0.0 - 239.255.255.255
+    ];
+
+    $ipLong = ip2long($ip);
+
+    foreach ($reservedIps as $ipStart => $ipEnd) {
+        if (($ipLong >= $ipStart) && ($ipLong <= $ipEnd)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 /**

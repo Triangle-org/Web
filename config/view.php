@@ -8,7 +8,7 @@
  * @license     https://mit-license.org MIT
  */
 
-use support\view\Raw;
+use Triangle\Engine\View\Raw;
 
 return [
     'handler' => Raw::class,
