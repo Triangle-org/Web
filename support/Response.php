@@ -25,9 +25,12 @@
 
 namespace support;
 
+use AllowDynamicProperties;
+
 /**
  * Class Response
  */
+#[AllowDynamicProperties]
 class Response extends \Triangle\Engine\Http\Response
 {
 }

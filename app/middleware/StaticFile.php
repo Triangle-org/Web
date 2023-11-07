@@ -11,8 +11,8 @@
 namespace app\middleware;
 
 use Throwable;
-use Triangle\Engine\MiddlewareInterface;
-use Triangle\Engine\Http\{Response, Request};
+use Triangle\Engine\Http\{Request, Response};
+use Triangle\Engine\Middleware\MiddlewareInterface;
 
 /**
  * Class StaticFile

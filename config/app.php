@@ -15,26 +15,15 @@ return [
     'error_reporting' => E_ALL,
     'default_timezone' => 'Europe/Moscow',
     'request_class' => Request::class,
-    'public_path' => base_path() . DIRECTORY_SEPARATOR . 'public',
+    'public_path' => base_path('public'),
     'runtime_path' => base_path(false) . DIRECTORY_SEPARATOR . 'runtime',
     'controller_suffix' => '',
     'controller_reuse' => true,
 
+    'name' => 'Triangle App',
+
     // 'domain' => 'example.com',
     // 'assets' => '/',
-
-     'name' => 'Triangle App',
-    // 'description' => 'Описание',
-    // 'keywords' => 'Ключевые слова',
-    // 'viewport' => '',
-
-    // 'logo' => 'URL логотипа',
-
-    // 'owner' => 'FirstName LastName (Nickname) <email>',
-    // 'designer' => 'FirstName LastName (Nickname) <email>',
-    // 'author' => 'FirstName LastName (Nickname) <email>',
-    // 'copyright' => 'Company',
-    // 'reply_to' => 'Email',
 
     'headers' => [
         'Content-Language' => 'ru',

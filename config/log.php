@@ -14,7 +14,7 @@ return [
             [
                 'class' => Monolog\Handler\RotatingFileHandler::class,
                 'constructor' => [
-                    runtime_path() . '/logs/framex.log',
+                    runtime_path() . '/logs/triangle.log',
                     7, //$maxFiles
                     Monolog\Logger::DEBUG,
                 ],

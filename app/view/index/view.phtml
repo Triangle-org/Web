@@ -1,54 +1,135 @@
+<?php
+
+/**
+ * @package     Triangle Web
+ * @link        https://github.com/Triangle-org
+ *
+ * @copyright   2018-2023 Localzet Group
+ * @license     https://mit-license.org MIT
+ */
+
+use localzet\Server;
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 
 <head>
-  <base href="" />
+    <base href=""/>
+    <title>Triangle Web</title>
+    <meta charset="utf-8"/>
 
-  <title>Triangle App</title>
+    <!-- About App -->
+    <meta name="language" content="RU"/>
+    <meta name="robots" content="noindex,nofollow"/>
 
-  <meta charset="utf-8" />
+    <!-- About System -->
+    <meta name="generator" content="Triangle Framework"/>
+    <meta name="server" version="Localzet Server <?= Server::getVersion() ?? '' ?>"/>
 
-  <!-- SEO Meta -->
-  <meta name="language" content="RU" />
-  <meta name="robots" content="index,follow" />
-  <meta name="title" content="FrameX" />
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Cache&Content -->
+    <meta http-equiv="Expires" content="60"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-  <!-- Apple Meta Tags -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-touch-fullscreen" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="format-detection" content="telephone=no" />
+    <!-- SEO -->
+    <link rel="shortcut icon" type="image/svg+xml" href="//cdn.localzet.com/public/media/localzet.svg"/>
 
-  <!-- About Creator App -->
-  <meta name="owner" content="owner@rootx.ru" />
-  <meta name="designer" content="designer@rootx.ru" />
-  <meta name="author" content="localzet, creator@localzet.com" />
-  <meta name="copyright" content="RootX Group" />
-  <meta name="reply-to" content="support@rootx.ru" />
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#12121200">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff00">
 
-  <!-- System Information -->
-  <meta name="generator" content="Triangle Framework" />
-  <meta name="FrameX" version="<?= config('app.version', '!notSET!') ?>" debug="<?= config('app.debug', '!notSET!') ?>" />
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600,700,800,900"/>
 
-  <!-- HTTP Equiv -->
-  <meta http-equiv="Expires" content="60" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Cache-Control" content="no-cache" />
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+        html {
+            /* height: 100%; */
+        }
 
-  <!-- SEO Link -->
-  <link rel="canonical" href="<?= config('app.domain', request()->url()) ?>" />
-  <link rel="icon" type="image/svg+xml" href="<?= config('app.logo', '/favicon.svg') ?>" />
-  <link rel="shortcut icon" type="image/svg+xml" href="<?= config('app.logo', '/favicon.svg') ?>" />
+        body {
+            /* background-color: #0e0e0e; */
+            background-color: #000;
+
+            font-family: Nunito, monospace;
+            font-weight: 600;
+
+            text-align: center;
+            text-decoration: none !important;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #6e7681;
+            margin: 0 3px;
+            /* white-space: nowrap; */
+            display: inline-block;
+        }
+
+        .footer a b {
+            color: #50cd89;
+        }
+
+        img {
+            display: block;
+            -webkit-user-select: none;
+            /* margin: calc(48vh - 80px) calc(50vw - 400px); */
+            transition: background-color 300ms;
+
+            max-width: 800px;
+
+            width: 800px;
+            /* height: 160px; */
+        }
+
+        hr {
+            border-color: #50cd89;
+            border-radius: 50%;
+            width: 100%;
+        }
+
+        /* Медиа-запрос для экранов меньше 800px */
+        @media (max-width: 900px) {
+            img {
+                margin: auto 5%;
+                width: 90%;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  Hello  <?= htmlspecialchars($name) ?>!
+<br/>
+<center>
+    <h1>
+        Hello <?= htmlspecialchars($name) ?>!
+    </h1>
+</center>
+<div class="footer">
+    <hr>
+    <a href="https://github.com/localzet/server">Powered by <b>Localzet Server <?= @Server::getVersion() ?? '' ?></b></a>
+</div>
 </body>
 
 </html>

@@ -25,13 +25,12 @@
 
 use Dotenv\Dotenv;
 use support\Container;
-use support\Event;
+use support\Events;
 use support\Log;
-use Triangle\Engine\Bootstrap;
+use Triangle\Engine\Bootstrap\BootstrapInterface;
 use Triangle\Engine\Config;
 use Triangle\Engine\Middleware;
-use Triangle\Engine\Route;
-use Triangle\Engine\Util;
+use Triangle\Engine\Router;
 
 $server = $server ?? null;
 
@@ -60,7 +59,7 @@ if ($server) {
 }
 
 // Загрузка переменных окружения из файла .env
-if (class_exists('Dotenv\Dotenv') && file_exists(base_path() . '/.env')) {
+if (class_exists('Dotenv\Dotenv') && file_exists(base_path('.env'))) {
     if (method_exists('Dotenv\Dotenv', 'createUnsafeMutable')) {
         Dotenv::createUnsafeMutable(base_path())->load();
     } else {
@@ -86,12 +85,12 @@ foreach (config('autoload.files', []) as $file) {
 }
 
 // Загрузка файлов автозагрузки из папки autoload
-foreach (glob(base_path() . '/autoload/*.php') as $file) {
+foreach (glob(base_path('autoload/*.php')) as $file) {
     include_once($file);
 }
 
 // Загрузка файлов автозагрузки из подпапок папки autoload
-foreach (glob(base_path() . '/autoload/*/*/*.php') as $file) {
+foreach (glob(base_path('autoload/*/*/*.php')) as $file) {
     include_once($file);
 }
 
@@ -148,7 +147,7 @@ foreach (config('plugin', []) as $firm => $projects) {
  * @param mixed $callbacks
  * @return array
  */
-function convertCallable($callbacks): array
+function convertCallable(mixed $callbacks): array
 {
     if (is_array($callbacks)) {
         $callback = array_values($callbacks);
@@ -200,7 +199,7 @@ foreach ($allEvents as $name => $events) {
     ksort($events, SORT_NATURAL);
     foreach ($events as $callbacks) {
         foreach ($callbacks as $callback) {
-            Event::on($name, $callback);
+            Events::on($name, $callback);
         }
     }
 }
@@ -218,7 +217,7 @@ foreach (config('bootstrap', []) as $className) {
         Log::error($log);
         continue;
     }
-    /** @var Bootstrap $className */
+    /** @var BootstrapInterface $className */
     $className::start($server);
 }
 
@@ -235,7 +234,7 @@ foreach (config('plugin', []) as $firm => $projects) {
                 Log::error($log);
                 continue;
             }
-            /** @var Bootstrap $className */
+            /** @var BootstrapInterface $className */
             $className::start($server);
         }
     }
@@ -246,18 +245,18 @@ foreach (config('plugin', []) as $firm => $projects) {
             Log::error($log);
             continue;
         }
-        /** @var Bootstrap $className */
+        /** @var BootstrapInterface $className */
         $className::start($server);
     }
 }
 
-$directory = base_path() . '/plugin';
+$directory = base_path('plugin');
 $paths = [config_path()];
 
 // Загрузка маршрутов из папок конфигурации плагинов
-foreach (Util::scanDir($directory) as $path) {
+foreach (scan_dir($directory) as $path) {
     if (is_dir($path = "$path/config")) {
         $paths[] = $path;
     }
 }
-Route::load($paths);
+Router::load($paths);

@@ -8,4 +8,3 @@
  * @license     https://mit-license.org MIT
  */
 
-use Triangle\Engine\Route;

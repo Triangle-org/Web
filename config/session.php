@@ -9,16 +9,19 @@
  */
 
 use Triangle\Engine\Session\FileSessionHandler;
-use Triangle\Engine\Session\RedisSessionHandler;
-use Triangle\Engine\Session\RedisClusterSessionHandler;
 
 return [
 
-    'type' => 'file', // or redis or redis_cluster
+    'type' => 'file', // or mongo or redis or redis_cluster
     'handler' => FileSessionHandler::class,
     'config' => [
         'file' => [
             'save_path' => runtime_path() . '/sessions',
+        ],
+        'mongo' => [
+            'uri' => 'mongodb://localhost:27017/?directConnection=true',
+            'database' => 'default',
+            'collection' => 'sessions',
         ],
         'redis' => [
             'host' => '127.0.0.1',

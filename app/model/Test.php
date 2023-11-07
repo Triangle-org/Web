@@ -10,7 +10,8 @@
 
 namespace app\model;
 
-use support\Model;
+
+use Triangle\Engine\Database\Model;
 
 class Test extends Model
 {

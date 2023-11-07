@@ -11,12 +11,11 @@
 namespace process;
 
 use FilesystemIterator;
+use localzet\Server;
+use localzet\Timer;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
-
-use localzet\Timer;
-use localzet\Server;
 
 /**
  * Class FileMonitor
@@ -78,7 +77,7 @@ class Monitor
     public function __construct($monitorDir, $monitorExtensions, array $options = [])
     {
         static::resume();
-        $this->paths = (array) $monitorDir;
+        $this->paths = (array)$monitorDir;
         $this->extensions = $monitorExtensions;
         if (!Server::getAllServers()) {
             // Если сервер не запущен
@@ -109,6 +108,7 @@ class Monitor
 
     /**
      * @param $monitorDir
+     * @return bool
      */
     public function checkFilesChange($monitorDir): bool
     {
@@ -132,7 +132,7 @@ class Monitor
         foreach ($iterator as $file) {
             $count++;
 
-            /** @var \SplFileInfo $file */
+            /** @var SplFileInfo $file */
             if (is_dir($file->getRealPath())) {
                 continue;
             }

@@ -21,7 +21,7 @@ class Index
      */
     public function index(Request $request): Response
     {
-        return response('hello FrameX');
+        return response('Добро пожаловать в Triangle Web!');
     }
 
     /**
@@ -37,6 +37,6 @@ class Index
      */
     public function view(Request $request): Response
     {
-        return view('index/view', ['name' => 'FrameX']);
+        return view('index/view', ['name' => 'Triangle']);
     }
 }

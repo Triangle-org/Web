@@ -9,7 +9,6 @@
  */
 
 return [
-    support\bootstrap\Events::class,
-    support\bootstrap\LaravelDb::class,
-    support\bootstrap\Session::class,
+    Triangle\Engine\Bootstrap\Eloquent::class,
+    Triangle\Engine\Bootstrap\Session::class,
 ];

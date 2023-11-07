@@ -9,11 +9,13 @@
  */
 
 // Простой контейнер
-return new Triangle\Engine\Container;
+//return new Triangle\Engine\Container;
 
 // Подключаем сервисы
-// $builder = new \DI\ContainerBuilder();
-// $builder->addDefinitions(config('dependence', []));
-// $builder->useAutowiring(true);
-// $builder->useAnnotations(true);
-// return $builder->build();
+use DI\ContainerBuilder;
+
+$builder = new ContainerBuilder();
+$builder->addDefinitions(config('dependence', []));
+$builder->useAutowiring(true);
+$builder->useAnnotations(true);
+return $builder->build();

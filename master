@@ -36,8 +36,8 @@ if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', '
 }
 
 $cli = new Console();
-if (is_dir($command_path = app_path() . '/command')) {
-    $cli->installCommands($command_path, 'app\\command');
+if (is_dir($command_path = app_path('command'))) {
+    $cli->installCommands($command_path);
 }
 
 foreach (config('plugin', []) as $firm => $projects) {
