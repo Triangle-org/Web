@@ -24,12 +24,6 @@
     "email": "support@localzet.com",
     "source": "https://github.com/Triangle-org/Web"
   },
-  "funding": [
-    {
-      "type": "other",
-      "url": "https://www.tinkoff.ru/cf/Ad5MBNhodod"
-    }
-  ],
   "require": {
     "php": "^8.2",
     "triangle/engine": "^4.0"
