@@ -26,7 +26,7 @@
   },
   "require": {
     "php": "^8.2",
-    "triangle/engine": "^5.0"
+    "triangle/engine": "^5.1"
   },
   "suggest": {
     "ext-simplexml": "For XML Support",
@@ -37,18 +37,18 @@
       "": "./"
     },
     "files": [
-      "support/helpers/autoload.php"
+      "support/helpers.php"
     ]
   },
   "scripts": {
     "post-package-install": [
-      "support\\Plugin::install"
+      "Triangle\\Engine\\Plugin::install"
     ],
     "post-package-update": [
-      "support\\Plugin::update"
+      "Triangle\\Engine\\Plugin::update"
     ],
     "pre-package-uninstall": [
-      "support\\Plugin::uninstall"
+      "Triangle\\Engine\\Plugin::uninstall"
     ]
   }
 }
