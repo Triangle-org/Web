@@ -6,7 +6,7 @@
  * @link        https://github.com/Triangle-org/Engine  Triangle Engine v2+
  *
  * @author      Ivan Zorin <creator@localzet.com>
- * @copyright   Copyright (c) 2018-2023 Localzet Group
+ * @copyright   Copyright (c) 2018-2024 Localzet Group
  * @license     https://www.gnu.org/licenses/agpl AGPL-3.0 license
  *
  *              This program is free software: you can redistribute it and/or modify
