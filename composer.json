@@ -26,7 +26,7 @@
   },
   "require": {
     "php": "^8.2",
-    "triangle/engine": "^5.1"
+    "triangle/engine": "^6"
   },
   "suggest": {
     "ext-simplexml": "For XML Support",

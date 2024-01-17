@@ -9,13 +9,15 @@
  */
 
 // Простой контейнер
-//return new Triangle\Engine\Container;
+return new Triangle\Engine\Container;
 
 // Подключаем сервисы
-use DI\ContainerBuilder;
+// composer require psr/container ^1.1.1 php-di/php-di ^6 doctrine/annotations ^1.14
 
-$builder = new ContainerBuilder();
-$builder->addDefinitions(config('dependence', []));
-$builder->useAutowiring(true);
-$builder->useAnnotations(true);
-return $builder->build();
+//use DI\ContainerBuilder;
+//
+//$builder = new ContainerBuilder();
+//$builder->addDefinitions(config('dependence', []));
+//$builder->useAutowiring(true);
+//$builder->useAnnotations(true);
+//return $builder->build();

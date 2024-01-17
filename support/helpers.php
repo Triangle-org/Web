@@ -553,15 +553,14 @@ function getRequestIp(): ?string
                     request()->header(
                         'remote-addr',
                         request()->header(
-                            'via',
-                            request()->getRealIp()
+                            'via'
                         )
                     )
                 )
             )
         )
     );
-    return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : (request()->getRealIp() ?? null);
+    return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : null;
 }
 
 
