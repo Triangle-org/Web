@@ -209,7 +209,7 @@ function copy_dir(string $source, string $dest, bool $overwrite = false): void
         }
         $files = array_diff(scandir($source), ['.', '..']) ?: [];
         foreach ($files as $file) {
-            copy_dir("$source/$file", "$dest/$file");
+            copy_dir("$source/$file", "$dest/$file", $overwrite);
         }
     } else if (file_exists($source) && ($overwrite || !file_exists($dest))) {
         copy($source, $dest);
@@ -561,6 +561,17 @@ function getRequestIp(): ?string
         )
     );
     return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : null;
+}
+
+/**
+ * Get request parameters, if no parameter name is passed, an array of all values is returned, default values is supported
+ * @param string|null $param param's name
+ * @param mixed|null $default default value
+ * @return mixed|null
+ */
+function input(string $param = null, mixed $default = null): mixed
+{
+    return is_null($param) ? request()->all() : request()->input($param, $default);
 }
 
 
