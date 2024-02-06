@@ -8,12 +8,11 @@
  * @license     https://mit-license.org MIT
  */
 
-use Triangle\Engine\Session\FileSessionHandler;
+use Triangle\Engine\Session\{FileSessionHandler, MongoSessionHandler, RedisClusterSessionHandler, RedisSessionHandler};
 
 return [
-
-    'type' => 'file', // or mongo or redis or redis_cluster
-    'handler' => FileSessionHandler::class,
+    'type' => 'file',
+    'handler' => FileSessionHandler::class, /** @var FileSessionHandler|MongoSessionHandler|RedisClusterSessionHandler|RedisSessionHandler */
     'config' => [
         'file' => [
             'save_path' => runtime_path() . '/sessions',
@@ -46,6 +45,6 @@ return [
     'domain' => '',
     'http_only' => true,
     'secure' => false,
-    'same_site' => '',
+    'same_site' => 'Lax',
     'gc_probability' => [1, 1000],
 ];

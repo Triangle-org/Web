@@ -14,9 +14,14 @@ return [
     'handler' => Raw::class,
     'options' => [
         'view_suffix' => 'phtml',
-        'view_global' => true,   // true - шаблоны view_head и view_footer будут забираться из "\app_path() . '/view/' . config('view.options.view_...')"
-        // 'view_head' => '',
-        // 'view_footer' => '',
-    ]
-
+        'pre_renders' => [],
+        'post_renders' => [],
+        'vars' => [],
+    ],
+//    'templates' => [
+//        'system' => [
+//            'success' => '',
+//            'error' => '',
+//        ]
+//    ]
 ];
