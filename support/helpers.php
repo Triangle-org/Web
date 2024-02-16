@@ -2,10 +2,10 @@
 
 use localzet\Server;
 use localzet\Server\Connection\TcpConnection;
+use localzet\Server\Protocols\Http\Session;
 use support\Container;
 use support\Response;
 use support\Translation;
-use Symfony\Component\Yaml\Yaml;
 use Triangle\Engine\App;
 use Triangle\Engine\Config;
 use Triangle\Engine\Http\Request;
@@ -389,21 +389,6 @@ function jsonp($data, string $callbackName = 'callback'): Response
     return new Response(200, [], "$callbackName($data)");
 }
 
-/**
- * @param $yaml
- * @return Response
- */
-function yaml($yaml): Response
-{
-    if (!class_exists(Yaml::class)) {
-        throw new RuntimeException("Запусти composer require symfony/yaml для поддержки YAML");
-    }
-    if (is_array($yaml)) {
-        $yaml = Yaml::dump($yaml);
-    }
-    return new Response(200, ['Content-Type' => 'text/yaml'], $yaml);
-}
-
 
 /** TRANSLATION HELPERS */
 
@@ -508,7 +493,7 @@ function route(string $name, ...$parameters): string
 /**
  * @param mixed|null $key
  * @param mixed|null $default
- * @return mixed
+ * @return mixed|bool|Session
  * @throws Exception
  */
 function session(mixed $key = null, mixed $default = null): mixed

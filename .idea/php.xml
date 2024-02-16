@@ -40,7 +40,7 @@
   </component>
   <component name="PhpInterpreters">
     <interpreters>
-      <interpreter id="64015a97-c2ca-4dce-ae0f-cf4b1b33576b" name="Ubuntu" home="\\wsl$\Ubuntu/usr/bin/php" false="false" debugger_id="php.debugger.XDebug">
+      <interpreter id="64015a97-c2ca-4dce-ae0f-cf4b1b33576b" name="Ubuntu" home="\\wsl$\Ubuntu/usr/bin/php" auto="false" debugger_id="php.debugger.XDebug">
         <remote_data INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DISTRIBUTION_ID="Ubuntu" />
       </interpreter>
     </interpreters>

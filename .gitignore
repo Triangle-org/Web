@@ -424,3 +424,5 @@ $RECYCLE.BIN/
 [._]sw[a-p]
 Session.vim
 Sessionx.vim
+
+/runtime
