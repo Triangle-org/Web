@@ -8,4 +8,8 @@
  * @license     https://mit-license.org MIT
  */
 
-return [];
+return [
+    '' => [
+
+    ]
+];
