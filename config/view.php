@@ -9,6 +9,9 @@
  */
 
 use Triangle\Engine\View\Raw;
+use Triangle\Engine\View\Twig;
+use Triangle\Engine\View\Blade;
+use Triangle\Engine\View\ThinkPHP;
 
 return [
     'handler' => Raw::class,
