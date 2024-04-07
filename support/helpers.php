@@ -1,4 +1,28 @@
 <?php
+/**
+ * @package     Triangle Engine
+ * @link        https://github.com/Triangle-org/Engine Triangle Engine (v2+)
+ * @link        https://github.com/localzet-archive/FrameX-Public FrameX (v1-2)
+ *
+ * @author      Ivan Zorin <creator@localzet.com>
+ * @copyright   Copyright (c) 2018-2024 Zorin Projects S.P.
+ * @license     https://www.gnu.org/licenses/agpl-3.0 GNU Affero General Public License v3.0
+ *
+ *              This program is free software: you can redistribute it and/or modify
+ *              it under the terms of the GNU Affero General Public License as published
+ *              by the Free Software Foundation, either version 3 of the License, or
+ *              (at your option) any later version.
+ *
+ *              This program is distributed in the hope that it will be useful,
+ *              but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *              MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *              GNU Affero General Public License for more details.
+ *
+ *              You should have received a copy of the GNU Affero General Public License
+ *              along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ *              For any questions, please contact <creator@localzet.com>
+ */
 
 use localzet\Server;
 use localzet\Server\Connection\TcpConnection;
@@ -205,7 +229,7 @@ function copy_dir(string $source, string $dest, bool $overwrite = false): void
 {
     if (is_dir($source)) {
         if (!is_dir($dest)) {
-            mkdir($dest);
+            create_dir($dest);
         }
         $files = array_diff(scandir($source), ['.', '..']) ?: [];
         foreach ($files as $file) {
@@ -256,7 +280,7 @@ function remove_dir(string $dir): bool
  */
 function create_dir(string $dir): bool
 {
-    return mkdir($dir);
+    return mkdir($dir, 0777, true);
 }
 
 /**
