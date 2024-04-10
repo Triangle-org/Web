@@ -426,3 +426,6 @@ Session.vim
 Sessionx.vim
 
 /runtime
+/support/bootstrap.php
+/support/helpers.php
+/master
