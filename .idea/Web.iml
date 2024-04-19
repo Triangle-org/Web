@@ -12,10 +12,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/fast-route" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpoption/phpoption" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/deprecation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-grapheme" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-normalizer" />
@@ -26,9 +24,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/triangle/engine" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/localzet/psr" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/maxmind-db/reader" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/triangle/console" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/localzet/webanalyzer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/console" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

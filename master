@@ -24,7 +24,9 @@
  *              along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+use support\Container;
 use Triangle\Console;
+use Triangle\Console\Util;
 use Triangle\Engine\Config;
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -32,8 +34,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', 'connections'])) {
     require_once __DIR__ . '/support/bootstrap.php';
 } else {
-    if (class_exists('support\App')) {
-        support\App::loadAllConfig(['route']);
+    if (class_exists('Support\App')) {
+        Support\App::loadAllConfig(['route']);
     } else {
         Config::load(config_path(), ['route', 'container']);
     }
@@ -41,20 +43,38 @@ if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', '
 
 $cli = new Console();
 $cli->setName('Triangle CLI');
-if (is_dir($command_path = app_path('command'))) {
+$cli->installInternalCommands();
+if (is_dir($command_path = Util::guessPath(app_path(), '/command', true))) {
     $cli->installCommands($command_path);
 }
 
 foreach (config('plugin', []) as $firm => $projects) {
-    if (config("plugin.$firm.app", false)) continue;
+    if (isset($projects['app'])) {
+        if ($command_str = Util::guessPath(base_path() . "/plugin/$firm", 'command')) {
+            $command_path = base_path() . "/plugin/$firm/$command_str";
+            $cli->installCommands($command_path, "plugin\\$firm\\$command_str");
+        }
+    }
     foreach ($projects as $name => $project) {
-        foreach ($project['command'] ?? [] as $command) {
-            $cli->add(new $command);
+        if (!is_array($project)) {
+            continue;
+        }
+        foreach ($project['command'] ?? [] as $class_name) {
+            $reflection = new ReflectionClass($class_name);
+            if ($reflection->isAbstract()) {
+                continue;
+            }
+            $properties = $reflection->getStaticProperties();
+            $name = $properties['defaultName'];
+            if (!$name) {
+                throw new RuntimeException("Command {$class_name} has no defaultName");
+            }
+            $description = $properties['defaultDescription'] ?? '';
+            $command = Container::get($class_name);
+            $command->setName($name)->setDescription($description);
+            $cli->add($command);
         }
     }
 }
 
-try {
-    $cli->run();
-} catch (Exception $e) {
-}
+$cli->run();
