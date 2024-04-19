@@ -14,15 +14,15 @@ return [
             [
                 'class' => Monolog\Handler\RotatingFileHandler::class,
                 'constructor' => [
-                    runtime_path() . '/logs/triangle.log',
-                    7, //$maxFiles
-                    Monolog\Logger::DEBUG,
+                    runtime_path(env('LOG_FILE_NAME', 'triangle.log')),
+                    (int)env('LOG_FILE_COUNT', 7),
+                    env('LOG_FILE_LEVEL', Monolog\Logger::DEBUG),
                 ],
                 'formatter' => [
                     'class' => Monolog\Formatter\LineFormatter::class,
-                    'constructor' => [null, 'Y-m-d H:i:s', true],
+                    'constructor' => [env('LOG_FILE_FORMAT', null), env('LOG_FILE_DATE_FORMAT', 'Y-m-d H:i:s'), env('LOG_FILE_INLINE_BREAKS', true)],
                 ],
             ],
-        ]
-    ]
+        ],
+    ],
 ];

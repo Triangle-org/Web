@@ -11,19 +11,22 @@
 use support\Request;
 
 return [
-    'debug' => true,
     'error_reporting' => E_ALL,
-    'default_timezone' => 'Europe/Moscow',
     'request_class' => Request::class,
+
     'public_path' => base_path('public'),
     'runtime_path' => base_path(false) . DIRECTORY_SEPARATOR . 'runtime',
-    'controller_suffix' => '',
-    'controller_reuse' => true,
 
-    'name' => 'Triangle App',
+    'default_timezone' => env('APP_TIMEZONE', 'Europe/Moscow'),
 
-    // 'domain' => 'example.com',
-    // 'assets' => '/',
+    'controller_suffix' => env('CONTROLLER_SUFFIX', ''),
+    'controller_reuse' => env('CONTROLLER_REUSE', true),
+
+    'debug' => (bool)env('APP_DEBUG', false),
+    'name' => env('APP_NAME', 'Triangle App'),
+
+    'url' => env('APP_URL', 'http://localhost'),
+    'asset_url' => env('ASSET_URL'),
 
     'headers' => [
         'Content-Language' => 'ru',
