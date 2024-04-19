@@ -25,12 +25,13 @@
  *              For any questions, please contact <creator@localzet.com>
  */
 
-use Dotenv\Dotenv;
+use support\App;
 use support\Container;
 use support\Events;
 use support\Log;
 use Triangle\Engine\Bootstrap\BootstrapInterface;
 use Triangle\Engine\Config;
+use Triangle\Engine\Environment;
 use Triangle\Engine\Middleware;
 use Triangle\Engine\Router;
 
@@ -61,17 +62,11 @@ if ($server) {
 }
 
 // Загрузка переменных окружения из файла .env
-if (class_exists('Dotenv\Dotenv') && file_exists(base_path(false) . '/.env')) {
-    if (method_exists('Dotenv\Dotenv', 'createUnsafeMutable')) {
-        Dotenv::createUnsafeMutable(base_path(false))->load();
-    } else {
-        Dotenv::createMutable(base_path(false))->load();
-    }
-}
+Environment::load(run_path());
 
 // Очистка конфигурации
 Config::clear();
-support\App::loadAllConfig(['route']);
+App::loadAllConfig(['route']);
 
 // Установка часового пояса по умолчанию
 date_default_timezone_set(config('app.default_timezone', 'Europe/Moscow'));
