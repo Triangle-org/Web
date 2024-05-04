@@ -34,7 +34,9 @@ return [
                 'php', 'phtml', 'html', 'htm', 'env'
             ],
             'options' => [
-                'enable_file_monitor' => !Server::$daemonize && DIRECTORY_SEPARATOR === '/',
+                'enable_file_monitor' => DIRECTORY_SEPARATOR === '/'
+                    && env('PROCESS_FILE_MONITOR', true)
+                    && !Server::$daemonize,
                 'enable_memory_monitor' => DIRECTORY_SEPARATOR === '/',
             ]
         ]

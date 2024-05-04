@@ -10,7 +10,7 @@
 
 return [
     'listen' => env('SERVER_LISTEN', 'http://0.0.0.0:8000'),
-    'transport' => 'tcp',
+    'transport' => env('SERVER_TRANSPORT', 'tcp'),
     'context' => [],
     'name' => env('APP_NAME', 'Triangle App'),
     'count' => env('SERVER_COUNT', cpu_count() * 4),

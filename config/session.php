@@ -33,18 +33,19 @@ return [
         'redis' => [
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'port' => env('REDIS_PORT', '6379'),
-            'auth' => '',
+            'auth' => env('REDIS_PASSWORD'),
+            'database' => env('REDIS_DB_SESSION', '2'),
             'timeout' => 2,
-            'database' => env('REDIS_CACHE_DB', '2'),
-            'prefix' => 'triangle_session_',
+            'prefix' => env('REDIS_PREFIX_SESSION', 'triangle_session_'),
         ],
         'redis_cluster' => [
             'host' => ['127.0.0.1:7000', '127.0.0.1:7001', '127.0.0.1:7001'],
+            'auth' => env('REDIS_PASSWORD'),
             'timeout' => 2,
-            'auth' => '',
-            'prefix' => 'triangle_session_',
+            'prefix' => env('REDIS_PREFIX_SESSION', 'triangle_session_'),
         ]
     ],
+
     'auto_update_timestamp' => env('SESSION_AUTO_UPDATE', false),
     'lifetime' => env('SESSION_LIFETIME', 7 * 24 * 60 * 60),
     'session_name' => env('SESSION_COOKIE_NAME', 'PHPSID'),
