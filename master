@@ -24,7 +24,6 @@
  *              along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-use support\Container;
 use Triangle\Console;
 use Triangle\Console\Util;
 use Triangle\Engine\Config;
@@ -42,8 +41,6 @@ if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', '
 }
 
 $cli = new Console();
-$cli->setName('Triangle CLI');
-$cli->installInternalCommands();
 if (is_dir($command_path = Util::guessPath(app_path(), '/command', true))) {
     $cli->installCommands($command_path);
 }
@@ -64,15 +61,15 @@ foreach (config('plugin', []) as $firm => $projects) {
             if ($reflection->isAbstract()) {
                 continue;
             }
+
             $properties = $reflection->getStaticProperties();
-            $name = $properties['defaultName'];
+            $name = $properties['defaultName'] ?? null;
             if (!$name) {
-                throw new RuntimeException("Command {$class_name} has no defaultName");
+                throw new RuntimeException("У команды $class_name нет defaultName");
             }
-            $description = $properties['defaultDescription'] ?? '';
-            $command = Container::get($class_name);
-            $command->setName($name)->setDescription($description);
-            $cli->add($command);
+
+            $command = new $class_name(config('plugin.triangle.console.app', []));
+            $this->add($command);
         }
     }
 }
