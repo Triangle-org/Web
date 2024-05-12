@@ -26,22 +26,22 @@ return [
             'save_path' => runtime_path('sessions'),
         ],
         'mongo' => [
-            'uri' => 'mongodb://' . env('SESSION_MONGO_HOST', 'localhost') . ':' . env('SESSION_MONGO_PORT', '27017') . '/?directConnection=true',
-            'database' => 'default',
-            'collection' => 'sessions',
+            'uri' => 'mongodb://' . (env('SESSION_MONGO_USER') ? env('SESSION_MONGO_USER') . ':' . env('SESSION_MONGO_PASS') . '@' : '') . env('SESSION_MONGO_HOST', 'localhost') . ':' . env('SESSION_MONGO_PORT', '27017') . '/?directConnection=true&authSource=admin',
+            'database' => env('SESSION_MONGO_DATABASE', 'default'),
+            'collection' => env('SESSION_MONGO_COLLECTION', 'sessions'),
         ],
         'redis' => [
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'port' => env('REDIS_PORT', '6379'),
             'auth' => env('REDIS_PASSWORD'),
             'database' => env('REDIS_DB_SESSION', '2'),
-            'timeout' => 2,
+            'timeout' => env('REDIS_TIMEOUT', 2),
             'prefix' => env('REDIS_PREFIX_SESSION', 'triangle_session_'),
         ],
         'redis_cluster' => [
             'host' => ['127.0.0.1:7000', '127.0.0.1:7001', '127.0.0.1:7001'],
             'auth' => env('REDIS_PASSWORD'),
-            'timeout' => 2,
+            'timeout' => env('REDIS_TIMEOUT', 2),
             'prefix' => env('REDIS_PREFIX_SESSION', 'triangle_session_'),
         ]
     ],
