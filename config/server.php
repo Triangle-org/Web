@@ -16,7 +16,7 @@ return [
     'count' => env('SERVER_COUNT', cpu_count() * 4),
     'user' => env('SERVER_USER', ''),
     'group' => env('SERVER_GROUP', ''),
-    'reusePort' => env('SERVER_GROUP', false),
+    'reusePort' => env('SERVER_REUSE_PORT', false),
     'stop_timeout' => env('SERVER_STOP_TIMEOUT', 2),
     'pid_file' => runtime_path(env('SERVER_FILE_PID', 'triangle.pid')),
     'status_file' => runtime_path(env('SERVER_FILE_STATUS', 'triangle.status')),
