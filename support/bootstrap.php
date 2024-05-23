@@ -140,11 +140,10 @@ foreach (config('plugin', []) as $firm => $projects) {
 
 /**
  * Преобразует колбэк(и) в массив колбэков
- *
  * @param mixed $callbacks
- * @return array
+ * @return array|mixed
  */
-function convertCallable($callbacks): array
+function convertCallable(mixed $callbacks): mixed
 {
     if (is_array($callbacks)) {
         $callback = array_values($callbacks);
@@ -152,7 +151,7 @@ function convertCallable($callbacks): array
             return [Container::get($callback[0]), $callback[1]];
         }
     }
-    return $callback ?? [];
+    return $callbacks;
 }
 
 $rawEvents = config('event', []);
@@ -174,20 +173,28 @@ foreach (config('plugin', []) as $firm => $projects) {
 // Обработка событий и регистрация обработчиков
 foreach ($rawEvents as $eventName => $callbacks) {
     $callbacks = convertCallable($callbacks);
+    if (!is_callable($callbacks) && !is_array($callbacks)) {
+        $msg = "Событие: $eventName => " . var_export($callbacks, true) . " не вызываемо\n";
+        echo $msg;
+        Log::error($msg);
+        continue;
+    }
+
     if (is_callable($callbacks)) {
         $allEvents[$eventName][] = [$callbacks];
         continue;
     }
+
     ksort($callbacks, SORT_NATURAL);
     foreach ($callbacks as $id => $callback) {
         $callback = convertCallable($callback);
-        if (is_callable($callback)) {
-            $allEvents[$eventName][$id][] = $callback;
+        if (!is_callable($callback)) {
+            $msg = "Событие: $eventName => " . var_export($callback, true) . " не вызываемо\n";
+            echo $msg;
+            Log::error($msg);
             continue;
         }
-        $msg = "Событие: $eventName => " . var_export($callback, true) . " не вызываемый\n";
-        echo $msg;
-        Log::error($msg);
+        $allEvents[$eventName][$id][] = $callback;
     }
 }
 
