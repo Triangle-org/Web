@@ -20,7 +20,11 @@ return [
                 ],
                 'formatter' => [
                     'class' => Monolog\Formatter\LineFormatter::class,
-                    'constructor' => [env('LOG_FILE_FORMAT', null), env('LOG_FILE_DATE_FORMAT', 'Y-m-d H:i:s'), env('LOG_FILE_INLINE_BREAKS', true)],
+                    'constructor' => [
+                        env('LOG_FILE_FORMAT'),
+                        env('LOG_FILE_DATE_FORMAT', 'Y-m-d H:i:s'),
+                        env('LOG_FILE_INLINE_BREAKS', true)
+                    ],
                 ],
             ],
         ],

@@ -34,5 +34,6 @@ return [
         'Access-Control-Allow-Credentials' => 'true',
         'Access-Control-Allow-Methods' => '*',
         'Access-Control-Allow-Headers' => '*',
+        'X-Powered-By' => 'Triangle-Core/' . Composer\InstalledVersions::getVersion('triangle/engine'),
     ],
 ];
