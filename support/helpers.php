@@ -59,12 +59,15 @@ define('BASE_PATH', str_contains(__DIR__, '/vendor/triangle/engine/') ? dirname(
  */
 function response(mixed $body = '', int $status = 200, array $headers = [], bool $http_status = false, bool $onlyJson = false): Response
 {
+    $status = ($http_status === true) ? $status : 200;
     $body = [
-        'debug' => config('app.debug'),
         'status' => $status,
         'data' => $body
     ];
-    $status = ($http_status === true) ? $status : 200;
+
+    if (config('app.debug')) {
+        $body['debug'] = config('app.debug');
+    }
 
     if (request()->expectsJson() || $onlyJson) {
         return responseJson($body, $status, $headers);
