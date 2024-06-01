@@ -1,12 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
- * @package     Triangle Engine
+ * @package     Triangle Engine (FrameX Project)
  * @link        https://github.com/Triangle-org/Engine Triangle Engine (v2+)
  * @link        https://github.com/localzet-archive/FrameX-Public FrameX (v1-2)
  *
  * @author      Ivan Zorin <creator@localzet.com>
- * @copyright   Copyright (c) 2018-2024 Zorin Projects S.P.
+ * @copyright   Copyright (c) 2023-2024 Triangle Framework Team
  * @license     https://www.gnu.org/licenses/agpl-3.0 GNU Affero General Public License v3.0
  *
  *              This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@
  *              You should have received a copy of the GNU Affero General Public License
  *              along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- *              For any questions, please contact <creator@localzet.com>
+ *              For any questions, please contact <support@localzet.com>
  */
 
 use support\App;

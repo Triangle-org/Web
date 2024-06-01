@@ -1,13 +1,5 @@
 <?php
 
-/**
- * @package     Triangle Web
- * @link        https://github.com/Triangle-org
- *
- * @copyright   2018-2024 Localzet Group
- * @license     https://mit-license.org MIT
- */
-
 use Triangle\Engine\Session\FileSessionHandler;
 use Triangle\Engine\Session\MongoSessionHandler;
 use Triangle\Engine\Session\RedisClusterSessionHandler;

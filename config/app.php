@@ -1,18 +1,8 @@
 <?php
 
-/**
- * @package     Triangle Web
- * @link        https://github.com/Triangle-org
- *
- * @copyright   2018-2024 Localzet Group
- * @license     https://mit-license.org MIT
- */
-
-use support\Request;
-
 return [
     'error_reporting' => E_ALL,
-    'request_class' => Request::class,
+    'request_class' => support\Request::class,
 
     'public_path' => base_path('public'),
     'runtime_path' => base_path(false) . DIRECTORY_SEPARATOR . 'runtime',

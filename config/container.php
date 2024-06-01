@@ -1,13 +1,5 @@
 <?php
 
-/**
- * @package     Triangle Web
- * @link        https://github.com/Triangle-org
- *
- * @copyright   2018-2024 Localzet Group
- * @license     https://mit-license.org MIT
- */
-
 if (env('APP_SERVICES', false) && class_exists('DI\ContainerBuilder')) {
     // Подключаем сервисы
     // composer require psr/container ^1.1.1 php-di/php-di ^6 doctrine/annotations ^1.14

@@ -1,17 +1,3 @@
-<?php
-
-/**
- * @package     Triangle Web
- * @link        https://github.com/Triangle-org
- *
- * @copyright   2018-2024 Localzet Group
- * @license     https://mit-license.org MIT
- */
-
-use localzet\Server;
-
-?>
-
 <!DOCTYPE html>
 
 <html lang="ru" prefix="og: http://ogp.me/ns#">
@@ -27,7 +13,7 @@ use localzet\Server;
 
     <!-- About System -->
     <meta name="generator" content="Triangle Framework"/>
-    <meta name="server" version="Localzet Server <?= Server::getVersion() ?? '' ?>"/>
+    <meta name="server" version="Localzet Server <?= localzet\Server::getVersion() ?? '' ?>"/>
 
     <!-- Cache&Content -->
     <meta http-equiv="Expires" content="60"/>
@@ -129,7 +115,7 @@ use localzet\Server;
 <div class="footer">
     <hr>
     <a href="https://github.com/localzet/server">Powered by <b>Localzet
-            Server <?= @Server::getVersion() ?? '' ?></b></a>
+            Server <?= @localzet\Server::getVersion() ?? '' ?></b></a>
 </div>
 </body>
 
