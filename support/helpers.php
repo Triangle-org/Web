@@ -738,7 +738,7 @@ function server_start($processName, $config): void
         transport: $config['transport'] ?? 'tcp',
         handler: $config['handler'] ?? null,
         constructor: $config['constructor'] ?? null,
-        onServerStart: function () {
+        onServerStart: function (?Server $server) {
             return require_once base_path('/support/bootstrap.php');
         }
     );
