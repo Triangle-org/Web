@@ -47,9 +47,9 @@ return [
     ],
 
     'auto_update_timestamp' => env('SESSION_AUTO_UPDATE', false),
-    'lifetime' => env('SESSION_LIFETIME', 7 * 24 * 60 * 60),
+    'lifetime' => (int)env('SESSION_LIFETIME', 7 * 24 * 60 * 60),
     'session_name' => env('SESSION_COOKIE_NAME', 'PHPSID'),
-    'cookie_lifetime' => env('SESSION_COOKIE_LIFETIME', 365 * 24 * 60 * 60),
+    'cookie_lifetime' => (int)env('SESSION_COOKIE_LIFETIME', 365 * 24 * 60 * 60),
     'cookie_path' => env('SESSION_COOKIE_PATH', '/'),
     'domain' => env('SESSION_COOKIE_DOMAIN', ''),
     'http_only' => env('SESSION_COOKIE_HTTP_ONLY', true),
