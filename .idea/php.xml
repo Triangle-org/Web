@@ -31,8 +31,8 @@
       <path value="$PROJECT_DIR$/vendor/nikic/fast-route" />
       <path value="$PROJECT_DIR$/vendor/localzet/server" />
       <path value="$PROJECT_DIR$/vendor/triangle/console" />
-      <path value="$PROJECT_DIR$/vendor/triangle/engine" />
       <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/triangle/engine" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
