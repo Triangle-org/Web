@@ -1,6 +1,6 @@
 <?php
 
 return [
-    Triangle\Engine\Bootstrap\Eloquent::class,
-    Triangle\Engine\Bootstrap\Session::class,
+    Triangle\Engine\Database\Bootstrap::class,
+    Triangle\Engine\Session\Bootstrap::class,
 ];
