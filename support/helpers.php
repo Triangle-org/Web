@@ -34,6 +34,7 @@ use Triangle\Engine\App;
 use Triangle\Engine\Config;
 use Triangle\Engine\Environment;
 use Triangle\Engine\Http\Request;
+use Triangle\Engine\Path;
 use Triangle\Engine\Router;
 use Triangle\Engine\View\Blade;
 use Triangle\Engine\View\Raw;
@@ -632,10 +633,7 @@ function run_path(string $path = ''): string
  */
 function base_path(false|string $path = ''): string
 {
-    if (false === $path) {
-        return run_path();
-    }
-    return path_combine(App::basePath(), $path);
+    return Path::basePath($path);
 }
 
 /**
@@ -644,7 +642,7 @@ function base_path(false|string $path = ''): string
  */
 function app_path(string $path = ''): string
 {
-    return path_combine(App::appPath(), $path);
+    return Path::appPath($path);
 }
 
 /**
@@ -653,7 +651,7 @@ function app_path(string $path = ''): string
  */
 function config_path(string $path = ''): string
 {
-    return path_combine(App::configPath(), $path);
+    return Path::configPath($path);
 }
 
 /**
@@ -662,7 +660,7 @@ function config_path(string $path = ''): string
  */
 function public_path(string $path = ''): string
 {
-    return path_combine(App::publicPath(), $path);
+    return Path::publicPath($path);
 }
 
 /**
@@ -671,7 +669,7 @@ function public_path(string $path = ''): string
  */
 function runtime_path(string $path = ''): string
 {
-    return path_combine(App::runtimePath(), $path);
+    return Path::runtimePath($path);
 }
 
 /**
@@ -697,7 +695,7 @@ function path_combine(string $front, string $back): string
 /**
  * Get realpath
  * @param string $filePath
- * @return string
+ * @return string|false
  */
 function get_realpath(string $filePath): string|false
 {
@@ -732,7 +730,9 @@ function server_start($processName, $config): void
         handler: $config['handler'] ?? null,
         constructor: $config['constructor'] ?? null,
         onServerStart: function (?Server $server) {
-            return require_once base_path('/support/bootstrap.php');
+            if (file_exists(base_path('/support/bootstrap.php'))) {
+                include_once base_path('/support/bootstrap.php');
+            }
         }
     );
 }
