@@ -43,7 +43,7 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-define('BASE_PATH', str_contains(__DIR__, '/vendor/triangle/engine/') ? dirname(__DIR__, 5) : dirname(__DIR__));
+define('BASE_PATH', get_realpath(Composer\InstalledVersions::getRootPackage()['install_path']) ?? dirname(__DIR__));
 
 /** RESPONSE HELPERS */
 
@@ -589,6 +589,9 @@ function getRequestIp(): ?string
             )
         )
     );
+    if (is_string($ip)) {
+        $ip = current(explode(',', $ip));
+    }
     return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : null;
 }
 
@@ -608,13 +611,67 @@ function input(string $param = null, mixed $default = null): mixed
 
 
 /**
+ * return the program execute directory
+ * @param string $path
+ * @return string
+ */
+function run_path(string $path = ''): string
+{
+    static $runPath = '';
+    if (!$runPath) {
+        $runPath = is_phar() ?
+            dirname(Phar::running(false)) :
+            base_path();
+    }
+    return path_combine($runPath, $path);
+}
+
+/**
+ * @param false|string $path
+ * @return string
+ */
+function base_path(false|string $path = ''): string
+{
+    if (false === $path) {
+        return run_path();
+    }
+    return path_combine(App::basePath(), $path);
+}
+
+/**
  * @param string $path
  * @return string
  */
 function app_path(string $path = ''): string
 {
-    $appPath = App::appPath();
-    return path_combine($appPath != '' ? $appPath : (BASE_PATH . DIRECTORY_SEPARATOR . 'app'), $path);
+    return path_combine(App::appPath(), $path);
+}
+
+/**
+ * @param string $path
+ * @return string
+ */
+function config_path(string $path = ''): string
+{
+    return path_combine(App::configPath(), $path);
+}
+
+/**
+ * @param string $path
+ * @return string
+ */
+function public_path(string $path = ''): string
+{
+    return path_combine(App::publicPath(), $path);
+}
+
+/**
+ * @param string $path
+ * @return string
+ */
+function runtime_path(string $path = ''): string
+{
+    return path_combine(App::runtimePath(), $path);
 }
 
 /**
@@ -624,42 +681,6 @@ function app_path(string $path = ''): string
 function view_path(string $path = ''): string
 {
     return path_combine(app_path('view'), $path);
-}
-
-/**
- * @param string $path
- * @return string
- */
-function public_path(string $path = ''): string
-{
-//    static $publicPath = '';
-//    if (!$publicPath) {
-//        $publicPath = config('app.public_path') ?: run_path('public');
-//    }
-    $publicPath = App::publicPath();
-    return path_combine($publicPath != '' ? $publicPath : (config('app.public_path') ?: run_path('public')), $path);
-}
-
-/**
- * @param string $path
- * @return string
- */
-function config_path(string $path = ''): string
-{
-    return path_combine(base_path('config'), $path);
-}
-
-/**
- * @param string $path
- * @return string
- */
-function runtime_path(string $path = ''): string
-{
-    static $runtimePath = '';
-    if (!$runtimePath) {
-        $runtimePath = config('app.runtime_path') ?: run_path('runtime');
-    }
-    return path_combine($runtimePath, $path);
 }
 
 /**
@@ -674,39 +695,11 @@ function path_combine(string $front, string $back): string
 }
 
 /**
- * return the program execute directory
- * @param string $path
- * @return string
- */
-function run_path(string $path = ''): string
-{
-    static $runPath = '';
-    if (!$runPath) {
-        $runPath = is_phar() ?
-            dirname(Phar::running(false)) :
-            BASE_PATH;
-    }
-    return path_combine($runPath, $path);
-}
-
-/**
- * @param false|string $path
- * @return string
- */
-function base_path(false|string $path = ''): string
-{
-    if (false === $path) {
-        return run_path();
-    }
-    return path_combine(BASE_PATH, $path);
-}
-
-/**
  * Get realpath
  * @param string $filePath
  * @return string
  */
-function get_realpath(string $filePath): string
+function get_realpath(string $filePath): string|false
 {
     if (str_starts_with($filePath, 'phar://')) {
         return $filePath;

@@ -29,7 +29,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', 'connections'])) {
     require_once __DIR__ . '/support/bootstrap.php';
 } else {
-    Triangle\Engine\Environment::load(run_path());
+    \Triangle\Engine\Environment::loadAll(run_path());
     Triangle\Engine\Config::load(config_path(), ['route', 'container']);
 }
 
