@@ -4,8 +4,9 @@ return [
     'error_reporting' => E_ALL,
     'request_class' => support\Request::class,
 
-    'public_path' => base_path('public'),
-    'runtime_path' => base_path(false) . DIRECTORY_SEPARATOR . 'runtime',
+    'app_path' => base_path('app'),
+    'public_path' => run_path('public'),
+    'runtime_path' => run_path('runtime'),
 
     'default_timezone' => env('APP_TIMEZONE', 'Europe/Moscow'),
 
