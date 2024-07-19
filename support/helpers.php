@@ -728,12 +728,13 @@ function server_start($processName, $config): void
         protocol: $config['protocol'] ?? null,
         transport: $config['transport'] ?? 'tcp',
         handler: $config['handler'] ?? null,
-        constructor: $config['constructor'] ?? null,
+        constructor: $config['constructor'] ?? [],
         onServerStart: function (?Server $server) {
             if (file_exists(base_path('/support/bootstrap.php'))) {
                 include_once base_path('/support/bootstrap.php');
             }
-        }
+        },
+        services: $config['services'] ?? [],
     );
 }
 
