@@ -7,21 +7,21 @@ use Triangle\Engine\Database\Model;
 class Test extends Model
 {
     /**
-     * The table associated with the model.
+     * Таблица, связанная с моделью.
      *
      * @var string
      */
     protected $table = 'test';
 
     /**
-     * The primary key associated with the table.
+     * Первичный ключ, связанный с таблицей.
      *
      * @var string
      */
     protected $primaryKey = 'id';
 
     /**
-     * Indicates if the model should be timestamped.
+     * Указывает, должна ли модель иметь метку времени.
      *
      * @var bool
      */

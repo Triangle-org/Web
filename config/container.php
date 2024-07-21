@@ -15,5 +15,7 @@ if (env('APP_SERVICES', false) && class_exists('DI\ContainerBuilder')) {
     }
 
     // Простой контейнер
-    return new Triangle\Engine\Container;
+    $container = new Triangle\Engine\Container();
+    $container->addDefinitions(config('dependence', []));
+    return $container;
 }

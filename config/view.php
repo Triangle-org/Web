@@ -15,21 +15,5 @@ return [
     'options' => [
         'view_suffix' => 'phtml',
         'vars' => [],
-        'pre_renders' => [
-//            [
-//                'app' => null,
-//                'plugin' => null,
-//                'template' => 'index_header',
-//                'vars' => [],
-//            ],
-        ],
-        'post_renders' => [
-//            [
-//                'app' => null,
-//                'plugin' => null,
-//                'template' => 'index_footer',
-//                'vars' => [],
-//            ],
-        ],
     ],
 ];

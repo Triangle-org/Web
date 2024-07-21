@@ -13,13 +13,8 @@
 
     <!-- About System -->
     <meta name="generator" content="Triangle Framework"/>
-    <meta name="server" version="Localzet Server <?= localzet\Server::getVersion() ?? '' ?>"/>
-
-    <!-- Cache&Content -->
-    <meta http-equiv="Expires" content="60"/>
-    <meta http-equiv="Pragma" content="no-cache"/>
-    <meta http-equiv="Cache-Control" content="no-cache"/>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="server" content="Localzet Server <?= localzet\Server::getVersion() ?? '' ?>"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <!-- SEO -->
     <link rel="shortcut icon" type="image/svg+xml" href="//cdn.localzet.com/public/media/localzet.svg"/>
@@ -33,20 +28,12 @@
           href="https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600,700,800,900"/>
 
     <style>
-        html {
-            /* height: 100%; */
-        }
-
         body {
-            /* background-color: #0e0e0e; */
             background-color: #000;
-
             font-family: Nunito, monospace;
             font-weight: 600;
-
             text-align: center;
             text-decoration: none !important;
-
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -79,13 +66,9 @@
         img {
             display: block;
             -webkit-user-select: none;
-            /* margin: calc(48vh - 80px) calc(50vw - 400px); */
             transition: background-color 300ms;
-
             max-width: 800px;
-
             width: 800px;
-            /* height: 160px; */
         }
 
         hr {
@@ -94,7 +77,6 @@
             width: 100%;
         }
 
-        /* Медиа-запрос для экранов меньше 800px */
         @media (max-width: 900px) {
             img {
                 margin: auto 5%;

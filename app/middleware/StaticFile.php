@@ -4,7 +4,7 @@ namespace app\middleware;
 
 use Throwable;
 use Triangle\Engine\Http\{Request, Response};
-use Triangle\Engine\Middleware\MiddlewareInterface;
+use Triangle\Engine\Interface\MiddlewareInterface;
 
 /**
  * Class StaticFile
