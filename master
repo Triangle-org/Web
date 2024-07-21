@@ -35,10 +35,10 @@ if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', '
     register_shutdown_function(fn($start_time) => (time() - $start_time <= 1) ? sleep(1) : true, time());
     date_default_timezone_set(config('app.default_timezone', 'Europe/Moscow'));
 
-    Triangle\Engine\Autoloader::loadAll();
-    Triangle\Engine\Events\EventLoader::loadAll();
-    Triangle\Engine\Middleware\MiddlewareLoader::loadAll();
-    Triangle\Engine\Bootstrap\BootstrapLoader::loadAll(null);
+    Triangle\Engine\Autoload\FileLoader::loadAll();
+    Triangle\Engine\Autoload\EventLoader::loadAll();
+    Triangle\Engine\Autoload\MiddlewareLoader::loadAll();
+    Triangle\Engine\Autoload\BootstrapLoader::loadAll();
 
     $paths = [config_path()];
     foreach (scan_dir(Triangle\Engine\Path::basePath('plugin')) as $path) {

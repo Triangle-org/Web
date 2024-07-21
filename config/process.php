@@ -23,7 +23,7 @@ return [
                 glob(base_path() . '/plugin/*/api')
             ),
             'monitorExtensions' => [
-                'php', 'phtml', 'html', 'htm', 'env'
+                'php', 'phtml', 'html', 'htm', 'env', 'zconf', 'json'
             ],
             'options' => [
                 'enable_file_monitor' => DIRECTORY_SEPARATOR === '/'
