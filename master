@@ -46,7 +46,7 @@ if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', '
             $paths[] = $path;
         }
     }
-    Triangle\Engine\Router::load($paths);
+    Triangle\Router::load($paths);
 } else {
     Triangle\Engine\Environment::loadAll(run_path());
     Triangle\Engine\Config::load(config_path(), ['route', 'container']);
