@@ -2,5 +2,5 @@
 
 return [
     Triangle\Engine\Database\Bootstrap::class,
-    Triangle\Engine\Session\Bootstrap::class,
+    Triangle\Session\Bootstrap::class,
 ];

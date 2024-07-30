@@ -24,6 +24,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/localzet/console" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/triangle/engine" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/triangle/router" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/triangle/session" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

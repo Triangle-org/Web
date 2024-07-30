@@ -27,7 +27,6 @@
 
 use localzet\Server;
 use localzet\Server\Connection\TcpConnection;
-use localzet\Server\Protocols\Http\Session;
 use support\Response;
 use support\Translation;
 use Triangle\Engine\App;
@@ -39,7 +38,6 @@ use Triangle\Engine\View\Blade;
 use Triangle\Engine\View\Raw;
 use Triangle\Engine\View\ThinkPHP;
 use Triangle\Engine\View\Twig;
-use Triangle\Router;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -293,86 +291,6 @@ function rename_dir(string $oldName, string $newName): bool
 }
 
 
-/** PARSERS HELPERS */
-
-
-/**
- * Декодирует строку в объект.
- *
- * Этот метод сначала попытается проанализировать данные
- * как строку JSON (поскольку большинство провайдеров используют этот формат), а затем XML и parse_str.
- *
- * @param string|null $raw
- *
- * @return mixed
- */
-function parse(string $raw = null): mixed
-{
-    $parsers = ['parseJson', 'parseXml', 'parseQueryString'];
-
-    foreach ($parsers as $parser) {
-        $data = $parser($raw);
-        if ($data) {
-            return $data;
-        }
-    }
-
-    return null;
-}
-
-/**
- * Декодирует строку JSON
- *
- * @param string|null $raw
- * @return mixed
- */
-function parseJson(string $raw = null): mixed
-{
-    $data = json_decode($raw, true);
-    return json_last_error() === JSON_ERROR_NONE ? $data : null;
-}
-
-/**
- * Декодирует строку XML
- *
- * @param string|null $raw
- * @return array|null
- */
-function parseXml(string $raw = null): ?array
-{
-    libxml_use_internal_errors(true);
-
-    $raw = preg_replace('/([<\/])([a-z0-9-]+):/i', '$1', $raw);
-    $xml = simplexml_load_string($raw);
-
-    libxml_use_internal_errors(false);
-
-    if (!$xml) {
-        return null;
-    }
-
-    $arr = json_decode(json_encode((array)$xml), true);
-    return [$xml->getName() => $arr];
-}
-
-/**
- * Разбирает строку на переменные
- *
- * @param string|null $raw
- * @return StdClass|null
- */
-function parseQueryString(string $raw = null): ?StdClass
-{
-    parse_str($raw, $output);
-
-    if (!is_array($output)) {
-        return null;
-    }
-
-    return (object)$output;
-}
-
-
 /** FORMATS HELPERS */
 
 
@@ -512,58 +430,6 @@ function is_phar(): bool
     return class_exists(Phar::class, false) && Phar::running();
 }
 
-/**
- * @param string $name
- * @param ...$parameters
- * @return string
- */
-function route(string $name, ...$parameters): string
-{
-    $route = Router::getByName($name);
-    if (!$route) {
-        return '';
-    }
-
-    if (!$parameters) {
-        return $route->url();
-    }
-
-    if (is_array(current($parameters))) {
-        $parameters = current($parameters);
-    }
-
-    return $route->url($parameters);
-}
-
-/**
- * @param mixed|null $key
- * @param mixed|null $default
- * @return mixed|bool|Session
- * @throws Exception
- */
-function session(mixed $key = null, mixed $default = null): mixed
-{
-    $session = request()->session();
-    if (null === $key) {
-        return $session;
-    }
-    if (is_array($key)) {
-        $session->put($key);
-        return null;
-    }
-    if (strpos($key, '.')) {
-        $keyArray = explode('.', $key);
-        $value = $session->all();
-        foreach ($keyArray as $index) {
-            if (!isset($value[$index])) {
-                return $default;
-            }
-            $value = $value[$index];
-        }
-        return $value;
-    }
-    return $session->get($key, $default);
-}
 
 /**
  * Получение IP-адреса

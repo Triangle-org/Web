@@ -33,6 +33,7 @@
       <path value="$PROJECT_DIR$/vendor/triangle/engine" />
       <path value="$PROJECT_DIR$/vendor/triangle/router" />
       <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/triangle/session" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

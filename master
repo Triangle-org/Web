@@ -28,8 +28,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', 'connections'])) {
     Triangle\Engine\Environment::loadAll();
-    Triangle\Engine\Config::clear();
-    Triangle\Engine\Config::loadAll(['route']);
+    Triangle\Engine\Config::reloadAll(['route']);
 
     set_error_handler(fn($level, $message, $file = '', $line = 0) => (error_reporting() & $level) ? throw new ErrorException($message, 0, $level, $file, $line) : true);
     register_shutdown_function(fn($start_time) => (time() - $start_time <= 1) ? sleep(1) : true, time());
@@ -41,12 +40,15 @@ if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', '
     Triangle\Engine\Autoload\BootstrapLoader::loadAll();
 
     $paths = [config_path()];
-    foreach (scan_dir(Triangle\Engine\Path::basePath('plugin')) as $path) {
-        if (is_dir($path = "$path/config")) {
-            $paths[] = $path;
+    $directory = Triangle\Engine\Path::basePath('plugin');
+    foreach (scan_dir($directory, false) as $name) {
+        $dir = "$directory/$name/config";
+        if (is_dir($dir)) {
+            $paths[] = $dir;
         }
     }
-    Triangle\Router::load($paths);
+
+    class_exists('Triangle\Router') && Triangle\Router::collect($paths);
 } else {
     Triangle\Engine\Environment::loadAll(run_path());
     Triangle\Engine\Config::load(config_path(), ['route', 'container']);
