@@ -1,6 +1,6 @@
 <?php
 
 return [
-    Triangle\Engine\Database\Bootstrap::class,
+    Triangle\Database\Bootstrap::class,
     Triangle\Session\Bootstrap::class,
 ];

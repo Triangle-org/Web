@@ -1,11 +1,5 @@
 <?php
 
-// Для подключения баз данных:
-// composer require -W illuminate/database illuminate/pagination illuminate/events symfony/var-dumper
-
-// Для MongoDB:
-// composer require -W mongodb/laravel-mongodb
-
 return [
     'default' => env('DB_CONNECTION', 'mysql'),
     'connections' => [

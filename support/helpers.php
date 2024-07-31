@@ -34,18 +34,10 @@ use Triangle\Engine\Config;
 use Triangle\Engine\Environment;
 use Triangle\Engine\Http\Request;
 use Triangle\Engine\Path;
-use Triangle\Engine\View\Blade;
-use Triangle\Engine\View\Raw;
-use Triangle\Engine\View\ThinkPHP;
-use Triangle\Engine\View\Twig;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 
 define('BASE_PATH', get_realpath(Composer\InstalledVersions::getRootPackage()['install_path']) ?? dirname(__DIR__));
 
 /** RESPONSE HELPERS */
-
 
 /**
  * @param mixed $body
@@ -68,7 +60,7 @@ function response(mixed $body = '', int $status = 200, array $headers = [], bool
         $body['debug'] = config('app.debug');
     }
 
-    if (request()->expectsJson() || $onlyJson) {
+    if (!function_exists('responseView') || request()->expectsJson() || $onlyJson) {
         return responseJson($body, $status, $headers);
     } else {
         return responseView($body, $status, $headers);
@@ -94,31 +86,7 @@ function responseBlob(string $blob, string $type = 'image/png'): Response
  */
 function responseJson($data, int $status = 200, array $headers = [], int $options = JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR): Response
 {
-    $headers = ['Content-Type' => 'application/json'] + $headers;
-    $body = json($data, $options);
-
-    return new Response($status, $headers, $body);
-}
-
-/**
- * @param array $data
- * @param null $status
- * @param array $headers
- * @return Response
- * @throws Throwable
- */
-function responseView(array $data, $status = null, array $headers = []): Response
-{
-    if (
-        ($status == 200 || $status == 500)
-        && (!empty($data['status']) && is_numeric($data['status']))
-        && ($data['status'] >= 100 && $data['status'] < 600)
-    ) {
-        $status = $data['status'];
-    }
-    $template = ($status == 200) ? 'success' : 'error';
-
-    return new Response($status, $headers, Raw::renderSys($template, $data));
+    return new Response($status, ['Content-Type' => 'application/json'] + $headers, json($data, $options));
 }
 
 /**
@@ -137,70 +105,6 @@ function redirect(string $location, int $status = 302, array $headers = []): Res
 }
 
 /**
- * @param string $template
- * @param array $vars
- * @param string|null $app
- * @param string|null $plugin
- * @param int $http_code
- * @return Response
- */
-function view(string $template, array $vars = [], string $app = null, string $plugin = null, int $http_code = 200): Response
-{
-    $request = request();
-    $plugin = $plugin === null ? ($request->plugin ?? '') : $plugin;
-    $handler = config($plugin ? "plugin.$plugin.view.handler" : 'view.handler');
-    return new Response($http_code, [], $handler::render($template, $vars, $app, $plugin));
-}
-
-/**
- * @param string $template
- * @param array $vars
- * @param string|null $app
- * @return Response
- * @throws Throwable
- */
-function raw_view(string $template, array $vars = [], string $app = null): Response
-{
-    return new Response(200, [], Raw::render($template, $vars, $app));
-}
-
-/**
- * @param string $template
- * @param array $vars
- * @param string|null $app
- * @return Response
- */
-function blade_view(string $template, array $vars = [], string $app = null): Response
-{
-    return new Response(200, [], Blade::render($template, $vars, $app));
-}
-
-/**
- * @param string $template
- * @param array $vars
- * @param string|null $app
- * @return Response
- */
-function think_view(string $template, array $vars = [], string $app = null): Response
-{
-    return new Response(200, [], ThinkPHP::render($template, $vars, $app));
-}
-
-/**
- * @param string $template
- * @param array $vars
- * @param string|null $app
- * @return Response
- * @throws LoaderError
- * @throws RuntimeError
- * @throws SyntaxError
- */
-function twig_view(string $template, array $vars = [], string $app = null): Response
-{
-    return new Response(200, [], Twig::render($template, $vars, $app));
-}
-
-/**
  * 404 not found
  *
  * @return Response
@@ -209,85 +113,6 @@ function twig_view(string $template, array $vars = [], string $app = null): Resp
 function not_found(): Response
 {
     return response('Ничего не найдено', 404);
-}
-
-/** DIRS HELPERS */
-
-
-/**
- * Copy dir
- * @param string $source
- * @param string $dest
- * @param bool $overwrite
- * @return void
- */
-function copy_dir(string $source, string $dest, bool $overwrite = false): void
-{
-    if (is_dir($source)) {
-        if (!is_dir($dest)) {
-            create_dir($dest);
-        }
-        $files = array_diff(scandir($source), ['.', '..']) ?: [];
-        foreach ($files as $file) {
-            copy_dir("$source/$file", "$dest/$file", $overwrite);
-        }
-    } else if (file_exists($source) && ($overwrite || !file_exists($dest))) {
-        copy($source, $dest);
-    }
-}
-
-/**
- * ScanDir.
- * @param string $basePath
- * @param bool $withBasePath
- * @return array
- */
-function scan_dir(string $basePath, bool $withBasePath = true): array
-{
-    if (!is_dir($basePath)) {
-        return [];
-    }
-    $paths = array_diff(scandir($basePath), ['.', '..']) ?: [];
-    return $withBasePath ? array_map(fn($path) => $basePath . DIRECTORY_SEPARATOR . $path, $paths) : $paths;
-}
-
-/**
- * Remove dir
- * @param string $dir
- * @return bool
- */
-function remove_dir(string $dir): bool
-{
-    if (is_link($dir) || is_file($dir)) {
-        return file_exists($dir) && unlink($dir);
-    }
-    $files = array_diff(scandir($dir), ['.', '..']) ?: [];
-    foreach ($files as $file) {
-        $path = $dir . DIRECTORY_SEPARATOR . $file;
-        is_dir($path) && !is_link($path) ? remove_dir($path) : file_exists($path) && unlink($path);
-    }
-    return file_exists($dir) && rmdir($dir);
-}
-
-/**
- * Create directory
- * @param string $dir
- * @return bool
- */
-function create_dir(string $dir): bool
-{
-    return mkdir($dir, 0777, true);
-}
-
-/**
- * Rename directory
- * @param string $oldName
- * @param string $newName
- * @return bool
- */
-function rename_dir(string $oldName, string $newName): bool
-{
-    return rename($oldName, $newName);
 }
 
 
@@ -398,81 +223,6 @@ if (!function_exists('setEnv')) {
     }
 }
 
-/**
- * @return TcpConnection|null
- */
-function connection(): ?TcpConnection
-{
-    return App::connection();
-}
-
-/**
- * @return \support\Request|Request|null
- */
-function request(): \support\Request|Request|null
-{
-    return App::request();
-}
-
-/**
- * @return Server|null
- */
-function server(): ?Server
-{
-    return App::server();
-}
-
-/**
- * @return bool
- */
-function is_phar(): bool
-{
-    return class_exists(Phar::class, false) && Phar::running();
-}
-
-
-/**
- * Получение IP-адреса
- *
- * @return string|null IP-адрес
- */
-function getRequestIp(): ?string
-{
-    $ip = request()->header(
-        'x-real-ip',
-        request()->header(
-            'x-forwarded-for',
-            request()->header(
-                'client-ip',
-                request()->header(
-                    'x-client-ip',
-                    request()->header(
-                        'remote-addr',
-                        request()->header(
-                            'via'
-                        )
-                    )
-                )
-            )
-        )
-    );
-    if (is_string($ip)) {
-        $ip = current(explode(',', $ip));
-    }
-    return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : null;
-}
-
-/**
- * Get request parameters, if no parameter name is passed, an array of all values is returned, default values is supported
- * @param string|null $param param's name
- * @param mixed|null $default default value
- * @return mixed|null
- */
-function input(string $param = null, mixed $default = null): mixed
-{
-    return is_null($param) ? request()->all() : request()->input($param, $default);
-}
-
 
 /** PATHS HELPERS */
 
@@ -572,6 +322,81 @@ function get_realpath(string $filePath): string|false
     }
 }
 
+/**
+ * Copy dir
+ * @param string $source
+ * @param string $dest
+ * @param bool $overwrite
+ * @return void
+ */
+function copy_dir(string $source, string $dest, bool $overwrite = false): void
+{
+    if (is_dir($source)) {
+        if (!is_dir($dest)) {
+            create_dir($dest);
+        }
+        $files = array_diff(scandir($source), ['.', '..']) ?: [];
+        foreach ($files as $file) {
+            copy_dir("$source/$file", "$dest/$file", $overwrite);
+        }
+    } else if (file_exists($source) && ($overwrite || !file_exists($dest))) {
+        copy($source, $dest);
+    }
+}
+
+/**
+ * ScanDir.
+ * @param string $basePath
+ * @param bool $withBasePath
+ * @return array
+ */
+function scan_dir(string $basePath, bool $withBasePath = true): array
+{
+    if (!is_dir($basePath)) {
+        return [];
+    }
+    $paths = array_diff(scandir($basePath), ['.', '..']) ?: [];
+    return $withBasePath ? array_map(fn($path) => $basePath . DIRECTORY_SEPARATOR . $path, $paths) : $paths;
+}
+
+/**
+ * Remove dir
+ * @param string $dir
+ * @return bool
+ */
+function remove_dir(string $dir): bool
+{
+    if (is_link($dir) || is_file($dir)) {
+        return file_exists($dir) && unlink($dir);
+    }
+    $files = array_diff(scandir($dir), ['.', '..']) ?: [];
+    foreach ($files as $file) {
+        $path = $dir . DIRECTORY_SEPARATOR . $file;
+        is_dir($path) && !is_link($path) ? remove_dir($path) : file_exists($path) && unlink($path);
+    }
+    return file_exists($dir) && rmdir($dir);
+}
+
+/**
+ * Create directory
+ * @param string $dir
+ * @return bool
+ */
+function create_dir(string $dir): bool
+{
+    return mkdir($dir, 0777, true);
+}
+
+/**
+ * Rename directory
+ * @param string $oldName
+ * @param string $newName
+ * @return bool
+ */
+function rename_dir(string $oldName, string $newName): bool
+{
+    return rename($oldName, $newName);
+}
 
 /** SERVER HELPERS */
 
@@ -602,6 +427,38 @@ function server_start($processName, $config): void
         },
         services: $config['services'] ?? [],
     );
+}
+
+/**
+ * @return TcpConnection|null
+ */
+function connection(): ?TcpConnection
+{
+    return App::connection();
+}
+
+/**
+ * @return \support\Request|Request|null
+ */
+function request(): \support\Request|Request|null
+{
+    return App::request();
+}
+
+/**
+ * @return Server|null
+ */
+function server(): ?Server
+{
+    return App::server();
+}
+
+/**
+ * @return bool
+ */
+function is_phar(): bool
+{
+    return class_exists(Phar::class, false) && Phar::running();
 }
 
 /**
