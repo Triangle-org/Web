@@ -26,133 +26,13 @@
  */
 
 use localzet\Server;
-use localzet\Server\Connection\TcpConnection;
-use support\Response;
 use support\Translation;
-use Triangle\Engine\App;
 use Triangle\Engine\Config;
 use Triangle\Engine\Environment;
-use Triangle\Engine\Http\Request;
 use Triangle\Engine\Path;
 
-define('BASE_PATH', get_realpath(Composer\InstalledVersions::getRootPackage()['install_path']) ?? dirname(__DIR__));
-
-/** RESPONSE HELPERS */
-
-/**
- * @param mixed $body
- * @param int $status
- * @param array $headers
- * @param bool $http_status
- * @param bool $onlyJson
- * @return Response
- * @throws Throwable
- */
-function response(mixed $body = '', int $status = 200, array $headers = [], bool $http_status = false, bool $onlyJson = false): Response
-{
-    $status = ($http_status === true) ? $status : 200;
-    $body = [
-        'status' => $status,
-        'data' => $body
-    ];
-
-    if (config('app.debug')) {
-        $body['debug'] = config('app.debug');
-    }
-
-    if (!function_exists('responseView') || request()->expectsJson() || $onlyJson) {
-        return responseJson($body, $status, $headers);
-    } else {
-        return responseView($body, $status, $headers);
-    }
-}
-
-/**
- * @param string $blob
- * @param string $type
- * @return Response
- */
-function responseBlob(string $blob, string $type = 'image/png'): Response
-{
-    return new Response(200, ['Content-Type' => $type], $blob);
-}
-
-/**
- * @param $data
- * @param int $status
- * @param array $headers
- * @param int $options
- * @return Response
- */
-function responseJson($data, int $status = 200, array $headers = [], int $options = JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR): Response
-{
-    return new Response($status, ['Content-Type' => 'application/json'] + $headers, json($data, $options));
-}
-
-/**
- * @param string $location
- * @param int $status
- * @param array $headers
- * @return Response
- */
-function redirect(string $location, int $status = 302, array $headers = []): Response
-{
-    $response = new Response($status, ['Location' => $location]);
-    if (!empty($headers)) {
-        $response->withHeaders($headers);
-    }
-    return $response;
-}
-
-/**
- * 404 not found
- *
- * @return Response
- * @throws Throwable
- */
-function not_found(): Response
-{
-    return response('Ничего не найдено', 404);
-}
-
-
-/** FORMATS HELPERS */
-
-
-/**
- * @param $value
- * @param int $flags
- * @return string|false
- */
-function json($value, int $flags = JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR): false|string
-{
-    return json_encode($value, $flags);
-}
-
-/**
- * @param $xml
- * @return Response
- */
-function xml($xml): Response
-{
-    if ($xml instanceof SimpleXMLElement) {
-        $xml = $xml->asXML();
-    }
-    return new Response(200, ['Content-Type' => 'text/xml'], $xml);
-}
-
-/**
- * @param $data
- * @param string $callbackName
- * @return Response
- */
-function jsonp($data, string $callbackName = 'callback'): Response
-{
-    if (!is_scalar($data) && null !== $data) {
-        $data = json_encode($data);
-    }
-    return new Response(200, [], "$callbackName($data)");
-}
+$install_path = Composer\InstalledVersions::getRootPackage()['install_path'] ?? null;
+define('BASE_PATH', str_starts_with($install_path, 'phar://') ? $install_path : realpath($install_path) ?? dirname(__DIR__));
 
 
 /** TRANSLATION HELPERS */
@@ -187,17 +67,33 @@ function locale(string $locale = null): string
 }
 
 
+/** FORMATS HELPERS */
+
+if (!function_exists('json')) {
+    /**
+     * @param $value
+     * @param int $flags
+     * @return string|false
+     */
+    function json($value, int $flags = JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR): false|string
+    {
+        return json_encode($value, $flags);
+    }
+}
+
+
 /** SYSTEM HELPERS */
 
-
-/**
- * @param string|null $key
- * * @param mixed|null $default
- * @return mixed
- */
-function config(string $key = null, mixed $default = null): mixed
-{
-    return Config::get($key, $default);
+if (!function_exists('config')) {
+    /**
+     * @param string|null $key
+     * * @param mixed|null $default
+     * @return mixed
+     */
+    function config(string $key = null, mixed $default = null): mixed
+    {
+        return Config::get($key, $default);
+    }
 }
 
 if (!function_exists('env')) {
@@ -219,13 +115,11 @@ if (!function_exists('setEnv')) {
      */
     function setEnv(array $values): bool
     {
-        return Environment::set($values, config('env_file', '.env'));
+        return Environment::set($values, config('server.env_file', '.env'));
     }
 }
 
-
 /** PATHS HELPERS */
-
 
 /**
  * return the program execute directory
@@ -322,6 +216,8 @@ function get_realpath(string $filePath): string|false
     }
 }
 
+/** DIR HELPERS */
+
 /**
  * Copy dir
  * @param string $source
@@ -409,7 +305,7 @@ function server_start($processName, $config): void
 {
     localzet_start(
         name: $processName,
-        count: $config['count'] ?? cpu_count(),
+        count: $config['count'] ?? cpu_count() * 4,
         listen: $config['listen'] ?? null,
         context: $config['context'] ?? [],
         user: $config['user'] ?? '',
@@ -420,37 +316,16 @@ function server_start($processName, $config): void
         transport: $config['transport'] ?? 'tcp',
         handler: $config['handler'] ?? null,
         constructor: $config['constructor'] ?? [],
-        onServerStart: function (?Server $server) {
+        onServerStart: function (?Server $server) use ($config) {
             if (file_exists(base_path('/support/bootstrap.php'))) {
                 include_once base_path('/support/bootstrap.php');
+            }
+            if (isset($config['onServerStart']) && is_callable($config['onServerStart'])) {
+                $config['onServerStart']($server);
             }
         },
         services: $config['services'] ?? [],
     );
-}
-
-/**
- * @return TcpConnection|null
- */
-function connection(): ?TcpConnection
-{
-    return App::connection();
-}
-
-/**
- * @return \support\Request|Request|null
- */
-function request(): \support\Request|Request|null
-{
-    return App::request();
-}
-
-/**
- * @return Server|null
- */
-function server(): ?Server
-{
-    return App::server();
 }
 
 /**

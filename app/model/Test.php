@@ -2,7 +2,7 @@
 
 namespace app\model;
 
-use Triangle\Engine\Database\Model;
+use Triangle\Database\Model;
 
 class Test extends Model
 {

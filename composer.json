@@ -28,10 +28,11 @@
     "php": "^8.2",
     "triangle/engine": "v6.x-dev",
     "triangle/console": "^1.3",
-    "triangle/router": "^1.0",
     "triangle/database": "^1.0",
     "triangle/session": "^1.0",
-    "triangle/view": "^1.0"
+    "triangle/view": "^1.0",
+    "triangle/events": "^1.0",
+    "triangle/http": "^1.0"
   },
   "suggest": {
     "ext-simplexml": "For XML Support",
