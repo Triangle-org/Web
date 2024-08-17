@@ -5,6 +5,6 @@ namespace support;
 use AllowDynamicProperties;
 
 #[AllowDynamicProperties]
-class Response extends \Triangle\Engine\Http\Response
+class Response extends \Triangle\Http\Response
 {
 }
