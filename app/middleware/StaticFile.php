@@ -3,8 +3,8 @@
 namespace app\middleware;
 
 use Throwable;
-use Triangle\Engine\Http\{Request, Response};
-use Triangle\Engine\Interface\MiddlewareInterface;
+use Triangle\Http\{Request, Response};
+use Triangle\Middleware\MiddlewareInterface;
 
 /**
  * Class StaticFile
@@ -19,13 +19,6 @@ class StaticFile implements MiddlewareInterface
      */
     public function process(Request $request, callable $handler): Response
     {
-        // В static.forbidden прописан массив запрещённых частей адреса
-        foreach (config('static.forbidden') as $needle) {
-            if (str_contains($request->path(), $needle)) {
-                return response('Недостаточно прав доступа', 403);
-            }
-        }
-
         return $handler($request);
     }
 }

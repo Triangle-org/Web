@@ -27,29 +27,9 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', 'connections'])) {
-    Triangle\Engine\Environment::loadAll();
-    Triangle\Engine\Config::clear();
-    Triangle\Engine\Config::loadAll(['route']);
-
-    set_error_handler(fn($level, $message, $file = '', $line = 0) => (error_reporting() & $level) ? throw new ErrorException($message, 0, $level, $file, $line) : true);
-    register_shutdown_function(fn($start_time) => (time() - $start_time <= 1) ? sleep(1) : true, time());
-    date_default_timezone_set(config('app.default_timezone', 'Europe/Moscow'));
-
-    Triangle\Engine\Autoload\FileLoader::loadAll();
-    Triangle\Engine\Autoload\EventLoader::loadAll();
-    Triangle\Engine\Autoload\MiddlewareLoader::loadAll();
-    Triangle\Engine\Autoload\BootstrapLoader::loadAll();
-
-    $paths = [config_path()];
-    foreach (scan_dir(Triangle\Engine\Path::basePath('plugin')) as $path) {
-        if (is_dir($path = "$path/config")) {
-            $paths[] = $path;
-        }
-    }
-    Triangle\Router::load($paths);
+    Triangle\Engine\Autoload::loadAll();
 } else {
-    Triangle\Engine\Environment::loadAll(run_path());
-    Triangle\Engine\Config::load(config_path(), ['route', 'container']);
+    Triangle\Engine\Autoload::loadCore();
 }
 
 $cli = new Triangle\Console();
@@ -83,7 +63,7 @@ foreach (config('plugin', []) as $firm => $projects) {
                     throw new RuntimeException("У команды $class_name нет defaultName");
                 }
 
-                $command = new $class_name(config('plugin.triangle.console.app', []));
+                $command = new $class_name(config('console', []));
                 $this->add($command);
             } catch (ReflectionException $e) {
                 throw new RuntimeException("Ошибка ReflectionException: {$e->getMessage()}");
