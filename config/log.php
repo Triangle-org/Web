@@ -6,7 +6,7 @@ return [
             [
                 'class' => Monolog\Handler\RotatingFileHandler::class,
                 'constructor' => [
-                    runtime_path(env('LOG_FILE_NAME', 'triangle.log')),
+                    runtime_path(env('LOG_FILE_NAME', 'logs/triangle.log')),
                     (int)env('LOG_FILE_COUNT', 7),
                     env('LOG_FILE_LEVEL', Monolog\Logger::DEBUG),
                 ],
