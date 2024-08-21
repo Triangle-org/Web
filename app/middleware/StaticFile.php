@@ -17,7 +17,7 @@ class StaticFile implements MiddlewareInterface
      * @return Response
      * @throws Throwable
      */
-    public function process(Request $request, callable $handler): Response
+    public function process($request, callable $handler): Response
     {
         return $handler($request);
     }
