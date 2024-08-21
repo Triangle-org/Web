@@ -164,8 +164,9 @@ class Monitor
                 }
                 echo $file . " Обновлён и перезапущен\n";
                 // Отправляем SIGUSR1 в мастер-процесс для перезагрузки
-                if (DIRECTORY_SEPARATOR === '/') {
-                    posix_kill(posix_getppid(), SIGUSR1);
+                $masterPid = is_file(Server::$pidFile) ? (int)file_get_contents(Server::$pidFile) : 0;
+                if (DIRECTORY_SEPARATOR === '/' && $masterPid) {
+                    posix_kill($masterPid, SIGUSR1);
                 } else {
                     // Windows так не может
                     return true;
