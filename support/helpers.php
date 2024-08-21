@@ -25,7 +25,6 @@
  *              For any questions, please contact <support@localzet.com>
  */
 
-use localzet\Server;
 use support\Translation;
 use Triangle\Engine\Config;
 use Triangle\Engine\Environment;
@@ -292,32 +291,6 @@ function create_dir(string $dir): bool
 function rename_dir(string $oldName, string $newName): bool
 {
     return rename($oldName, $newName);
-}
-
-/** SERVER HELPERS */
-
-/**
- * @param $processName
- * @param $config
- * @return void
- */
-function server_start($processName, $config): void
-{
-    localzet_start(
-        name: $processName,
-        count: $config['count'] ?? cpu_count() * 4,
-        listen: $config['listen'] ?? null,
-        context: $config['context'] ?? [],
-        user: $config['user'] ?? '',
-        group: $config['group'] ?? '',
-        reloadable: $config['reloadable'] ?? true,
-        reusePort: $config['reusePort'] ?? false,
-        protocol: $config['protocol'] ?? null,
-        transport: $config['transport'] ?? 'tcp',
-        handler: $config['handler'] ?? null,
-        constructor: $config['constructor'] ?? [],
-        services: $config['services'] ?? [],
-    );
 }
 
 /**

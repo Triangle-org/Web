@@ -1,7 +1,5 @@
 <?php
 
-use localzet\Server;
-
 return [
     'monitor' => [
         'handler' => process\Monitor::class,
@@ -28,7 +26,7 @@ return [
             'options' => [
                 'enable_file_monitor' => DIRECTORY_SEPARATOR === '/'
                     && env('PROCESS_FILE_MONITOR', true)
-                    && !Server::$daemonize,
+                    && !localzet\Server::$daemonize,
                 'enable_memory_monitor' => DIRECTORY_SEPARATOR === '/',
             ]
         ]

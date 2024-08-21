@@ -6,9 +6,6 @@ use Throwable;
 use Triangle\Http\{Request, Response};
 use Triangle\Middleware\MiddlewareInterface;
 
-/**
- * Class StaticFile
- */
 class StaticFile implements MiddlewareInterface
 {
     /**
