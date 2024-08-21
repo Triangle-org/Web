@@ -316,14 +316,6 @@ function server_start($processName, $config): void
         transport: $config['transport'] ?? 'tcp',
         handler: $config['handler'] ?? null,
         constructor: $config['constructor'] ?? [],
-        onServerStart: function (?Server $server) use ($config) {
-            if (file_exists(base_path('/support/bootstrap.php'))) {
-                include_once base_path('/support/bootstrap.php');
-            }
-            if (isset($config['onServerStart']) && is_callable($config['onServerStart'])) {
-                $config['onServerStart']($server);
-            }
-        },
         services: $config['services'] ?? [],
     );
 }
