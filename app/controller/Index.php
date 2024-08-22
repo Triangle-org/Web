@@ -8,7 +8,8 @@ use Throwable;
 class Index
 {
     /**
-     * response() отобразит responseView() в браузере или responseJson() при запросе
+     * @param Request $request
+     * @return Response
      * @throws Throwable
      */
     public function index(Request $request): Response
@@ -17,7 +18,8 @@ class Index
     }
 
     /**
-     * responseJson() отобразит JSON
+     * @param Request $request
+     * @return Response
      */
     public function json(Request $request): Response
     {
@@ -25,7 +27,8 @@ class Index
     }
 
     /**
-     * view() отобразит шаблон
+     * @param Request $request
+     * @return Response
      */
     public function view(Request $request): Response
     {

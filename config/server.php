@@ -24,8 +24,6 @@ return [
         'requestClass' => support\Request::class,
         'logger' => support\Log::channel(),
     ],
-    'onServerStart' => function (localzet\Server $server) {
-    },
 
     // Для мастер-процесса
     'pid_file' => runtime_path(env('SERVER_FILE_PID', 'triangle.pid')),

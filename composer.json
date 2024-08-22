@@ -3,7 +3,7 @@
   "description": "Triangle Web - High performance MVC framework",
   "type": "project",
   "keywords": [
-    "Triangle"
+    "Triangle", "MVC", "Framework", "HTTP"
   ],
   "license": "MIT",
   "authors": [

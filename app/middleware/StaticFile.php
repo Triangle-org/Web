@@ -6,9 +6,6 @@ use Throwable;
 use Triangle\Http\{Request, Response};
 use Triangle\Middleware\MiddlewareInterface;
 
-/**
- * Class StaticFile
- */
 class StaticFile implements MiddlewareInterface
 {
     /**
@@ -17,7 +14,7 @@ class StaticFile implements MiddlewareInterface
      * @return Response
      * @throws Throwable
      */
-    public function process(Request $request, callable $handler): Response
+    public function process($request, callable $handler): Response
     {
         return $handler($request);
     }
