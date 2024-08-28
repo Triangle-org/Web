@@ -26,54 +26,5 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', 'connections'])) {
-    Triangle\Engine\Autoload::loadAll();
-} else {
-    Triangle\Engine\Autoload::loadCore();
-}
-
 $cli = new Triangle\Console();
-$command_path = localzet\Console\Util::guessPath(app_path(), '/command', true);
-if (is_dir((string)$command_path)) {
-    $cli->installCommands($command_path);
-}
-
-foreach (config('plugin', []) as $firm => $projects) {
-    if (isset($projects['app'])) {
-        if ($command_str = localzet\Console\Util::guessPath(base_path() . "/plugin/$firm", 'command')) {
-            $command_path = base_path() . "/plugin/$firm/$command_str";
-            $cli->installCommands($command_path, "plugin\\$firm\\$command_str");
-        }
-    }
-    foreach ($projects as $name => $project) {
-        if (!is_array($project)) {
-            continue;
-        }
-        foreach ($project['command'] ?? [] as $class_name) {
-            try {
-                $reflection = new ReflectionClass($class_name);
-                if ($reflection->isAbstract()) {
-                    continue;
-                }
-
-                $properties = $reflection->getStaticProperties();
-
-                $name = $properties['defaultName'] ?? null;
-                if (!$name) {
-                    throw new RuntimeException("У команды $class_name нет defaultName");
-                }
-
-                $command = new $class_name(config('console', []));
-                $this->add($command);
-            } catch (ReflectionException $e) {
-                throw new RuntimeException("Ошибка ReflectionException: {$e->getMessage()}");
-            }
-        }
-    }
-}
-
-try {
-    $cli->run();
-} catch (Exception $e) {
-    throw new RuntimeException("Ошибка запуска CLI: {$e->getMessage()}");
-}
+$cli->loadAll()->run();

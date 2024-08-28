@@ -15,19 +15,22 @@ return [
                     base_path() . '/resource',
                     base_path() . '/.env',
                 ],
-                glob(base_path() . '/plugin/*/app'),
-                glob(base_path() . '/plugin/*/autoload'),
-                glob(base_path() . '/plugin/*/config'),
-                glob(base_path() . '/plugin/*/api')
+                glob(base_path() . '/' . config('app.plugin_alias', 'plugin') . '/*/app'),
+                glob(base_path() . '/' . config('app.plugin_alias', 'plugin') . '/*/config'),
+                glob(base_path() . '/' . config('app.plugin_alias', 'plugin') . '/*/autoload'),
+                glob(base_path() . '/' . config('app.plugin_alias', 'plugin') . '/*/support'),
+                glob(base_path() . '/' . config('app.plugin_alias', 'plugin') . '/*/resource'),
+                glob(base_path() . '/' . config('app.plugin_alias', 'plugin') . '/*/api')
             ),
             'monitorExtensions' => [
                 'php', 'phtml', 'html', 'htm', 'env', 'zconf', 'json'
             ],
             'options' => [
-                'enable_file_monitor' => DIRECTORY_SEPARATOR === '/'
+                'enable_file_monitor' =>
+                    is_unix() && !is_phar()
                     && env('PROCESS_FILE_MONITOR', true)
                     && !localzet\Server::$daemonize,
-                'enable_memory_monitor' => DIRECTORY_SEPARATOR === '/',
+                'enable_memory_monitor' => is_unix() && !is_phar(),
             ]
         ]
     ]
