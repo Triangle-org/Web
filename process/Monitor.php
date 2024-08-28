@@ -107,12 +107,13 @@ class Monitor
         } else {
             // Монитор работает только в режиме отладки, во избежание крашей на проде
             if ($options['enable_file_monitor'] ?? true) {
-                // if (config('app.debug')) {
-                Timer::add(1, function () {
-                    $this->checkAllFilesChange();
-                });
-                // } else {
-                //     echo "\nМониторинг изменений файлов отключён в режиме демона\n";
+                if (config('app.debug', true)) {
+                    Timer::add(1, function () {
+                        $this->checkAllFilesChange();
+                    });
+                } else {
+                    echo "\nМониторинг изменений файлов отключён в режиме демона\n";
+                }
             }
         }
 
