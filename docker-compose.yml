@@ -1,0 +1,16 @@
+services:
+  php:
+    image: ghcr.io/triangle-org/engine:latest
+    volumes:
+      - .:/opt/triangle
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    environment:
+      - APP_ENV=docker
+      - APP_PORT
