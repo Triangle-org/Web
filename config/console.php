@@ -5,6 +5,10 @@ $base_path = defined('BASE_PATH') ? BASE_PATH : (Composer\InstalledVersions::get
 return [
     'enable' => true,
 
+    'service' => [
+        'name' => trim(preg_replace('/[^a-z0-9]+/', '_', strtolower($base_path)), '_'),
+    ],
+
     'build' => [
         // Для PHAR
         'input_dir' => $base_path,
