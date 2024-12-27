@@ -21,11 +21,11 @@ return [
     'constructor' => [
         'requestClass' => Triangle\Request::class,
         'logger' => support\Log::channel(),
-        'basePath' =>       run_path(),
-        'appPath' =>        run_path('app'),
-        'configPath' =>     run_path('config'),
-        'publicPath' =>     run_path('public'),
-        'runtimePath' =>    run_path('runtime'),
+        'basePath' => run_path(),
+        'appPath' => run_path('app'),
+        'configPath' => run_path('config'),
+        'publicPath' => run_path('public'),
+        'runtimePath' => run_path('runtime'),
     ],
 
     // Для мастер-процесса
@@ -35,6 +35,5 @@ return [
         'statusFile' => env('SERVER_FILE_STATUS', 'triangle.status'),
         'stdoutFile' => env('SERVER_FILE_STDOUT', 'logs/stdout.log'),
         'logFile' => env('SERVER_FILE_LOG', 'logs/server.log'),
-        'stopTimeout' => env('SERVER_STOP_TIMEOUT', 2),
     ]
 ];
