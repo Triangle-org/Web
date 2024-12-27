@@ -2,9 +2,9 @@
 
 namespace app\controller;
 
-use support\Request;
 use Throwable;
-use Triangle\Http\Response;
+use Triangle\Request;
+use Triangle\Response;
 
 class Index
 {

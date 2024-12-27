@@ -24,6 +24,7 @@
  *              along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+chdir(__DIR__);
 require_once __DIR__ . '/vendor/autoload.php';
 
 $cli = new Triangle\Console();

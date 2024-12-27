@@ -3,7 +3,10 @@
   "description": "Triangle Web - High performance MVC framework",
   "type": "project",
   "keywords": [
-    "Triangle", "MVC", "Framework", "HTTP"
+    "Triangle",
+    "MVC",
+    "Framework",
+    "HTTP"
   ],
   "license": "MIT",
   "authors": [
@@ -26,13 +29,16 @@
   },
   "require": {
     "php": "^8.2",
-    "triangle/engine": "^7.1",
+    "triangle/engine": "^8",
+    "triangle/engine-http": "^2",
     "triangle/console": "^1.3",
     "triangle/database": "^1.0",
     "triangle/session": "^1.0",
     "triangle/view": "^1.1",
-    "triangle/events": "^1.0",
-    "triangle/http": "^1.2"
+    "triangle/events": "^1.0"
+  },
+  "require-dev": {
+    "rector/rector": "*"
   },
   "suggest": {
     "ext-simplexml": "For XML Support",
@@ -41,10 +47,7 @@
   "autoload": {
     "psr-4": {
       "": "./"
-    },
-    "files": [
-      "support/helpers.php"
-    ]
+    }
   },
   "scripts": {
     "post-package-install": [

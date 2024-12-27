@@ -2,7 +2,7 @@
 
 return [
     'monitor' => [
-        'handler' => process\Monitor::class,
+        'handler' => Triangle\Services\Monitor::class,
         'reloadable' => false,
         'constructor' => [
             'monitorDir' => array_merge(

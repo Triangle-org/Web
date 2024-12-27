@@ -3,8 +3,9 @@
 namespace app\middleware;
 
 use Throwable;
-use Triangle\Http\{Request, Response};
 use Triangle\Middleware\MiddlewareInterface;
+use Triangle\Request;
+use Triangle\Response;
 
 class StaticFile implements MiddlewareInterface
 {
