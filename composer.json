@@ -37,9 +37,6 @@
     "triangle/view": "^1.1",
     "triangle/events": "^1.0"
   },
-  "require-dev": {
-    "rector/rector": "*"
-  },
   "suggest": {
     "ext-simplexml": "For XML Support",
     "ext-libxml": "For XML Support"
