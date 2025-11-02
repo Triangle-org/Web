@@ -24,8 +24,34 @@
  *              along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-chdir(__DIR__);
+use Triangle\Console;
+use Triangle\Engine\Autoload;
+use Triangle\Engine\Environment;
+use Triangle\Engine\Path;
+
+if (!Phar::running()) chdir(__DIR__);
 require_once __DIR__ . '/vendor/autoload.php';
 
-$cli = new Triangle\Console();
-$cli->loadAll()->run();
+// Основная директория проекта
+Path::$basePath = BASE_PATH;
+
+// Конфигурация и контроллеры
+Path::$configPath = Path::basePath('config');
+Path::$appPath = Path::basePath('app');
+
+// Статика, логи и временные
+// ВАЖНО! Используется runPath() для определения рабочей директории!
+// Это позволяет при работе из бинарника писать логи в директорию рядом с ним
+Path::$publicPath = Path::runPath('public');
+Path::$runtimePath = Path::runPath('runtime');
+
+// Загрузка переменных окружения
+// Путь и имя файла могут быть массивом путей и файлов
+Environment::load(Path::runPath(), '.env');
+
+// Автозагрузка конфигурации и файлов
+// + Bootstrap, Middleware, Database, Session, Router, Events, Cron
+Autoload::start($argv[1] ?? '');
+
+// Запуск консоли и выполнение запрошенной команды
+Console::runAll();

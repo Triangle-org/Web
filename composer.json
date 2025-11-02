@@ -1,6 +1,6 @@
 {
   "name": "triangle/web",
-  "description": "Triangle Web - High performance MVC framework",
+  "description": "High performance MVC framework based on Triangle Engine and localzet Server",
   "type": "project",
   "keywords": [
     "Triangle",
@@ -29,6 +29,8 @@
   },
   "require": {
     "php": "^8.2",
+    "ext-curl": "*",
+    "ext-json": "*",
     "triangle/engine": "^8.1",
     "triangle/engine-http": "^2.0",
     "triangle/console": "^1.3",
