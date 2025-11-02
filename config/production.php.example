@@ -1,0 +1,112 @@
+<?php
+/**
+ * Production Configuration Example
+ * 
+ * Copy this file to config/production.php and customize for your production environment.
+ * This file contains recommended settings for production deployments.
+ */
+
+return [
+    // Application Settings
+    'app' => [
+        // ✅ CRITICAL: Always disable debug in production
+        'debug' => false,
+        
+        // Return 200 status for all responses (for API compatibility)
+        'http_always_200' => false,
+        
+        // ✅ SECURITY: Disable PHP file execution from public directory
+        'support_php_files' => false,
+        
+        // Application name
+        'name' => 'Triangle Application',
+        
+        // Timezone
+        'timezone' => 'UTC',
+        
+        // Default locale
+        'locale' => 'en',
+        
+        // Plugin settings
+        'plugin_alias' => 'plugin',
+        'plugin_uri' => 'app',
+    ],
+    
+    // Logging
+    'log' => [
+        // Log level: emergency, alert, critical, error, warning, notice, info, debug
+        'level' => 'error', // Only errors in production
+        
+        // Daily log rotation
+        'daily' => true,
+        
+        // Maximum number of log files to keep
+        'max_files' => 30,
+        
+        // Log file location (relative to runtime_path)
+        'file' => 'runtime/logs/triangle.log',
+    ],
+    
+    // Static File Serving
+    'static' => [
+        'enable' => true,
+        
+        // Middleware for static files
+        'middleware' => [],
+    ],
+    
+    // Database (example - configure for your database)
+    'database' => [
+        'default' => 'mysql',
+        'connections' => [
+            'mysql' => [
+                'driver' => 'mysql',
+                'host' => env('DB_HOST', '127.0.0.1'),
+                'port' => env('DB_PORT', 3306),
+                'database' => env('DB_DATABASE', 'triangle'),
+                'username' => env('DB_USERNAME', 'root'),
+                'password' => env('DB_PASSWORD', ''),
+                'charset' => 'utf8mb4',
+                'collation' => 'utf8mb4_unicode_ci',
+                'prefix' => '',
+                'strict' => true,
+                'engine' => null,
+                'options' => [
+                    // PDO options
+                ],
+            ],
+        ],
+    ],
+    
+    // Redis (if using)
+    'redis' => [
+        'default' => 'cache',
+        'connections' => [
+            'cache' => [
+                'host' => env('REDIS_HOST', '127.0.0.1'),
+                'password' => env('REDIS_PASSWORD', null),
+                'port' => env('REDIS_PORT', 6379),
+                'database' => env('REDIS_DATABASE', 0),
+            ],
+        ],
+    ],
+    
+    // Session
+    'session' => [
+        'driver' => 'file', // or 'redis' for production clustering
+        'lifetime' => 120, // 2 hours
+        'secure' => true, // HTTPS only
+        'http_only' => true, // XSS protection
+        'same_site' => 'strict', // CSRF protection
+    ],
+    
+    // HTTP Headers (security headers)
+    'http_headers' => [
+        'X-Content-Type-Options' => 'nosniff',
+        'X-Frame-Options' => 'DENY',
+        'X-XSS-Protection' => '1; mode=block',
+        'Referrer-Policy' => 'strict-origin-when-cross-origin',
+        // 'Content-Security-Policy' => "default-src 'self'",
+    ],
+];
+
