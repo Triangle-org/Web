@@ -1,0 +1,3610 @@
+{
+  "_readme": [
+    "This file locks the dependencies of your project to a known state",
+    "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+    "This file is @generated automatically"
+  ],
+  "content-hash": "dadf86c5e3efe95801b776aa5d68a82e",
+  "packages": [
+    {
+      "name": "brick/math",
+      "version": "0.14.8",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/brick/math.git",
+        "reference": "63422359a44b7f06cae63c3b429b59e8efcc0629"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/brick/math/zipball/63422359a44b7f06cae63c3b429b59e8efcc0629",
+        "reference": "63422359a44b7f06cae63c3b429b59e8efcc0629",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.2"
+      },
+      "require-dev": {
+        "php-coveralls/php-coveralls": "^2.2",
+        "phpstan/phpstan": "2.1.22",
+        "phpunit/phpunit": "^11.5"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Brick\\Math\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "description": "Arbitrary-precision arithmetic library",
+      "keywords": [
+        "Arbitrary-precision",
+        "BigInteger",
+        "BigRational",
+        "arithmetic",
+        "bigdecimal",
+        "bignum",
+        "bignumber",
+        "brick",
+        "decimal",
+        "integer",
+        "math",
+        "mathematics",
+        "rational"
+      ],
+      "support": {
+        "issues": "https://github.com/brick/math/issues",
+        "source": "https://github.com/brick/math/tree/0.14.8"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/BenMorel",
+          "type": "github"
+        }
+      ],
+      "time": "2026-02-10T14:33:43+00:00"
+    },
+    {
+      "name": "carbonphp/carbon-doctrine-types",
+      "version": "3.2.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/CarbonPHP/carbon-doctrine-types.git",
+        "reference": "5fa5eacafd9ef47c8c6ab9143fc901ba0194d3dc"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/CarbonPHP/carbon-doctrine-types/zipball/5fa5eacafd9ef47c8c6ab9143fc901ba0194d3dc",
+        "reference": "5fa5eacafd9ef47c8c6ab9143fc901ba0194d3dc",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.1"
+      },
+      "conflict": {
+        "doctrine/dbal": "<4.0.0 || >=5.0.0"
+      },
+      "require-dev": {
+        "doctrine/dbal": "^4.0.0",
+        "nesbot/carbon": "^2.71.0 || ^3.0.0",
+        "phpunit/phpunit": "^10.3"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-main": "3.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Carbon\\Doctrine\\": "src/Carbon/Doctrine/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "KyleKatarn",
+          "email": "kylekatarnls@gmail.com"
+        }
+      ],
+      "description": "Types to use Carbon in Doctrine",
+      "keywords": [
+        "carbon",
+        "date",
+        "datetime",
+        "doctrine",
+        "time"
+      ],
+      "support": {
+        "issues": "https://github.com/CarbonPHP/carbon-doctrine-types/issues",
+        "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/3.2.1"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/kylekatarnls",
+          "type": "github"
+        },
+        {
+          "url": "https://opencollective.com/Carbon",
+          "type": "open_collective"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/nesbot/carbon",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-09-06T14:11:38+00:00"
+    },
+    {
+      "name": "doctrine/inflector",
+      "version": "2.1.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/doctrine/inflector.git",
+        "reference": "46351b6812b7b6d52b82c3efa5dfb786a198ec88"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/doctrine/inflector/zipball/46351b6812b7b6d52b82c3efa5dfb786a198ec88",
+        "reference": "46351b6812b7b6d52b82c3efa5dfb786a198ec88",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^7.2 || ^8.0"
+      },
+      "require-dev": {
+        "doctrine/coding-standard": "^12.0 || ^14.0",
+        "phpstan/phpstan": "^1.12 || ^2.0",
+        "phpstan/phpstan-phpunit": "^1.4 || ^2.0",
+        "phpstan/phpstan-strict-rules": "^1.6 || ^2.0",
+        "phpunit/phpunit": "^8.5 || ^12.2"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Doctrine\\Inflector\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Guilherme Blanco",
+          "email": "guilhermeblanco@gmail.com"
+        },
+        {
+          "name": "Roman Borschel",
+          "email": "roman@code-factory.org"
+        },
+        {
+          "name": "Benjamin Eberlei",
+          "email": "kontakt@beberlei.de"
+        },
+        {
+          "name": "Jonathan Wage",
+          "email": "jonwage@gmail.com"
+        },
+        {
+          "name": "Johannes Schmitt",
+          "email": "schmittjoh@gmail.com"
+        }
+      ],
+      "description": "PHP Doctrine Inflector is a small library that can perform string manipulations with regard to upper/lowercase and singular/plural forms of words.",
+      "homepage": "https://www.doctrine-project.org/projects/inflector.html",
+      "keywords": [
+        "inflection",
+        "inflector",
+        "lowercase",
+        "manipulation",
+        "php",
+        "plural",
+        "singular",
+        "strings",
+        "uppercase",
+        "words"
+      ],
+      "support": {
+        "issues": "https://github.com/doctrine/inflector/issues",
+        "source": "https://github.com/doctrine/inflector/tree/2.1.1"
+      },
+      "funding": [
+        {
+          "url": "https://www.doctrine-project.org/sponsorship.html",
+          "type": "custom"
+        },
+        {
+          "url": "https://www.patreon.com/phpdoctrine",
+          "type": "patreon"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finflector",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-26T08:14:14+00:00"
+    },
+    {
+      "name": "illuminate/bus",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/bus.git",
+        "reference": "2adf211bada7184410501b37882845230d6bf2f4"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/bus/zipball/2adf211bada7184410501b37882845230d6bf2f4",
+        "reference": "2adf211bada7184410501b37882845230d6bf2f4",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/collections": "^11.0",
+        "illuminate/contracts": "^11.0",
+        "illuminate/pipeline": "^11.0",
+        "illuminate/support": "^11.0",
+        "php": "^8.2"
+      },
+      "suggest": {
+        "illuminate/queue": "Required to use closures when chaining jobs (^7.0)."
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Illuminate\\Bus\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Bus package.",
+      "homepage": "https://laravel.com",
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2025-10-14T19:59:30+00:00"
+    },
+    {
+      "name": "illuminate/collections",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/collections.git",
+        "reference": "856b1da953e46281ba61d7c82d337072d3ee1825"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/collections/zipball/856b1da953e46281ba61d7c82d337072d3ee1825",
+        "reference": "856b1da953e46281ba61d7c82d337072d3ee1825",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/conditionable": "^11.0",
+        "illuminate/contracts": "^11.0",
+        "illuminate/macroable": "^11.0",
+        "php": "^8.2"
+      },
+      "suggest": {
+        "symfony/var-dumper": "Required to use the dump method (^7.0)."
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "files": [
+          "functions.php",
+          "helpers.php"
+        ],
+        "psr-4": {
+          "Illuminate\\Support\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Collections package.",
+      "homepage": "https://laravel.com",
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2025-03-24T11:54:20+00:00"
+    },
+    {
+      "name": "illuminate/conditionable",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/conditionable.git",
+        "reference": "319b717e0587bd7c8a3b44464f0e27867b4bcda9"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/conditionable/zipball/319b717e0587bd7c8a3b44464f0e27867b4bcda9",
+        "reference": "319b717e0587bd7c8a3b44464f0e27867b4bcda9",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.0.2"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Illuminate\\Support\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Conditionable package.",
+      "homepage": "https://laravel.com",
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2025-03-24T11:54:20+00:00"
+    },
+    {
+      "name": "illuminate/container",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/container.git",
+        "reference": "79bf9149ad7ddd7e14326ebcdd41197d2c4ee36a"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/container/zipball/79bf9149ad7ddd7e14326ebcdd41197d2c4ee36a",
+        "reference": "79bf9149ad7ddd7e14326ebcdd41197d2c4ee36a",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/contracts": "^11.0",
+        "php": "^8.2",
+        "psr/container": "^1.1.1|^2.0.1"
+      },
+      "provide": {
+        "psr/container-implementation": "1.1|2.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Illuminate\\Container\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Container package.",
+      "homepage": "https://laravel.com",
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2025-03-24T11:54:20+00:00"
+    },
+    {
+      "name": "illuminate/contracts",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/contracts.git",
+        "reference": "4787042340aae19a7ea0fa82f4073c4826204a48"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/contracts/zipball/4787042340aae19a7ea0fa82f4073c4826204a48",
+        "reference": "4787042340aae19a7ea0fa82f4073c4826204a48",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.2",
+        "psr/container": "^1.1.1|^2.0.1",
+        "psr/simple-cache": "^1.0|^2.0|^3.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Illuminate\\Contracts\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Contracts package.",
+      "homepage": "https://laravel.com",
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2025-11-27T16:16:07+00:00"
+    },
+    {
+      "name": "illuminate/database",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/database.git",
+        "reference": "a0dd90cb4982f887fe3b5580bc5f10cd4997512c"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/database/zipball/a0dd90cb4982f887fe3b5580bc5f10cd4997512c",
+        "reference": "a0dd90cb4982f887fe3b5580bc5f10cd4997512c",
+        "shasum": ""
+      },
+      "require": {
+        "brick/math": "^0.9.3|^0.10.2|^0.11|^0.12|^0.13|^0.14",
+        "ext-pdo": "*",
+        "illuminate/collections": "^11.0",
+        "illuminate/container": "^11.0",
+        "illuminate/contracts": "^11.0",
+        "illuminate/macroable": "^11.0",
+        "illuminate/support": "^11.0",
+        "laravel/serializable-closure": "^1.3|^2.0",
+        "php": "^8.2"
+      },
+      "suggest": {
+        "ext-filter": "Required to use the Postgres database driver.",
+        "fakerphp/faker": "Required to use the eloquent factory builder (^1.24).",
+        "illuminate/console": "Required to use the database commands (^11.0).",
+        "illuminate/events": "Required to use the observers with Eloquent (^11.0).",
+        "illuminate/filesystem": "Required to use the migrations (^11.0).",
+        "illuminate/pagination": "Required to paginate the result set (^11.0).",
+        "symfony/finder": "Required to use Eloquent model factories (^7.0)."
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Illuminate\\Database\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Database package.",
+      "homepage": "https://laravel.com",
+      "keywords": [
+        "database",
+        "laravel",
+        "orm",
+        "sql"
+      ],
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2026-02-23T15:40:51+00:00"
+    },
+    {
+      "name": "illuminate/events",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/events.git",
+        "reference": "b72dab66d8e05d22dc5aa949efec150bbc73e827"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/events/zipball/b72dab66d8e05d22dc5aa949efec150bbc73e827",
+        "reference": "b72dab66d8e05d22dc5aa949efec150bbc73e827",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/bus": "^11.0",
+        "illuminate/collections": "^11.0",
+        "illuminate/container": "^11.0",
+        "illuminate/contracts": "^11.0",
+        "illuminate/macroable": "^11.0",
+        "illuminate/support": "^11.0",
+        "php": "^8.2"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "files": [
+          "functions.php"
+        ],
+        "psr-4": {
+          "Illuminate\\Events\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Events package.",
+      "homepage": "https://laravel.com",
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2025-03-24T11:54:20+00:00"
+    },
+    {
+      "name": "illuminate/macroable",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/macroable.git",
+        "reference": "e1cb9e51b9ed5d3c9bc1ab431d0a52fe42a990ed"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/macroable/zipball/e1cb9e51b9ed5d3c9bc1ab431d0a52fe42a990ed",
+        "reference": "e1cb9e51b9ed5d3c9bc1ab431d0a52fe42a990ed",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.2"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Illuminate\\Support\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Macroable package.",
+      "homepage": "https://laravel.com",
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2024-06-28T20:10:30+00:00"
+    },
+    {
+      "name": "illuminate/pagination",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/pagination.git",
+        "reference": "2c4970463f7ede55be207fbdc27608b4c4178380"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/pagination/zipball/2c4970463f7ede55be207fbdc27608b4c4178380",
+        "reference": "2c4970463f7ede55be207fbdc27608b4c4178380",
+        "shasum": ""
+      },
+      "require": {
+        "ext-filter": "*",
+        "illuminate/collections": "^11.0",
+        "illuminate/contracts": "^11.0",
+        "illuminate/support": "^11.0",
+        "php": "^8.2"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Illuminate\\Pagination\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Pagination package.",
+      "homepage": "https://laravel.com",
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2025-02-14T15:33:00+00:00"
+    },
+    {
+      "name": "illuminate/pipeline",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/pipeline.git",
+        "reference": "f73bb7cab13ac8ef91094dc46976f5e992eea127"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/pipeline/zipball/f73bb7cab13ac8ef91094dc46976f5e992eea127",
+        "reference": "f73bb7cab13ac8ef91094dc46976f5e992eea127",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/contracts": "^11.0",
+        "illuminate/support": "^11.0",
+        "php": "^8.2"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Illuminate\\Pipeline\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Pipeline package.",
+      "homepage": "https://laravel.com",
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2025-03-24T11:54:20+00:00"
+    },
+    {
+      "name": "illuminate/support",
+      "version": "v11.51.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/illuminate/support.git",
+        "reference": "11cc8bd46991e277f6af19eb9dee5d4c1f65c7d2"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/illuminate/support/zipball/11cc8bd46991e277f6af19eb9dee5d4c1f65c7d2",
+        "reference": "11cc8bd46991e277f6af19eb9dee5d4c1f65c7d2",
+        "shasum": ""
+      },
+      "require": {
+        "doctrine/inflector": "^2.0",
+        "ext-ctype": "*",
+        "ext-filter": "*",
+        "ext-mbstring": "*",
+        "illuminate/collections": "^11.0",
+        "illuminate/conditionable": "^11.0",
+        "illuminate/contracts": "^11.0",
+        "illuminate/macroable": "^11.0",
+        "nesbot/carbon": "^2.72.6|^3.8.4",
+        "php": "^8.2",
+        "voku/portable-ascii": "^2.0.2"
+      },
+      "conflict": {
+        "tightenco/collect": "<5.5.33"
+      },
+      "replace": {
+        "spatie/once": "*"
+      },
+      "suggest": {
+        "illuminate/filesystem": "Required to use the Composer class (^11.0).",
+        "laravel/serializable-closure": "Required to use the once function (^1.3|^2.0).",
+        "league/commonmark": "Required to use Str::markdown() and Stringable::markdown() (^2.7).",
+        "league/uri": "Required to use the Uri class (^7.5.1).",
+        "ramsey/uuid": "Required to use Str::uuid() (^4.7).",
+        "symfony/process": "Required to use the Composer class (^7.0).",
+        "symfony/uid": "Required to use Str::ulid() (^7.0).",
+        "symfony/var-dumper": "Required to use the dd function (^7.0).",
+        "vlucas/phpdotenv": "Required to use the Env class and env helper (^5.6.1)."
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "11.x-dev"
+        }
+      },
+      "autoload": {
+        "files": [
+          "functions.php",
+          "helpers.php"
+        ],
+        "psr-4": {
+          "Illuminate\\Support\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        }
+      ],
+      "description": "The Illuminate Support package.",
+      "homepage": "https://laravel.com",
+      "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+      },
+      "time": "2026-01-20T15:25:35+00:00"
+    },
+    {
+      "name": "laravel/serializable-closure",
+      "version": "v2.1.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/laravel/serializable-closure.git",
+        "reference": "2d5869a838bbcf37e0d8b0568fc41914e81374b5"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/2d5869a838bbcf37e0d8b0568fc41914e81374b5",
+        "reference": "2d5869a838bbcf37e0d8b0568fc41914e81374b5",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.1"
+      },
+      "require-dev": {
+        "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+        "nesbot/carbon": "^2.67|^3.0",
+        "pestphp/pest": "^2.36|^3.0|^4.0",
+        "phpstan/phpstan": "^2.0",
+        "symfony/var-dumper": "^6.2.0|^7.0.0|^8.0.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "2.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Laravel\\SerializableClosure\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Taylor Otwell",
+          "email": "taylor@laravel.com"
+        },
+        {
+          "name": "Nuno Maduro",
+          "email": "nuno@laravel.com"
+        }
+      ],
+      "description": "Laravel Serializable Closure provides an easy and secure way to serialize closures in PHP.",
+      "keywords": [
+        "closure",
+        "laravel",
+        "serializable"
+      ],
+      "support": {
+        "issues": "https://github.com/laravel/serializable-closure/issues",
+        "source": "https://github.com/laravel/serializable-closure"
+      },
+      "time": "2026-09-22T14:32:34+00:00"
+    },
+    {
+      "name": "localzet/console",
+      "version": "v1.1.8",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/localzet/Console.git",
+        "reference": "3bf66351e6684de04315969749712378524f6317"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/localzet/Console/zipball/3bf66351e6684de04315969749712378524f6317",
+        "reference": "3bf66351e6684de04315969749712378524f6317",
+        "shasum": ""
+      },
+      "require": {
+        "symfony/console": ">=5.0"
+      },
+      "suggest": {
+        "ext-openssl": "For build phar (Phar::OPENSSL)",
+        "ext-zip": "For build bin"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "localzet\\": "",
+          "localzet\\Console\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "Localzet Console library",
+      "keywords": [
+        "console",
+        "localzet"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "issues": "https://github.com/localzet/Console/issues",
+        "source": "https://github.com/localzet/Console"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/localzet",
+          "type": "github"
+        }
+      ],
+      "time": "2024-12-08T23:33:50+00:00"
+    },
+    {
+      "name": "localzet/events",
+      "version": "v1.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/localzet/Events.git",
+        "reference": "1fbd7ea366482844296cbb0f212b42a7c84546e9"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/localzet/Events/zipball/1fbd7ea366482844296cbb0f212b42a7c84546e9",
+        "reference": "1fbd7ea366482844296cbb0f212b42a7c84546e9",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "localzet\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "Simple Events Manage Library",
+      "keywords": [
+        "events",
+        "localzet"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "issues": "https://github.com/localzet/Events/issues",
+        "source": "https://github.com/localzet/Events"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/localzet",
+          "type": "github"
+        }
+      ],
+      "time": "2024-10-15T19:25:13+00:00"
+    },
+    {
+      "name": "localzet/server",
+      "version": "v4.5.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/localzet/Server.git",
+        "reference": "07764f3ca0af09f2945a00b53fc8e54b2acc4766"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/localzet/Server/zipball/07764f3ca0af09f2945a00b53fc8e54b2acc4766",
+        "reference": "07764f3ca0af09f2945a00b53fc8e54b2acc4766",
+        "shasum": ""
+      },
+      "require": {
+        "ext-json": "*",
+        "ext-pcntl": "*",
+        "ext-posix": "*",
+        "ext-sockets": "*",
+        "localzet/events": "^1",
+        "php": "^8.1 || ^8.2"
+      },
+      "conflict": {
+        "ext-swow": "<v1.0.0"
+      },
+      "require-dev": {
+        "friendsofphp/php-cs-fixer": "*",
+        "phpunit/phpunit": "^9 || ^10",
+        "rector/rector": "*",
+        "vimeo/psalm": "*"
+      },
+      "suggest": {
+        "ext-ev": "For better performance with libev.",
+        "ext-event": "For better performance with libevent.",
+        "ext-redis": "For Redis Session Handler support.",
+        "ext-swoole": "For enhanced async capabilities and performance.",
+        "ext-swow": "For next-gen async PHP features.",
+        "ext-uv": "For better performance with libuv.",
+        "mongodb/mongodb": "For MongoDB Session Handler support."
+      },
+      "type": "project",
+      "extra": {
+        "branch-alias": []
+      },
+      "autoload": {
+        "files": [
+          "Helpers.php"
+        ],
+        "psr-4": {
+          "localzet\\": "",
+          "localzet\\Server\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "Localzet Server is a high-performance asynchronous event-driven server for PHP, designed for modern applications with scalability and security in mind.",
+      "keywords": [
+        "AGPL",
+        "async",
+        "asynchronous",
+        "event-driven",
+        "pcntl",
+        "performance",
+        "php",
+        "posix",
+        "psr",
+        "scalability",
+        "security",
+        "server",
+        "sockets"
+      ],
+      "support": {
+        "docs": "https://docs.localzet.com",
+        "email": "support@localzet.com",
+        "issues": "https://github.com/localzet/Server/issues",
+        "source": "https://github.com/localzet/Server"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/localzet",
+          "type": "github"
+        }
+      ],
+      "time": "2025-05-06T23:36:38+00:00"
+    },
+    {
+      "name": "monolog/monolog",
+      "version": "2.11.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Seldaek/monolog.git",
+        "reference": "bf2403f591c5a431b6e0e1170cbadd3d64499564"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bf2403f591c5a431b6e0e1170cbadd3d64499564",
+        "reference": "bf2403f591c5a431b6e0e1170cbadd3d64499564",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.2",
+        "psr/log": "^1.0.1 || ^2.0 || ^3.0"
+      },
+      "provide": {
+        "psr/log-implementation": "1.0.0 || 2.0.0 || 3.0.0"
+      },
+      "require-dev": {
+        "aws/aws-sdk-php": "^2.4.9 || ^3.0",
+        "doctrine/couchdb": "~1.0@dev",
+        "elasticsearch/elasticsearch": "^7 || ^8",
+        "ext-json": "*",
+        "graylog2/gelf-php": "^1.4.2 || ^2@dev",
+        "guzzlehttp/guzzle": "^7.4",
+        "guzzlehttp/psr7": "^2.2",
+        "mongodb/mongodb": "^1.8 || ^2.0",
+        "php-amqplib/php-amqplib": "~2.4 || ^3",
+        "phpspec/prophecy": "^1.15",
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^8.5.38 || ^9.6.19",
+        "predis/predis": "^1.1 || ^2.0",
+        "rollbar/rollbar": "^1.3 || ^2 || ^3",
+        "ruflin/elastica": "^7",
+        "swiftmailer/swiftmailer": "^5.3|^6.0",
+        "symfony/mailer": "^5.4 || ^6",
+        "symfony/mime": "^5.4 || ^6"
+      },
+      "suggest": {
+        "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+        "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+        "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
+        "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+        "ext-curl": "Required to send log messages using the IFTTTHandler, the LogglyHandler, the SendGridHandler, the SlackWebhookHandler or the TelegramBotHandler",
+        "ext-mbstring": "Allow to work properly with unicode symbols",
+        "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
+        "ext-openssl": "Required to send log messages using SSL",
+        "ext-sockets": "Allow sending log messages to a Syslog server (via UDP driver)",
+        "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+        "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
+        "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+        "rollbar/rollbar": "Allow sending log messages to Rollbar",
+        "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-main": "2.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Monolog\\": "src/Monolog"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Jordi Boggiano",
+          "email": "j.boggiano@seld.be",
+          "homepage": "https://seld.be"
+        }
+      ],
+      "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+      "homepage": "https://github.com/Seldaek/monolog",
+      "keywords": [
+        "log",
+        "logging",
+        "psr-3"
+      ],
+      "support": {
+        "issues": "https://github.com/Seldaek/monolog/issues",
+        "source": "https://github.com/Seldaek/monolog/tree/2.11.1"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/Seldaek",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-09-02T07:57:24+00:00"
+    },
+    {
+      "name": "nesbot/carbon",
+      "version": "3.15.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/CarbonPHP/carbon.git",
+        "reference": "ce0e5636fae7d1e99856eb70cae4c719a284aa08"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/ce0e5636fae7d1e99856eb70cae4c719a284aa08",
+        "reference": "ce0e5636fae7d1e99856eb70cae4c719a284aa08",
+        "shasum": ""
+      },
+      "require": {
+        "carbonphp/carbon-doctrine-types": "<100.0",
+        "ext-json": "*",
+        "php": "^8.1",
+        "psr/clock": "^1.0",
+        "symfony/clock": "^6.3.12 || ^7.0 || ^8.0",
+        "symfony/polyfill-mbstring": "^1.0",
+        "symfony/polyfill-time": "^1.0",
+        "symfony/translation": "^4.4.18 || ^5.2.1 || ^6.0 || ^7.0 || ^8.0"
+      },
+      "provide": {
+        "psr/clock-implementation": "1.0"
+      },
+      "require-dev": {
+        "doctrine/dbal": "^3.6.3 || ^4.0",
+        "doctrine/orm": "^2.15.2 || ^3.0",
+        "friendsofphp/php-cs-fixer": "^v3.87.1",
+        "kylekatarnls/multi-tester": "^2.5.3",
+        "phpmd/phpmd": "^3.0@dev",
+        "phpstan/extension-installer": "^1.4.3",
+        "phpstan/phpstan": "^2.1.22",
+        "phpunit/phpunit": "^10.5.53",
+        "squizlabs/php_codesniffer": "^3.13.4 || ^4.0.0"
+      },
+      "bin": [
+        "bin/carbon"
+      ],
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Carbon\\Laravel\\ServiceProvider"
+          ]
+        },
+        "phpstan": {
+          "includes": [
+            "extension.neon"
+          ]
+        },
+        "branch-alias": {
+          "dev-2.x": "2.x-dev",
+          "dev-master": "3.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Carbon\\": "src/Carbon/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Brian Nesbitt",
+          "email": "brian@nesbot.com",
+          "homepage": "https://markido.com"
+        },
+        {
+          "name": "kylekatarnls",
+          "homepage": "https://github.com/kylekatarnls"
+        }
+      ],
+      "description": "An API extension for DateTime that supports 281 different languages.",
+      "homepage": "https://carbonphp.github.io/carbon/",
+      "keywords": [
+        "date",
+        "datetime",
+        "time"
+      ],
+      "support": {
+        "docs": "https://carbonphp.github.io/carbon/guide/getting-started/introduction.html",
+        "issues": "https://github.com/CarbonPHP/carbon/issues",
+        "source": "https://github.com/CarbonPHP/carbon"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/sponsors/kylekatarnls",
+          "type": "github"
+        },
+        {
+          "url": "https://opencollective.com/Carbon#sponsor",
+          "type": "opencollective"
+        },
+        {
+          "url": "https://tidelift.com/subscription/pkg/packagist-nesbot-carbon?utm_source=packagist-nesbot-carbon&utm_medium=referral&utm_campaign=readme",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-25T14:32:48+00:00"
+    },
+    {
+      "name": "psr/cache",
+      "version": "3.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/php-fig/cache.git",
+        "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/php-fig/cache/zipball/aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+        "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.0.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "1.0.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Psr\\Cache\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "PHP-FIG",
+          "homepage": "https://www.php-fig.org/"
+        }
+      ],
+      "description": "Common interface for caching libraries",
+      "keywords": [
+        "cache",
+        "psr",
+        "psr-6"
+      ],
+      "support": {
+        "source": "https://github.com/php-fig/cache/tree/3.0.0"
+      },
+      "time": "2021-02-03T23:26:27+00:00"
+    },
+    {
+      "name": "psr/clock",
+      "version": "1.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/php-fig/clock.git",
+        "reference": "e41a24703d4560fd0acb709162f73b8adfc3aa0d"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/php-fig/clock/zipball/e41a24703d4560fd0acb709162f73b8adfc3aa0d",
+        "reference": "e41a24703d4560fd0acb709162f73b8adfc3aa0d",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^7.0 || ^8.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Psr\\Clock\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "PHP-FIG",
+          "homepage": "https://www.php-fig.org/"
+        }
+      ],
+      "description": "Common interface for reading the clock.",
+      "homepage": "https://github.com/php-fig/clock",
+      "keywords": [
+        "clock",
+        "now",
+        "psr",
+        "psr-20",
+        "time"
+      ],
+      "support": {
+        "issues": "https://github.com/php-fig/clock/issues",
+        "source": "https://github.com/php-fig/clock/tree/1.0.0"
+      },
+      "time": "2022-11-25T14:36:26+00:00"
+    },
+    {
+      "name": "psr/container",
+      "version": "1.1.2",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/php-fig/container.git",
+        "reference": "513e0666f7216c7459170d56df27dfcefe1689ea"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/php-fig/container/zipball/513e0666f7216c7459170d56df27dfcefe1689ea",
+        "reference": "513e0666f7216c7459170d56df27dfcefe1689ea",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.4.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Psr\\Container\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "PHP-FIG",
+          "homepage": "https://www.php-fig.org/"
+        }
+      ],
+      "description": "Common Container Interface (PHP FIG PSR-11)",
+      "homepage": "https://github.com/php-fig/container",
+      "keywords": [
+        "PSR-11",
+        "container",
+        "container-interface",
+        "container-interop",
+        "psr"
+      ],
+      "support": {
+        "issues": "https://github.com/php-fig/container/issues",
+        "source": "https://github.com/php-fig/container/tree/1.1.2"
+      },
+      "time": "2021-11-05T16:50:12+00:00"
+    },
+    {
+      "name": "psr/log",
+      "version": "3.0.2",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/php-fig/log.git",
+        "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/php-fig/log/zipball/f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+        "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.0.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "3.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Psr\\Log\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "PHP-FIG",
+          "homepage": "https://www.php-fig.org/"
+        }
+      ],
+      "description": "Common interface for logging libraries",
+      "homepage": "https://github.com/php-fig/log",
+      "keywords": [
+        "log",
+        "psr",
+        "psr-3"
+      ],
+      "support": {
+        "source": "https://github.com/php-fig/log/tree/3.0.2"
+      },
+      "time": "2024-09-11T13:17:53+00:00"
+    },
+    {
+      "name": "psr/simple-cache",
+      "version": "3.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/php-fig/simple-cache.git",
+        "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/764e0b3939f5ca87cb904f570ef9be2d78a07865",
+        "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.0.0"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "3.0.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Psr\\SimpleCache\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "PHP-FIG",
+          "homepage": "https://www.php-fig.org/"
+        }
+      ],
+      "description": "Common interfaces for simple caching",
+      "keywords": [
+        "cache",
+        "caching",
+        "psr",
+        "psr-16",
+        "simple-cache"
+      ],
+      "support": {
+        "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
+      },
+      "time": "2021-10-29T13:26:27+00:00"
+    },
+    {
+      "name": "symfony/cache",
+      "version": "v6.4.49",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/cache.git",
+        "reference": "4deac40a72d25b95c8558544a3d2346813628ab4"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/cache/zipball/4deac40a72d25b95c8558544a3d2346813628ab4",
+        "reference": "4deac40a72d25b95c8558544a3d2346813628ab4",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.1",
+        "psr/cache": "^2.0|^3.0",
+        "psr/log": "^1.1|^2|^3",
+        "symfony/cache-contracts": "^2.5|^3",
+        "symfony/service-contracts": "^2.5|^3",
+        "symfony/var-exporter": "^6.3.6|^7.0"
+      },
+      "conflict": {
+        "doctrine/dbal": "<2.13.1",
+        "symfony/dependency-injection": "<5.4",
+        "symfony/http-kernel": "<5.4",
+        "symfony/var-dumper": "<5.4"
+      },
+      "provide": {
+        "psr/cache-implementation": "2.0|3.0",
+        "psr/simple-cache-implementation": "1.0|2.0|3.0",
+        "symfony/cache-implementation": "1.1|2.0|3.0"
+      },
+      "require-dev": {
+        "cache/integration-tests": "^0.18",
+        "doctrine/dbal": "^2.13.1|^3|^4",
+        "predis/predis": "^1.1|^2.0",
+        "psr/simple-cache": "^1.0|^2.0|^3.0",
+        "symfony/config": "^5.4|^6.0|^7.0",
+        "symfony/dependency-injection": "^5.4|^6.0|^7.0",
+        "symfony/filesystem": "^5.4|^6.0|^7.0",
+        "symfony/http-kernel": "^5.4|^6.0|^7.0",
+        "symfony/messenger": "^5.4|^6.0|^7.0",
+        "symfony/var-dumper": "^5.4|^6.0|^7.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Component\\Cache\\": ""
+        },
+        "classmap": [
+          "Traits/ValueWrapper.php"
+        ],
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Provides extended PSR-6, PSR-16 (and tags) implementations",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "caching",
+        "psr6"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/cache/tree/v6.4.49"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-28T08:19:01+00:00"
+    },
+    {
+      "name": "symfony/cache-contracts",
+      "version": "v3.7.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/cache-contracts.git",
+        "reference": "9789738bc19af1106dc54d6afba9a0b467516cf2"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/9789738bc19af1106dc54d6afba9a0b467516cf2",
+        "reference": "9789738bc19af1106dc54d6afba9a0b467516cf2",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.1",
+        "psr/cache": "^3.0"
+      },
+      "type": "library",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/contracts",
+          "name": "symfony/contracts"
+        },
+        "branch-alias": {
+          "dev-main": "3.7-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Contracts\\Cache\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Generic abstractions related to caching",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "abstractions",
+        "contracts",
+        "decoupling",
+        "interfaces",
+        "interoperability",
+        "standards"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/cache-contracts/tree/v3.7.1"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-06-05T06:23:12+00:00"
+    },
+    {
+      "name": "symfony/clock",
+      "version": "v8.1.9",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/clock.git",
+        "reference": "945ea3b64d6da9c1c2c354fe5c07b27455df6442"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/clock/zipball/945ea3b64d6da9c1c2c354fe5c07b27455df6442",
+        "reference": "945ea3b64d6da9c1c2c354fe5c07b27455df6442",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.4.1",
+        "psr/clock": "^1.0"
+      },
+      "provide": {
+        "psr/clock-implementation": "1.0"
+      },
+      "type": "library",
+      "autoload": {
+        "files": [
+          "Resources/now.php"
+        ],
+        "psr-4": {
+          "Symfony\\Component\\Clock\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Decouples applications from the system clock",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "clock",
+        "psr20",
+        "time"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/clock/tree/v8.1.9"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-12T14:32:04+00:00"
+    },
+    {
+      "name": "symfony/console",
+      "version": "v7.4.22",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/console.git",
+        "reference": "8012f842110b414fd1cc641adb0ed8423353b0bb"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/console/zipball/8012f842110b414fd1cc641adb0ed8423353b0bb",
+        "reference": "8012f842110b414fd1cc641adb0ed8423353b0bb",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.2",
+        "symfony/deprecation-contracts": "^2.5|^3",
+        "symfony/polyfill-mbstring": "~1.0",
+        "symfony/service-contracts": "^2.5|^3",
+        "symfony/string": "^7.2|^8.0"
+      },
+      "conflict": {
+        "symfony/dependency-injection": "<6.4",
+        "symfony/dotenv": "<6.4",
+        "symfony/event-dispatcher": "<6.4",
+        "symfony/lock": "<6.4",
+        "symfony/process": "<6.4"
+      },
+      "provide": {
+        "psr/log-implementation": "1.0|2.0|3.0"
+      },
+      "require-dev": {
+        "psr/log": "^1|^2|^3",
+        "symfony/config": "^6.4|^7.0|^8.0",
+        "symfony/dependency-injection": "^6.4|^7.0|^8.0",
+        "symfony/event-dispatcher": "^6.4|^7.0|^8.0",
+        "symfony/http-foundation": "^6.4|^7.0|^8.0",
+        "symfony/http-kernel": "^6.4|^7.0|^8.0",
+        "symfony/lock": "^6.4|^7.0|^8.0",
+        "symfony/messenger": "^6.4|^7.0|^8.0",
+        "symfony/process": "^6.4|^7.0|^8.0",
+        "symfony/stopwatch": "^6.4|^7.0|^8.0",
+        "symfony/var-dumper": "^6.4|^7.0|^8.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Component\\Console\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Fabien Potencier",
+          "email": "fabien@symfony.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Eases the creation of beautiful and testable command line interfaces",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "cli",
+        "command-line",
+        "console",
+        "terminal"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/console/tree/v7.4.22"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-28T11:08:27+00:00"
+    },
+    {
+      "name": "symfony/deprecation-contracts",
+      "version": "v3.7.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/deprecation-contracts.git",
+        "reference": "f3202fa1b5097b0af062dc978b32ecf63404e31d"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/f3202fa1b5097b0af062dc978b32ecf63404e31d",
+        "reference": "f3202fa1b5097b0af062dc978b32ecf63404e31d",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.1"
+      },
+      "type": "library",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/contracts",
+          "name": "symfony/contracts"
+        },
+        "branch-alias": {
+          "dev-main": "3.7-dev"
+        }
+      },
+      "autoload": {
+        "files": [
+          "function.php"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "A generic function and convention to trigger deprecation notices",
+      "homepage": "https://symfony.com",
+      "support": {
+        "source": "https://github.com/symfony/deprecation-contracts/tree/v3.7.1"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-06-05T06:23:12+00:00"
+    },
+    {
+      "name": "symfony/polyfill-ctype",
+      "version": "v1.37.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/polyfill-ctype.git",
+        "reference": "141046a8f9477948ff284fa65be2095baafb94f2"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/141046a8f9477948ff284fa65be2095baafb94f2",
+        "reference": "141046a8f9477948ff284fa65be2095baafb94f2",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.2"
+      },
+      "provide": {
+        "ext-ctype": "*"
+      },
+      "suggest": {
+        "ext-ctype": "For best performance"
+      },
+      "type": "library",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/polyfill",
+          "name": "symfony/polyfill"
+        }
+      },
+      "autoload": {
+        "files": [
+          "bootstrap.php"
+        ],
+        "psr-4": {
+          "Symfony\\Polyfill\\Ctype\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Gert de Pagter",
+          "email": "BackEndTea@gmail.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Symfony polyfill for ctype functions",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "compatibility",
+        "ctype",
+        "polyfill",
+        "portable"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/polyfill-ctype/tree/v1.37.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-04-10T16:19:22+00:00"
+    },
+    {
+      "name": "symfony/polyfill-intl-grapheme",
+      "version": "v1.43.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
+        "reference": "5a8f33c87aeecffce24e721b5064fab05f4becf8"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/5a8f33c87aeecffce24e721b5064fab05f4becf8",
+        "reference": "5a8f33c87aeecffce24e721b5064fab05f4becf8",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.2"
+      },
+      "suggest": {
+        "ext-intl": "For best performance"
+      },
+      "type": "library",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/polyfill",
+          "name": "symfony/polyfill"
+        }
+      },
+      "autoload": {
+        "files": [
+          "bootstrap.php"
+        ],
+        "psr-4": {
+          "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Symfony polyfill for intl's grapheme_* functions",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "compatibility",
+        "grapheme",
+        "intl",
+        "polyfill",
+        "portable",
+        "shim"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.43.3"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-15T09:18:53+00:00"
+    },
+    {
+      "name": "symfony/polyfill-intl-normalizer",
+      "version": "v1.43.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
+        "reference": "ebd57ccc7edb93d632e184efbe7693d2517bab3b"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/ebd57ccc7edb93d632e184efbe7693d2517bab3b",
+        "reference": "ebd57ccc7edb93d632e184efbe7693d2517bab3b",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.2"
+      },
+      "suggest": {
+        "ext-intl": "For best performance"
+      },
+      "type": "library",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/polyfill",
+          "name": "symfony/polyfill"
+        }
+      },
+      "autoload": {
+        "files": [
+          "bootstrap.php"
+        ],
+        "psr-4": {
+          "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+        },
+        "classmap": [
+          "Resources/stubs"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Symfony polyfill for intl's Normalizer class and related functions",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "compatibility",
+        "intl",
+        "normalizer",
+        "polyfill",
+        "portable",
+        "shim"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.43.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-09-23T22:02:09+00:00"
+    },
+    {
+      "name": "symfony/polyfill-mbstring",
+      "version": "v1.43.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/polyfill-mbstring.git",
+        "reference": "122889ed24dc000165bcbfd77ec412f15cbdfc6a"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/122889ed24dc000165bcbfd77ec412f15cbdfc6a",
+        "reference": "122889ed24dc000165bcbfd77ec412f15cbdfc6a",
+        "shasum": ""
+      },
+      "require": {
+        "ext-iconv": "*",
+        "php": ">=7.2"
+      },
+      "provide": {
+        "ext-mbstring": "*"
+      },
+      "suggest": {
+        "ext-mbstring": "For best performance"
+      },
+      "type": "library",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/polyfill",
+          "name": "symfony/polyfill"
+        }
+      },
+      "autoload": {
+        "files": [
+          "bootstrap.php"
+        ],
+        "psr-4": {
+          "Symfony\\Polyfill\\Mbstring\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Symfony polyfill for the Mbstring extension",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "compatibility",
+        "mbstring",
+        "polyfill",
+        "portable",
+        "shim"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.43.3"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-28T09:35:49+00:00"
+    },
+    {
+      "name": "symfony/polyfill-time",
+      "version": "v1.42.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/polyfill-time.git",
+        "reference": "ac9f1ed802dd58f37e720388130c088434aa09fc"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/polyfill-time/zipball/ac9f1ed802dd58f37e720388130c088434aa09fc",
+        "reference": "ac9f1ed802dd58f37e720388130c088434aa09fc",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.1"
+      },
+      "type": "library",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/polyfill",
+          "name": "symfony/polyfill"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Polyfill\\Time\\": ""
+        },
+        "classmap": [
+          "Resources/stubs"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Ignace Philippe Nyamagana Butera",
+          "email": "nyamsprod@gmail.com"
+        },
+        {
+          "name": "Tim Düsterhus",
+          "email": "tim@tideways-gmbh.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Symfony polyfill for the Time API added to PHP 8.6",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "compatibility",
+        "duration",
+        "polyfill",
+        "portable",
+        "shim",
+        "time"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/polyfill-time/tree/v1.42.0"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-08-07T13:08:13+00:00"
+    },
+    {
+      "name": "symfony/process",
+      "version": "v7.4.22",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/process.git",
+        "reference": "a5a6912edbbfc4c98cd080bc4bbe37c8e7eeb20a"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/process/zipball/a5a6912edbbfc4c98cd080bc4bbe37c8e7eeb20a",
+        "reference": "a5a6912edbbfc4c98cd080bc4bbe37c8e7eeb20a",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.2"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Component\\Process\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Fabien Potencier",
+          "email": "fabien@symfony.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Executes commands in sub-processes",
+      "homepage": "https://symfony.com",
+      "support": {
+        "source": "https://github.com/symfony/process/tree/v7.4.22"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-25T14:40:16+00:00"
+    },
+    {
+      "name": "symfony/service-contracts",
+      "version": "v3.7.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/service-contracts.git",
+        "reference": "15e6a07ec2a2c75ceb1b21dd98105ee8456d2257"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/service-contracts/zipball/15e6a07ec2a2c75ceb1b21dd98105ee8456d2257",
+        "reference": "15e6a07ec2a2c75ceb1b21dd98105ee8456d2257",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.1",
+        "psr/container": "^1.1|^2.0",
+        "symfony/deprecation-contracts": "^2.5|^3"
+      },
+      "conflict": {
+        "ext-psr": "<1.1|>=2"
+      },
+      "type": "library",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/contracts",
+          "name": "symfony/contracts"
+        },
+        "branch-alias": {
+          "dev-main": "3.7-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Contracts\\Service\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Test/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Generic abstractions related to writing services",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "abstractions",
+        "contracts",
+        "decoupling",
+        "interfaces",
+        "interoperability",
+        "standards"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/service-contracts/tree/v3.7.3"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-07-27T15:39:01+00:00"
+    },
+    {
+      "name": "symfony/string",
+      "version": "v8.1.10",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/string.git",
+        "reference": "6c6110979c0150393bbb336170e286d51ab4d76c"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/string/zipball/6c6110979c0150393bbb336170e286d51ab4d76c",
+        "reference": "6c6110979c0150393bbb336170e286d51ab4d76c",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.4.1",
+        "symfony/polyfill-ctype": "^1.8",
+        "symfony/polyfill-intl-grapheme": "^1.33",
+        "symfony/polyfill-intl-normalizer": "^1.0",
+        "symfony/polyfill-mbstring": "^1.0"
+      },
+      "conflict": {
+        "symfony/translation-contracts": "<2.5"
+      },
+      "require-dev": {
+        "symfony/emoji": "^7.4|^8.0",
+        "symfony/http-client": "^7.4|^8.0",
+        "symfony/intl": "^7.4|^8.0",
+        "symfony/translation-contracts": "^2.5|^3.0",
+        "symfony/var-exporter": "^7.4|^8.0"
+      },
+      "type": "library",
+      "autoload": {
+        "files": [
+          "Resources/functions.php"
+        ],
+        "psr-4": {
+          "Symfony\\Component\\String\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "grapheme",
+        "i18n",
+        "string",
+        "unicode",
+        "utf-8",
+        "utf8"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/string/tree/v8.1.10"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-23T17:06:53+00:00"
+    },
+    {
+      "name": "symfony/translation",
+      "version": "v6.4.49",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/translation.git",
+        "reference": "81998c85f03941f8efeb6f44549259066361780b"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/translation/zipball/81998c85f03941f8efeb6f44549259066361780b",
+        "reference": "81998c85f03941f8efeb6f44549259066361780b",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.1",
+        "symfony/deprecation-contracts": "^2.5|^3",
+        "symfony/polyfill-mbstring": "~1.0",
+        "symfony/translation-contracts": "^2.5|^3.0"
+      },
+      "conflict": {
+        "symfony/config": "<5.4",
+        "symfony/console": "<5.4",
+        "symfony/dependency-injection": "<5.4",
+        "symfony/http-client-contracts": "<2.5",
+        "symfony/http-kernel": "<5.4",
+        "symfony/service-contracts": "<2.5",
+        "symfony/twig-bundle": "<5.4",
+        "symfony/yaml": "<5.4"
+      },
+      "provide": {
+        "symfony/translation-implementation": "2.3|3.0"
+      },
+      "require-dev": {
+        "nikic/php-parser": "^4.18|^5.0",
+        "psr/log": "^1|^2|^3",
+        "symfony/config": "^5.4|^6.0|^7.0",
+        "symfony/console": "^5.4|^6.0|^7.0",
+        "symfony/dependency-injection": "^5.4|^6.0|^7.0",
+        "symfony/finder": "^5.4|^6.0|^7.0",
+        "symfony/http-client-contracts": "^2.5|^3.0",
+        "symfony/http-kernel": "^5.4|^6.0|^7.0",
+        "symfony/intl": "^5.4|^6.0|^7.0",
+        "symfony/polyfill-intl-icu": "^1.21",
+        "symfony/routing": "^5.4|^6.0|^7.0",
+        "symfony/service-contracts": "^2.5|^3",
+        "symfony/yaml": "^5.4|^6.0|^7.0"
+      },
+      "type": "library",
+      "autoload": {
+        "files": [
+          "Resources/functions.php"
+        ],
+        "psr-4": {
+          "Symfony\\Component\\Translation\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Fabien Potencier",
+          "email": "fabien@symfony.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Provides tools to internationalize your application",
+      "homepage": "https://symfony.com",
+      "support": {
+        "source": "https://github.com/symfony/translation/tree/v6.4.49"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-25T08:57:29+00:00"
+    },
+    {
+      "name": "symfony/translation-contracts",
+      "version": "v3.7.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/translation-contracts.git",
+        "reference": "ccb206b98faccc511ebae8e5fad50f2dc0b30621"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/ccb206b98faccc511ebae8e5fad50f2dc0b30621",
+        "reference": "ccb206b98faccc511ebae8e5fad50f2dc0b30621",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.1"
+      },
+      "type": "library",
+      "extra": {
+        "thanks": {
+          "url": "https://github.com/symfony/contracts",
+          "name": "symfony/contracts"
+        },
+        "branch-alias": {
+          "dev-main": "3.7-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Contracts\\Translation\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Test/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Generic abstractions related to translation",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "abstractions",
+        "contracts",
+        "decoupling",
+        "interfaces",
+        "interoperability",
+        "standards"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/translation-contracts/tree/v3.7.1"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-06-05T06:23:12+00:00"
+    },
+    {
+      "name": "symfony/var-dumper",
+      "version": "v7.4.22",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/var-dumper.git",
+        "reference": "6e6ff33ea8cf5df27f00a5561ebd5ee9bd7f1618"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6e6ff33ea8cf5df27f00a5561ebd5ee9bd7f1618",
+        "reference": "6e6ff33ea8cf5df27f00a5561ebd5ee9bd7f1618",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.2",
+        "symfony/deprecation-contracts": "^2.5|^3",
+        "symfony/polyfill-mbstring": "~1.0"
+      },
+      "conflict": {
+        "symfony/console": "<6.4"
+      },
+      "require-dev": {
+        "symfony/console": "^6.4|^7.0|^8.0",
+        "symfony/http-kernel": "^6.4|^7.0|^8.0",
+        "symfony/process": "^6.4|^7.0|^8.0",
+        "symfony/uid": "^6.4|^7.0|^8.0",
+        "twig/twig": "^3.12|^4.0"
+      },
+      "bin": [
+        "Resources/bin/var-dump-server"
+      ],
+      "type": "library",
+      "autoload": {
+        "files": [
+          "Resources/functions/dump.php"
+        ],
+        "psr-4": {
+          "Symfony\\Component\\VarDumper\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Provides mechanisms for walking through any arbitrary PHP variable",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "debug",
+        "dump"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/var-dumper/tree/v7.4.22"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-25T21:04:04+00:00"
+    },
+    {
+      "name": "symfony/var-exporter",
+      "version": "v7.4.22",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/var-exporter.git",
+        "reference": "6c967db30708068f6eaedb6ed37973bd86de2241"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/var-exporter/zipball/6c967db30708068f6eaedb6ed37973bd86de2241",
+        "reference": "6c967db30708068f6eaedb6ed37973bd86de2241",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=8.2",
+        "symfony/deprecation-contracts": "^2.5|^3"
+      },
+      "require-dev": {
+        "symfony/property-access": "^6.4|^7.0|^8.0",
+        "symfony/serializer": "^6.4|^7.0|^8.0",
+        "symfony/var-dumper": "^6.4|^7.0|^8.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Component\\VarExporter\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Nicolas Grekas",
+          "email": "p@tchwork.com"
+        },
+        {
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Allows exporting any serializable PHP data structure to plain PHP code",
+      "homepage": "https://symfony.com",
+      "keywords": [
+        "clone",
+        "construct",
+        "export",
+        "hydrate",
+        "instantiate",
+        "lazy-loading",
+        "proxy",
+        "serialize"
+      ],
+      "support": {
+        "source": "https://github.com/symfony/var-exporter/tree/v7.4.22"
+      },
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://github.com/nicolas-grekas",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-10-22T14:50:44+00:00"
+    },
+    {
+      "name": "triangle/console",
+      "version": "v1.3.27",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Triangle-org/Console.git",
+        "reference": "6742d995d527cfd0bc0d5a6a4b61d168720222f1"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Triangle-org/Console/zipball/6742d995d527cfd0bc0d5a6a4b61d168720222f1",
+        "reference": "6742d995d527cfd0bc0d5a6a4b61d168720222f1",
+        "shasum": ""
+      },
+      "require": {
+        "localzet/console": ">=1.0",
+        "symfony/process": "^7.1",
+        "triangle/engine": "^8.1"
+      },
+      "suggest": {
+        "ext-openssl": "For build phar (Phar::OPENSSL)",
+        "ext-zip": "For build bin"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Triangle\\": "",
+          "Triangle\\Console\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "Triangle Console Component",
+      "keywords": [
+        "console",
+        "localzet",
+        "triangle"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "issues": "https://github.com/Triangle-org/Console/issues",
+        "source": "https://github.com/Triangle-org/Console"
+      },
+      "time": "2025-11-02T00:47:33+00:00"
+    },
+    {
+      "name": "triangle/database",
+      "version": "v1.0.4",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Triangle-org/Database.git",
+        "reference": "857657ac1c91d84082a61c108a756f8626945edb"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Triangle-org/Database/zipball/857657ac1c91d84082a61c108a756f8626945edb",
+        "reference": "857657ac1c91d84082a61c108a756f8626945edb",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/database": "^11.19",
+        "illuminate/events": "^11.19",
+        "illuminate/pagination": "^11.19",
+        "php": "^8.1",
+        "symfony/var-dumper": "^7.1",
+        "triangle/engine": "^8.1"
+      },
+      "suggest": {
+        "mongodb/laravel-mongodb": "For MongoDB Driver"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Triangle\\": "",
+          "Triangle\\Database\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "Triangle Database Component",
+      "keywords": [
+        "database",
+        "localzet",
+        "triangle"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "issues": "https://github.com/Triangle-org/Database/issues",
+        "source": "https://github.com/Triangle-org/Database"
+      },
+      "time": "2025-11-02T00:51:15+00:00"
+    },
+    {
+      "name": "triangle/engine",
+      "version": "v8.1.11",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Triangle-org/Engine.git",
+        "reference": "c8e33ca8f90422662e3010746c0bd8292dfac67d"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Triangle-org/Engine/zipball/c8e33ca8f90422662e3010746c0bd8292dfac67d",
+        "reference": "c8e33ca8f90422662e3010746c0bd8292dfac67d",
+        "shasum": ""
+      },
+      "require": {
+        "ext-intl": "*",
+        "ext-json": "*",
+        "localzet/server": "^4",
+        "monolog/monolog": "^2",
+        "php": "^8.1",
+        "psr/container": "^1.0",
+        "symfony/cache": "^6",
+        "symfony/translation": "^6"
+      },
+      "require-dev": {
+        "rector/rector": "*"
+      },
+      "suggest": {
+        "ext-mongodb": "For MongoDB logging",
+        "ext-mysqli": "For MySQL support",
+        "ext-redis": "For Redis support"
+      },
+      "type": "library",
+      "autoload": {
+        "files": [
+          "src/functions.php"
+        ],
+        "psr-4": {
+          "Support\\": "src/Support/",
+          "support\\": "src/Support/",
+          "Triangle\\Engine\\": "src",
+          "Triangle\\Services\\": "src/Services",
+          "Triangle\\Exception\\": "src/Exception",
+          "Triangle\\Annotation\\": "src/Annotation"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.ru",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        },
+        {
+          "name": "Localzet Group",
+          "email": "community@localzet.com",
+          "homepage": "https://www.localzet.com",
+          "role": "Community"
+        }
+      ],
+      "description": "Low-level HTTP engine for Triangle Framework",
+      "keywords": [
+        "localzet",
+        "triangle"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "source": "https://github.com/Triangle-org/Engine"
+      },
+      "time": "2025-11-02T00:43:43+00:00"
+    },
+    {
+      "name": "triangle/engine-http",
+      "version": "v2.0.11",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Triangle-org/Engine-HTTP.git",
+        "reference": "be1e4f5d438a161f04283341b99abde6789cc737"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Triangle-org/Engine-HTTP/zipball/be1e4f5d438a161f04283341b99abde6789cc737",
+        "reference": "be1e4f5d438a161f04283341b99abde6789cc737",
+        "shasum": ""
+      },
+      "require": {
+        "ext-curl": "*",
+        "php": "^8.1",
+        "triangle/engine": "^8",
+        "triangle/middleware": "^2",
+        "triangle/router": "^2"
+      },
+      "conflict": {
+        "triangle/engine-ws": "*"
+      },
+      "require-dev": {
+        "rector/rector": "*"
+      },
+      "suggest": {
+        "monolog/monolog": "For logging",
+        "predis/predis": "For Redis-based session/cache",
+        "swoole/swoole": "For async support via Swoole",
+        "swow/swow": "For async support via Swow",
+        "vlucas/phpdotenv": "For environment variables"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Triangle\\": "src/Support",
+          "Triangle\\Http\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "HTTP layer for Triangle Framework based on localzet Server",
+      "keywords": [
+        "http",
+        "localzet",
+        "triangle"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "issues": "https://github.com/Triangle-org/Engine-HTTP/issues",
+        "source": "https://github.com/Triangle-org/Http"
+      },
+      "time": "2025-11-02T00:44:48+00:00"
+    },
+    {
+      "name": "triangle/events",
+      "version": "v1.0.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Triangle-org/Events.git",
+        "reference": "31359b7f6ce38a482e04d97ed2b94e765919d970"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Triangle-org/Events/zipball/31359b7f6ce38a482e04d97ed2b94e765919d970",
+        "reference": "31359b7f6ce38a482e04d97ed2b94e765919d970",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.1",
+        "triangle/engine": "^8.1"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Support\\": "src/Support/",
+          "support\\": "src/Support/",
+          "Triangle\\": "",
+          "Triangle\\Events\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "Triangle Events Component",
+      "keywords": [
+        "events",
+        "localzet",
+        "triangle"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "issues": "https://github.com/Triangle-org/Events/issues",
+        "source": "https://github.com/Triangle-org/Events"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/localzet",
+          "type": "github"
+        }
+      ],
+      "time": "2025-11-02T00:51:54+00:00"
+    },
+    {
+      "name": "triangle/middleware",
+      "version": "v2.0.2",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Triangle-org/Middleware.git",
+        "reference": "86ea1b7ef48efd3674102c7110ca2b961465d78b"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Triangle-org/Middleware/zipball/86ea1b7ef48efd3674102c7110ca2b961465d78b",
+        "reference": "86ea1b7ef48efd3674102c7110ca2b961465d78b",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.1",
+        "triangle/engine": "^8.1",
+        "triangle/router": "^2.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Triangle\\": "",
+          "Triangle\\Middleware\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "Triangle Middleware Component",
+      "keywords": [
+        "localzet",
+        "middleware",
+        "triangle"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "issues": "https://github.com/Triangle-org/Middleware/issues",
+        "source": "https://github.com/Triangle-org/Middleware"
+      },
+      "time": "2025-11-02T00:53:24+00:00"
+    },
+    {
+      "name": "triangle/router",
+      "version": "v2.0.5",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Triangle-org/Router.git",
+        "reference": "5931ddf21d1b67cd3c806ab7e01b2418a693cb0b"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Triangle-org/Router/zipball/5931ddf21d1b67cd3c806ab7e01b2418a693cb0b",
+        "reference": "5931ddf21d1b67cd3c806ab7e01b2418a693cb0b",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.1",
+        "triangle/engine": "^8.1"
+      },
+      "type": "library",
+      "autoload": {
+        "files": [
+          "src/functions.php"
+        ],
+        "psr-4": {
+          "Triangle\\": "",
+          "Triangle\\Router\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "Triangle Router Component",
+      "keywords": [
+        "localzet",
+        "router",
+        "triangle"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "issues": "https://github.com/Triangle-org/Router/issues",
+        "source": "https://github.com/Triangle-org/Router"
+      },
+      "time": "2025-01-09T01:12:00+00:00"
+    },
+    {
+      "name": "triangle/session",
+      "version": "v1.0.6",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Triangle-org/Session.git",
+        "reference": "75be7077ce1befd88cafe2e71e4b48dbfc725573"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Triangle-org/Session/zipball/75be7077ce1befd88cafe2e71e4b48dbfc725573",
+        "reference": "75be7077ce1befd88cafe2e71e4b48dbfc725573",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.1",
+        "triangle/engine": "^8.1"
+      },
+      "suggest": {
+        "mongodb/mongodb": "For MongoSessionHandler"
+      },
+      "type": "library",
+      "autoload": {
+        "files": [
+          "src/functions.php"
+        ],
+        "psr-4": {
+          "Triangle\\": "",
+          "Triangle\\Session\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "Triangle Session Component",
+      "keywords": [
+        "localzet",
+        "session",
+        "triangle"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "issues": "https://github.com/Triangle-org/Session/issues",
+        "source": "https://github.com/Triangle-org/Session"
+      },
+      "time": "2025-11-02T00:54:18+00:00"
+    },
+    {
+      "name": "triangle/view",
+      "version": "v2.0.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Triangle-org/View.git",
+        "reference": "828c64072b4c9ba9550013fdcba8e305ece7156a"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Triangle-org/View/zipball/828c64072b4c9ba9550013fdcba8e305ece7156a",
+        "reference": "828c64072b4c9ba9550013fdcba8e305ece7156a",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.1",
+        "triangle/engine": "^8.1"
+      },
+      "require-dev": {
+        "rector/rector": "*"
+      },
+      "suggest": {
+        "jenssegers/blade": "For Blade render",
+        "topthink/think-template": "For ThinkPHP render",
+        "twig/twig": "For Twig render"
+      },
+      "type": "library",
+      "autoload": {
+        "files": [
+          "src/functions.php"
+        ],
+        "psr-4": {
+          "Support\\": "src/Support/",
+          "support\\": "src/Support/",
+          "Triangle\\": "",
+          "Triangle\\View\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "AGPL-3.0-or-later"
+      ],
+      "authors": [
+        {
+          "name": "Ivan Zorin",
+          "email": "creator@localzet.com",
+          "homepage": "https://github.com/localzet",
+          "role": "Developer"
+        }
+      ],
+      "description": "Triangle View Component",
+      "keywords": [
+        "localzet",
+        "triangle",
+        "view"
+      ],
+      "support": {
+        "email": "support@localzet.com",
+        "issues": "https://github.com/Triangle-org/View/issues",
+        "source": "https://github.com/Triangle-org/View"
+      },
+      "time": "2025-11-02T00:55:08+00:00"
+    },
+    {
+      "name": "voku/portable-ascii",
+      "version": "2.1.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/voku/portable-ascii.git",
+        "reference": "8e1051fe39379367aecf014f41744ce7539a856f"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/voku/portable-ascii/zipball/8e1051fe39379367aecf014f41744ce7539a856f",
+        "reference": "8e1051fe39379367aecf014f41744ce7539a856f",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.1.0"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "~8.5 || ~9.6 || ~10.5 || ~11.5"
+      },
+      "suggest": {
+        "ext-intl": "Use Intl for transliterator_transliterate() support"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "voku\\": "src/voku/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Lars Moelleken",
+          "homepage": "https://www.moelleken.org/"
+        }
+      ],
+      "description": "Portable ASCII library - performance optimized (ascii) string functions for php.",
+      "homepage": "https://github.com/voku/portable-ascii",
+      "keywords": [
+        "ascii",
+        "clean",
+        "php"
+      ],
+      "support": {
+        "issues": "https://github.com/voku/portable-ascii/issues",
+        "source": "https://github.com/voku/portable-ascii/tree/2.1.1"
+      },
+      "funding": [
+        {
+          "url": "https://www.paypal.me/moelleken",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/voku",
+          "type": "github"
+        },
+        {
+          "url": "https://opencollective.com/portable-ascii",
+          "type": "open_collective"
+        },
+        {
+          "url": "https://www.patreon.com/voku",
+          "type": "patreon"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/voku/portable-ascii",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2026-04-26T05:33:54+00:00"
+    }
+  ],
+  "packages-dev": [],
+  "aliases": [],
+  "minimum-stability": "stable",
+  "stability-flags": {},
+  "prefer-stable": false,
+  "prefer-lowest": false,
+  "platform": {
+    "php": "^8.2",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "platform-dev": {},
+  "plugin-api-version": "2.9.0"
+}
