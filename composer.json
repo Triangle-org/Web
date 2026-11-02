@@ -58,5 +58,10 @@
     "pre-package-uninstall": [
       "Triangle\\Engine\\Plugin::uninstall"
     ]
+  },
+  "config": {
+    "platform": {
+      "php": "8.2.0"
+    }
   }
 }
